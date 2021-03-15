@@ -1,5 +1,5 @@
 ## jphp-appgamekit-ext
-> версия {0}, создано с помощью JPPM.
+> версия 0.9, создано с помощью JPPM.
 
 App Game Kit for JPHP
 
