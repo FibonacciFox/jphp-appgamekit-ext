@@ -3,8 +3,7 @@
 namespace fibonaccifox;
 
 /**
- * Класс описания методов, реализованных в AppGameKit.dll для <b>x64</b> и
- * <b>x86</b> битных систем.
+ * Класс описания методов, реализованных в AppGameKit.dll для <b>x64</b> и <b>x86</b> битных систем.
  * @author FibonacciFox
  * @version 0.9
  */
