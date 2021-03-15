@@ -8,7 +8,7 @@ import php.runtime.lang.BaseObject;
 import php.runtime.reflection.ClassEntity;
 
 /**
- * Класс описания методов, реализованных в AppGameKit.dll для <b>x64</b> и
+ * Класс описания методов, реализованных в AppGameKit для <b>x64</b> и
  * <b>x86</b> битных систем.
  * 
  * @autor FibonacciFox
