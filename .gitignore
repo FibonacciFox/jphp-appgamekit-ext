@@ -1,0 +1,26 @@
+
+/package-lock.php.yml
+/package.hub.yml
+
+# Игнорировать каталог vendor
+vendor/ 
+
+# Игнорирование gradle 
+/.gradle
+/gradle
+build.gradle
+gradlew
+gradlew.bat
+# Игнорирование каталога со сборкой проекта
+/dist 
+/build
+/bin
+/bundle
+/jars
+# Игнорирование файла содержащий переменные окружения  
+.env
+# Игнорирование файлов специфичных для IDE 
+.vscode/ 
+.settings
+.project
+.classpath

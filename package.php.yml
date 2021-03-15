@@ -1,0 +1,44 @@
+name: jphp-appgamekit-ext
+version: 0.9
+description: App Game Kit for JPHP
+
+plugins:
+  - Gradle
+  - Doc
+  - Hub
+
+deps:
+  jphp-runtime: "*"
+
+devDeps:
+  dn-bundle-plugin: "*"
+
+config:
+  ignore:
+    - /.vscode/**
+    - /.settings/**
+    - /.gradle/**
+    - /.git/**
+    - /gradle/**
+    - /build/**
+    - /bundle/**
+    - /jars/**
+    - /build/**
+    - /.classpath
+    - /.project
+    - /package-lock.php.yml
+    - /package.hub.yml
+
+doc:
+  url-prefix: https://github.com/FibonacciFox/jphp-appgamekit-ext/blob/master/api-docs/
+  langs:
+    ru: Русский
+
+develnext-bundle:
+  version: 0.9
+  name: "App Game Kit"
+  author: "FibonacciFox"
+  icon: "develnext/bundle/appgamekit/icon32.png"
+  description: "Пакет для работы с App Game Kit.\nAppGameKit - это простой в освоении движок разработки игр."
+  group: "games"
+  class: "develnext\\bundle\\appgamekit\\AppGameKitBundle"
