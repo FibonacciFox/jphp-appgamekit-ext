@@ -11,8 +11,8 @@ import php.runtime.reflection.ClassEntity;
  * Класс описания методов, реализованных в AppGameKit для <b>x64</b> и
  * <b>x86</b> битных систем.
  * 
- * @autor FibonacciFox
  * @version 0.9
+ * @autor FibonacciFox
  */
 @Name("AppGameKit")
 @Namespace(AppGameKitExtension.NS)
