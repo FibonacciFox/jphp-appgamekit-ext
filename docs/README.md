@@ -13,4 +13,4 @@ jppm add jphp-appgamekit-ext@0.9
 
 #### `fibonaccifox`
 
-- [`AppGameKit`](/docs/classes/fibonaccifox/AppGameKit.md)- Класс описания методов, реализованных в AppGameKit для <b>x64</b> и <b>x86</b>.
+- [`AppGameKit`](/classes/fibonaccifox/AppGameKit.md)- Класс описания методов, реализованных в AppGameKit для <b>x64</b> и <b>x86</b>.
