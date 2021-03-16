@@ -1,10 +1,10 @@
 <h1 align="center">jphp-appgamekit-ext</h1>
-  
+<h2 align="center">  
 <!--lint disable no-literal-urls-->  
 <p align="center">
   <a href="https://github.com/FibonacciFox/jphp-appgamekit-ext">
     <img
-      alt="AppGameKit for JPHP"
+      alt="App Game Kit for JPHP"
       src="https://dl.dropboxusercontent.com/s/9tyzk5e4iaa9ay7/Game%20Engine.svg?dl=0"
       width="800"
     />
@@ -12,11 +12,12 @@
 </p>
 
 <p align="center">
-<b>AppGameKit</b> - это простой в освоении движок разработки игр.<br> 
+<b>App Game Kit</b> - это простой в освоении движок разработки игр.<br> 
 Идеально подходит для начинающих, любителей и независимых разработчиков.<br>
-Для получения дополнительной информации об использовании AppGameKit см. <a href="https://www.appgamekit.com/">AppGameKit</a>.
+Для получения дополнительной информации об использовании AppGameKit см. <a href="https://www.appgamekit.com/">App Game Kit</a>.<br>
+<b>jphp-appgamekit-ext</b> - пакет App Game Kit для JPHP(Java) уже здесь!
 </p>
-jphp-appgamekit-ext 
+
 
 
 
