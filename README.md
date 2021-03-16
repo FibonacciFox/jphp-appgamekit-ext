@@ -26,7 +26,7 @@
 # Навигация
 
 * [О пакете](#jphp-appgamekit-ext)
-  * [Начало работы](#Getting Started)
+  * [Начало работы](#getting-started)
 
 
 ## jphp-appgamekit-ext
