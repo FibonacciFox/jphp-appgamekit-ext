@@ -26,7 +26,7 @@
 # Навигация
 
 * [О пакете](#jphp-appgamekit-ext)
-  * [Установка](#Installation)
+  * [Начало работы](#Getting Started)
 
 
 ## jphp-appgamekit-ext
@@ -34,7 +34,7 @@
 * **Собран**: Менеджер пакетов [JPHP v0.6.7](https://github.com/jphp-group/jphp/releases)  
 * **Версия**: [v0.9-alpha](https://github.com/FibonacciFox/jphp-appgamekit-ext)
 
-### Installation
+### Getting Started
 ```
 jppm add jphp-appgamekit-ext@0.9
 ```
