@@ -1,4 +1,7 @@
-<!--lint disable no-literal-urls-->
+<h1 align="center">VueSolitaire</h1>
+<h2 align="center">
+  
+<!--lint disable no-literal-urls-->  
 <p align="center">
   <a href="https://github.com/FibonacciFox/jphp-appgamekit-ext">
     <img
@@ -8,6 +11,15 @@
     />
   </a>
 </p>
+
+<p align="center">
+<b>AppGameKit</b> - это простой в освоении движок разработки игр.<br> 
+Идеально подходит для начинающих, любителей и независимых разработчиков.<br>
+Для получения дополнительной информации об использовании AppGameKit см. <a href="https://www.appgamekit.com/">AppGameKit</a>.
+</p>
+jphp-appgamekit-ext 
+
+
 
 ## jphp-appgamekit-ext
 > версия 0.9 , создано с помощью JPPM.
