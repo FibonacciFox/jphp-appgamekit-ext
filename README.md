@@ -26,15 +26,16 @@
 # Навигация
 
 * [О библиотеке](#jphp-appgamekit-ext)
-
+* [Установка](#Installation)
 
 
 ## jphp-appgamekit-ext
+
+
 > версия 0.9 , создано с помощью JPPM.
 
 
-
-### Установка пакета
+## Installation
 ```
 jppm add jphp-appgamekit-ext@0.9
 ```
