@@ -1,14 +1,17 @@
 ## jphp-appgamekit-ext
+
 > версия 0.9, создано с помощью JPPM.
 
 App Game Kit for JPHP
 
 ### Установка пакета
+
 ```
 jppm add jphp-appgamekit-ext@0.9
 ```
 
 ### АПИ
+
 **Классы**
 
 #### `fibonaccifox`
