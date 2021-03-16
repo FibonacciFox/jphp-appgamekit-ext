@@ -25,24 +25,17 @@
 
 # Навигация
 
-* [О библиотеке](#jphp-appgamekit-ext)
-* [Установка](#Installation)
+* [О пакете](#jphp-appgamekit-ext)
+  * [Установка](#Installation)
 
 
 ## jphp-appgamekit-ext
-
-
-> версия 0.9 , создано с помощью JPPM.
-
+* **Описание**: 
+* **Собран**: Менеджер пакетов [JPHP v0.6.7](https://github.com/jphp-group/jphp/releases)  
+* **Версия**: [v0.9-alpha](https://github.com/FibonacciFox/jphp-appgamekit-ext)
 
 ## Installation
 ```
 jppm add jphp-appgamekit-ext@0.9
 ```
 
-### АПИ
-**Классы**
-
-#### `fibonaccifox`
-
-- [`AppGameKit`](https://github.com/FibonacciFox/jphp-appgamekit-ext/blob/master/api-docs/classes/fibonaccifox/AppGameKit.md)- _Класс описания методов, реализованных в AppGameKit для <b>x64</b> и <b>x86</b>._
