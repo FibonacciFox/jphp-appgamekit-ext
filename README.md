@@ -1,16 +1,18 @@
 <!--lint disable no-literal-urls-->
 <p align="center">
+  <a href="https://github.com/FibonacciFox/jphp-appgamekit-ext">
     <img
       alt="AppGameKit for JPHP"
-      src="https://www.dropbox.com/s/9tyzk5e4iaa9ay7/Game%20Engine.svg?dl=0"
-      width="400"
+      src="https://dl.dropboxusercontent.com/s/9tyzk5e4iaa9ay7/Game%20Engine.svg?dl=0"
+      width="800"
     />
+  </a>
 </p>
 
 ## jphp-appgamekit-ext
 > версия 0.9 , создано с помощью JPPM.
 
-App Game Kit for JPHP
+
 
 ### Установка пакета
 ```
