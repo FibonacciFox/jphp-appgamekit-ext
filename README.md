@@ -3,7 +3,7 @@
 
 App Game Kit for JPHP
 
-### Установка
+### Установка пакета
 ```
 jppm add jphp-appgamekit-ext@0.9
 ```
