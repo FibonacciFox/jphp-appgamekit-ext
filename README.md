@@ -23,6 +23,11 @@
 <b>jphp-appgamekit-ext</b> - пакет App Game Kit для JPHP (Java) уже здесь!
 </p>
 
+# Навигация
+
+* [О библиотеке](#jphp-appgamekit-ext)
+
+
 
 ## jphp-appgamekit-ext
 > версия 0.9 , создано с помощью JPPM.
