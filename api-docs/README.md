@@ -20,7 +20,7 @@
 <b>App Game Kit</b> - это простой в освоении движок разработки игр.<br> 
 Идеально подходит для начинающих, любителей и независимых разработчиков.<br>
 Для получения дополнительной информации об использовании AppGameKit см. <a href="https://www.appgamekit.com/">App Game Kit</a>.<br>
-<b>jphp-appgamekit-ext</b> - пакет App Game Kit для JPHP (Java) уже здесь!
+<b>jphp-appgamekit-ext</b> - пакет App Game Kit для JPHP (Java) уже здесь.
 </p>
 
 # Навигация
