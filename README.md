@@ -1,5 +1,4 @@
 <h1 align="center">jphp-appgamekit-ext</h1>
-<h2 align="center">
   
 <!--lint disable no-literal-urls-->  
 <p align="center">
