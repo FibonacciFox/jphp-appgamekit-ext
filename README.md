@@ -1,3 +1,13 @@
+<!--lint disable no-literal-urls-->
+<p align="center">
+    <img
+      alt="AppGameKit for JPHP"
+      src="https://dl.dropboxusercontent.com/s/kq1ax5zugpghxg8/Game%20Engine.svg?dl=0"
+      width="400"
+    />
+  </a>
+</p>
+
 ## jphp-appgamekit-ext
 > версия 0.9 , создано с помощью JPPM.
 
