@@ -2,10 +2,9 @@
 <p align="center">
     <img
       alt="AppGameKit for JPHP"
-      src="https://dl.dropboxusercontent.com/s/kq1ax5zugpghxg8/Game%20Engine.svg?dl=0"
+      src="https://www.dropbox.com/s/9tyzk5e4iaa9ay7/Game%20Engine.svg?dl=0"
       width="400"
     />
-  </a>
 </p>
 
 ## jphp-appgamekit-ext
