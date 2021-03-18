@@ -41,6 +41,8 @@
 ```console
 > jppm add jphp-appgamekit-ext@0.9
 ```
+* **DevelNext**: Проект->Пакеты->Добавить пакет из файла  [jphp-appgamekit-ext-x.x.dnbundle](https://github.com/FibonacciFox/jphp-appgamekit-ext/releases):
+Подключить к проекту
 
 
 
