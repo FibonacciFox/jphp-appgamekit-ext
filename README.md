@@ -44,6 +44,4 @@
 * **DevelNext**: Проект->Пакеты->Добавить пакет из файла [jphp-appgamekit-ext-x.x.dnbundle](https://github.com/FibonacciFox/jphp-appgamekit-ext/releases)->
 Подключить к проекту.
 
-
-
-
+[API](/api-docs/classes/fibonaccifox/AppGameKit.md)
