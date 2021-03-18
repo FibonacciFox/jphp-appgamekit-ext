@@ -28,7 +28,37 @@
 - [О пакете](#jphp-appgamekit-ext)
   - [Начало работы](#начало-работы)
     - [Установка](#установка)
-- [Команды](#команды)
+- [Методы по категориям](#методы)
+Этот раздел содержит список всех методов в AGK.
+    - [2DPhysics]()
+    - [3D]()
+    - [3DParticles]()
+    - [3DPhysics]()
+    - [Advert]()
+    - [Benchmarking]()
+    - [Core]()
+    - [Error]()
+    - [Extras]()
+    - [File]()
+    - [Font]()
+    - [HTTP]()
+    - [Image]()
+    - [Input-Raw]()
+    - [Input]()
+    - [Maths]()
+    - [Memblock]()
+    - [Multiplayer]()
+    - [Music]()
+    - [Particles]()
+    - [Skeleton]()
+    - [Sound]()
+    - [Sprite]()
+    - [Text]()
+    - [Time]()
+    - [Tweening]()
+    - [Video]()
+
+
 
 ## jphp-appgamekit-ext
 
