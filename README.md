@@ -35,7 +35,7 @@
 * **Версия**: [v0.9-alpha](https://github.com/FibonacciFox/jphp-appgamekit-ext).
 
 ### Начало Работы
-Начинаем работу.
+Краткое руководство:
 #### Установка
 * **Из консоли**: Если используем Менеджер пакетов [JPPM v0.6.7](https://github.com/jphp-group/jphp/releases):
 ```console
