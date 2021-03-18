@@ -23,6 +23,7 @@ config:
     - /build/**
     - /bundle/**
     - /jars/**
+    - /docs/**
     - /build/**
     - /.classpath
     - /.project
