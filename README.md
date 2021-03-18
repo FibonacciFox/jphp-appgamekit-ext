@@ -80,5 +80,4 @@
 - [Time]()
 - [Tweening]()
 - [Video]()
-
-[API](/docs/classes/fibonaccifox/AppGameKit.md)
+---
