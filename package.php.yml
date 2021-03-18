@@ -1,5 +1,5 @@
 name: jphp-appgamekit-ext
-version: 0.9
+version: 0.9.1
 description: App Game Kit for JPHP
 
 plugins:
@@ -35,7 +35,7 @@ doc:
     ru: Русский
 
 develnext-bundle:
-  version: 0.9
+  version: 0.9.1
   name: "App Game Kit"
   author: "FibonacciFox"
   icon: "develnext/bundle/appgamekit/icon32.png"

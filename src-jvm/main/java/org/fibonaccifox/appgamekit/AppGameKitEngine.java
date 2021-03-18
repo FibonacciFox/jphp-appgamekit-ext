@@ -11,7 +11,7 @@ import php.runtime.reflection.ClassEntity;
  * Класс описания методов, реализованных в AppGameKit для <b>x64</b> и
  * <b>x86</b> битных систем.
  * 
- * @version 0.9
+ * @version 0.9.1
  * @autor FibonacciFox
  */
 @Name("AppGameKit")
@@ -51,22 +51,6 @@ public class AppGameKitEngine extends BaseObject {
         }
 
         /**
-         * Обновить окно Windows
-         * 
-         * @return void
-         */
-        @Signature
-        public native void UpdateWindow();
-
-        /**
-         * Показать окно Windows
-         * 
-         * @return void
-         */
-        @Signature
-        public native void ShowWindow();
-
-        /**
          * Инициализируем OpenGL для отрисовки в стороннее окно
          * 
          * @param hWnd
@@ -75,12 +59,14 @@ public class AppGameKitEngine extends BaseObject {
         public native void InitGL(int hWnd);
 
         /**
-         * Инициализируем AppGameKit
-         * 
-         * @return void
+         * Создаем окно и инициализируем App Game Kit
+         * @param nameWindow - Название окна
+         * @param deviceWidth - Ширина окна
+         * @param deviceHeight - Высота окна
+         * @param fullscreen - Полный экран 
          */
         @Signature
-        public native void Init();
+        public native void Init(String nameWindow, int deviceWidth, int deviceHeight, boolean fullscreen);
 
         /**
          * Creates an anchor from the given hit test result which can be used to track a
