@@ -37,7 +37,7 @@
 ### Начало Работы
 Начинаем работу.
 #### Установка
-Если используем Менеджер пакетов [JPPM v0.6.7](https://github.com/jphp-group/jphp/releases):
+* **Из консоли**: Если используем Менеджер пакетов [JPPM v0.6.7](https://github.com/jphp-group/jphp/releases):
 ```console
 > jppm add jphp-appgamekit-ext@0.9
 ```
