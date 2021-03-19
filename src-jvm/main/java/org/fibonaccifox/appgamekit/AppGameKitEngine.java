@@ -62,7 +62,9 @@ public class AppGameKitEngine extends BaseObject {
          * Создаем окно и инициализируем App Game Kit
          * @param deviceWidth - Ширина окна
          * @param deviceHeight - Высота окна
-         * @param fullscreen - Полный экран 
+         * @param fullscreen - Полный экран
+         * 
+         * @return void 
          */
         @Signature
         public native void Init(int deviceWidth, int deviceHeight, boolean fullscreen);
