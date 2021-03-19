@@ -37,20 +37,11 @@ class AppGameKit
      * 
      * @param int $deviceWidth ширина устройства.
      * @param int $deviceWidth высота устройства.
-     * @param bool $fullscreen = false на весь экран .
+     * @param bool $fullscreen  на весь экран .
      * @return void
      */
     function Init($deviceWidth, $deviceHeight, $fullscreen)
     {
-    }
-    
-    /**
-     * Проверяет существует ли окно windows
-     * 
-     * @return void
-     */
-    function IsEnabled()
-    {     
     }
 
 
