@@ -66,7 +66,14 @@ public class AppGameKitEngine extends BaseObject {
          * @param fullscreen   - Полный экран
          */
         @Signature
+        
         public native void Init(int deviceWidth, int deviceHeight, boolean fullscreen);
+        /**
+         * Проверяет существует ли окно windows
+         * 
+         * @return boolean
+         */
+        public native boolean IsEnabled();
 
         /**
          * Creates an anchor from the given hit test result which can be used to track a
