@@ -60,13 +60,13 @@ public class AppGameKitEngine extends BaseObject {
 
         /**
          * Создаем окно и инициализируем App Game Kit
-         * @param nameWindow - Название окна
-         * @param deviceWidth - Ширина окна
+         * 
+         * @param deviceWidth  - Ширина окна
          * @param deviceHeight - Высота окна
-         * @param fullscreen - Полный экран 
+         * @param fullscreen   - Полный экран
          */
         @Signature
-        public native void Init(String nameWindow, int deviceWidth, int deviceHeight, boolean fullscreen);
+        public native void Init(int deviceWidth, int deviceHeight, boolean fullscreen);
 
         /**
          * Creates an anchor from the given hit test result which can be used to track a
