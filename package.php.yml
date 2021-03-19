@@ -22,7 +22,6 @@ config:
     - /gradle/**
     - /build/**
     - /bundle/**
-    - /jars/**
     - /docs/**
     - /build/**
     - /.classpath
