@@ -103,6 +103,8 @@ $App = new App();
 
 ```
 
+---
+
 - **DevelNext**:
   Запуск App Game Kit без графического интерфейса в DevelNext:
   В проекте DevelNext убираем все формы, приложение запустится без графической оболочки. Первым будет запущен модуль Загрузчик (AppModule)
@@ -111,14 +113,14 @@ $App = new App();
   <img src="https://dl.dropboxusercontent.com/s/fgnbacg8jjdo7zb/add%20m.png?dl=0" >
 
   ```php
-  > $AgkApp = new AgkApp(1024, 768, false);
+  $AgkApp = new AgkApp(1024, 768, false);
   ```
 
   Добавить класс в <b>Загрузчик(AppModule)</b>
 
   ```php
   use fibonaccifox\AppGameKit;
-  
+
   class AgkApp
   {
 
