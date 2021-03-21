@@ -35,9 +35,9 @@ class AppGameKit
     /**
      * Инициализируем AppGameKit
      * 
-     * @param int $deviceWidth ширина устройства.
-     * @param int $deviceWidth высота устройства.
-     * @param bool $fullscreen  на весь экран .
+     * @param int $deviceWidth ширина экрана устройства.
+     * @param int $deviceWidth высота экрана устройства.
+     * @param bool $fullscreen  на весь экран ($fullscreen=false).
      * @return void
      */
     function Init($deviceWidth, $deviceHeight, $fullscreen)

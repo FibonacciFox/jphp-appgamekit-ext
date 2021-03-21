@@ -7,6 +7,8 @@ import php.runtime.env.Environment;
 import php.runtime.lang.BaseObject;
 import php.runtime.reflection.ClassEntity;
 
+import php.runtime.memory.ObjectMemory;
+
 /**
  * Класс описания методов, реализованных в AppGameKit для <b>x64</b> и
  * <b>x86</b> битных систем.
@@ -26,6 +28,14 @@ public class AppGameKitEngine extends BaseObject {
                 }
         }
 
+        // Php класс передваемый из jphp
+        private ObjectMemory objectPhp;
+
+        @Signature
+        public void __construct(ObjectMemory value) {
+                objectPhp = value;
+        }
+
         public AppGameKitEngine(Environment env) {
                 super(env);
         }
@@ -37,6 +47,40 @@ public class AppGameKitEngine extends BaseObject {
         public AppGameKitEngine(Environment env, ClassEntity clazz) {
                 super(env, clazz);
         }
+
+        /** ##################### **/
+
+        /**
+         * Исходный установочный код.
+         * 
+         * @throws Throwable
+         */
+        public void Begin() throws Throwable {
+                Environment env = this.objectPhp.value.getEnvironment();
+                env.invokeMethod(this.objectPhp, "Begin");
+        }
+
+        /**
+         * Основнуя игровая логика
+         * 
+         * @throws Throwable
+         */
+        public void Loop() throws Throwable {
+                Environment env = this.objectPhp.value.getEnvironment();
+                env.invokeMethod(this.objectPhp, "Loop");
+        }
+
+        /**
+         * Код очистки ресурсов.
+         * 
+         * @throws Throwable
+         */
+        public void End() throws Throwable {
+                Environment env = this.objectPhp.value.getEnvironment();
+                env.invokeMethod(this.objectPhp, "End");
+        }
+
+        /** ##################### **/
 
         /**
          * Возвращает преобразованный путь для загрузки файлов в AppGameKit
@@ -60,11 +104,12 @@ public class AppGameKitEngine extends BaseObject {
 
         /**
          * Создаем окно и инициализируем App Game Kit
-         * @param deviceWidth - Ширина окна
-         * @param deviceHeight - Высота окна
-         * @param fullscreen - Полный экран
          * 
-         * @return void 
+         * @param deviceWidth  - Ширина окна
+         * @param deviceHeight - Высота окна
+         * @param fullscreen   - Полный экран
+         * 
+         * @return void
          */
         @Signature
         public native void Init(int deviceWidth, int deviceHeight, boolean fullscreen);
