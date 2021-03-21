@@ -28,7 +28,7 @@
 - [О пакете](#jphp-appgamekit-ext)
   - [Быстрый старт](#быстрый-старт)
     - [Установка](#установка)
-    - [Hello World](hello-world)
+    - [Hello World](#hello-world)
 - [Методы по категориям](#методы)
 
 ## jphp-appgamekit-ext
