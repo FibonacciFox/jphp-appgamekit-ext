@@ -95,7 +95,8 @@ class App
 
     public function End()
     {
-        var_dump("End!");
+      var_dump("End!");
+      exit;
     }
 }
 
