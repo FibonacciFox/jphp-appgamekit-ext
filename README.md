@@ -159,12 +159,8 @@ $App = new App();
         var_dump("End!");
         app()->shutdown();
     }
+  }
   ```
-
-}
-
-```
-
 
 ## Методы
 
@@ -199,5 +195,3 @@ $App = new App();
 - [Video](docs/categories/Video.md)
 
 ---
-
-```
