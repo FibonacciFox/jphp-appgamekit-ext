@@ -26,7 +26,7 @@
 # Навигация
 
 - [О пакете](#jphp-appgamekit-ext)
-  - [Начало работы](#начало-работы)
+  - [Быстрый старт](#начало-работы)
     - [Установка](#установка)
 - [Методы по категориям](#методы)
 
@@ -36,7 +36,7 @@
 - **Собран**: Менеджером пакетов [JPPM v0.6.7](https://github.com/jphp-group/jphp/releases).
 - **Версия**: [v0.9.1](https://github.com/FibonacciFox/jphp-appgamekit-ext).
 
-### Начало Работы
+### Быстрый старт
 
 Краткое руководство:
 
@@ -45,7 +45,7 @@
 - **Из консоли**: Если используем Менеджер пакетов [JPPM v0.6.7](https://github.com/jphp-group/jphp/releases):
 
 ```console
-> jppm add jphp-appgamekit-ext@0.9.1
+  > jppm add jphp-appgamekit-ext@0.9.1
 ```
 
 - **DevelNext**: Проект->Пакеты->Добавить пакет из файла [jphp-appgamekit-ext-x.x.dnbundle](https://github.com/FibonacciFox/jphp-appgamekit-ext/releases)->
