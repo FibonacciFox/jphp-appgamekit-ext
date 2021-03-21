@@ -26,8 +26,9 @@
 # Навигация
 
 - [О пакете](#jphp-appgamekit-ext)
-  - [Быстрый старт](#начало-работы)
+  - [Быстрый старт](#быстрый-старт)
     - [Установка](#установка)
+    - [Hello World](hello-world)
 - [Методы по категориям](#методы)
 
 ## jphp-appgamekit-ext
@@ -45,14 +46,67 @@
 - **Из консоли**: Если используем Менеджер пакетов [JPPM v0.6.7](https://github.com/jphp-group/jphp/releases):
 
 ```console
-  > jppm add jphp-appgamekit-ext@0.9.1
+> jppm add jphp-appgamekit-ext@0.9.1
 ```
 
 - **DevelNext**: Проект->Пакеты->Добавить пакет из файла [jphp-appgamekit-ext-x.x.dnbundle](https://github.com/FibonacciFox/jphp-appgamekit-ext/releases)->
   Подключить к проекту.
 
+#### Hello World
+
+- **JPPM**:
+
+```php
+<?php
+
+use fibonaccifox\AppGameKit;
+
+
+class App
+{
+
+    public $AppGameKit;
+
+    public function __construct()
+    {
+        $this->AppGameKit = new AppGameKit($this);
+        $this->AppGameKit->Init(1024, 768, false);
+    }
+
+    public function Begin()
+    {
+
+        var_dump("Begin!");
+        $this->AppGameKit->SetWindowTitle('Hello World');
+        $this->AppGameKit->setvirtualresolution(1024, 768);
+        $this->AppGameKit->SetClearColor(227, 225, 225);
+        $this->AppGameKit->SetPrintColor(0, 0, 0, 190);
+        $this->AppGameKit->UseNewDefaultFonts(1);
+        $this->AppGameKit->SetPrintSize(40);
+    }
+
+    public function Loop()
+    {
+
+        $this->AppGameKit->Print("HelloWorld!");
+        $this->AppGameKit->Print("FPS: " . $this->AppGameKit->ScreenFPS());
+        $this->AppGameKit->Sync();
+    }
+
+    public function End()
+    {
+        var_dump("End!");
+    }
+}
+
+$App = new App();
+
+```
+
 ## Методы
-Этот раздел содержит список всех команд в AGK
+
+Этот раздел содержит список всех команд в Jphp App Game Kit
+
 - [2DPhysics](docs/categories/2DPhysics.md)
 - [3D](docs/categories/3D.md)
 - [3DParticles](docs/categories/3DParticles.md)
@@ -80,4 +134,5 @@
 - [Time](docs/categories/Time.md)
 - [Tweening](docs/categories/Tweening.md)
 - [Video](docs/categories/Video.md)
+
 ---
