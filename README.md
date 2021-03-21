@@ -102,9 +102,66 @@ class App
 $App = new App();
 
 ```
+
 - **DevelNext**:
-- Запуск App Game Kit без графического интерфейса в DevelNext:
-Удаляем в проекте DevelNext убрать все формы, приложение запустится без графической оболочки. Первым будет запущен модуль Загрузчик (AppModule)
+  Запуск App Game Kit без графического интерфейса в DevelNext:
+  В проекте DevelNext убираем все формы, приложение запустится без графической оболочки. Первым будет запущен модуль Загрузчик (AppModule)
+  <img src="https://tssaltan.top/files/2017/01/appmodule.png" >
+  Добавляем событие Подключение в <b>Загрузчик</b> код:
+  <img src="https://dl.dropboxusercontent.com/s/fgnbacg8jjdo7zb/add%20m.png?dl=0" >
+
+  ```php
+  > $AgkApp = new AgkApp(1024, 768, false);
+  ```
+
+  Добавить класс в <b>Загрузчик(AppModule)</b>
+
+  ```php
+  use fibonaccifox\AppGameKit;
+  
+  class AgkApp
+  {
+
+    public $AppGameKit;
+
+    public function __construct()
+    {
+        $this->AppGameKit = new AppGameKit($this);
+        $this->AppGameKit->Init(1024, 768, false);
+    }
+
+    public function Begin()
+    {
+
+        var_dump("Begin!");
+        $this->AppGameKit->SetWindowTitle('Hello World');
+        $this->AppGameKit->setvirtualresolution(1024, 768);
+        $this->AppGameKit->SetClearColor(227, 225, 225);
+
+        $this->AppGameKit->SetPrintColor(0, 0, 0, 190);
+        $this->AppGameKit->UseNewDefaultFonts(1);
+        $this->AppGameKit->SetPrintSize(40);
+    }
+
+    public function Loop()
+    {
+
+        $this->AppGameKit->Print("HelloWorld!");
+        $this->AppGameKit->Print("FPS: " . $this->AppGameKit->ScreenFPS());
+        $this->AppGameKit->Sync();
+    }
+
+    public function End()
+    {
+        var_dump("End!");
+        app()->shutdown();
+    }
+  ```
+
+}
+
+```
+
 
 ## Методы
 
@@ -139,3 +196,4 @@ $App = new App();
 - [Video](docs/categories/Video.md)
 
 ---
+```
