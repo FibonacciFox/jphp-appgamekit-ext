@@ -1,13 +1,18 @@
 package org.fibonaccifox.appgamekit;
 
+import php.runtime.Memory;
 import php.runtime.annotation.Reflection.Name;
 import php.runtime.annotation.Reflection.Namespace;
 import php.runtime.annotation.Reflection.Signature;
+import php.runtime.common.HintType;
 import php.runtime.env.Environment;
 import php.runtime.lang.BaseObject;
+import php.runtime.memory.LongMemory;
+import php.runtime.memory.ObjectMemory;
 import php.runtime.reflection.ClassEntity;
 
-import php.runtime.memory.ObjectMemory;
+import static php.runtime.annotation.Reflection.Arg;
+
 
 /**
  * Класс описания методов, реализованных в AppGameKit для <b>x64</b> и
@@ -28,7 +33,7 @@ public class AppGameKitEngine extends BaseObject {
                 }
         }
 
-        // Php класс передваемый из jphp
+        // Php класс передваемый из App
         private ObjectMemory objectPhp;
 
         @Signature
@@ -58,6 +63,7 @@ public class AppGameKitEngine extends BaseObject {
         public void Begin() throws Throwable {
                 Environment env = this.objectPhp.value.getEnvironment();
                 env.invokeMethod(this.objectPhp, "Begin");
+
         }
 
         /**
@@ -82,8 +88,17 @@ public class AppGameKitEngine extends BaseObject {
 
         /** ##################### **/
 
-        /**
-         * Возвращает преобразованный путь для загрузки файлов в AppGameKit
+    /** #####Получение типа переменной##### **/
+        @Signature
+        public String getTypePhp(Memory val){
+
+            return val.type.toString();
+        }
+    /** ################### **/
+
+
+    /**
+     * Возвращает преобразованный путь для загрузки файлов в AppGameKit
          * 
          * @param fileName - путь до файла
          * @return String
@@ -13755,6 +13770,8 @@ public class AppGameKitEngine extends BaseObject {
         @Signature
         public native void LoadConsentStatusAdMob(String szPubID, String privacyPolicy);
 
+        /*#################################JPHP LoadImage()#################################*/
+
         /**
          * Loads an image from a file into a specified image ID, can also be used to
          * load an atlas texture that will be used by sub images. If loading an atlas
@@ -13771,8 +13788,24 @@ public class AppGameKitEngine extends BaseObject {
          *                       otherwise (default 0)
          * @return void
          */
-        @Signature
-        public native void LoadImage(int ID, String sImageFilename, int bBlackToAlpha);
+        //@Signature
+        public native void LoadImageJPHP(int ID, String sImageFilename, int bBlackToAlpha);
+
+        /**
+         * Loads an image from a file into a specified image ID, can also be used to
+         * load an atlas texture that will be used by sub images. If loading an atlas
+         * texture a subimages.txt file must exist detailing all the images contained on
+         * it. Image width and height must be between 1 and 2048 pixels, some devices
+         * may support larger sizes but this is not guaranteed. Images do not need to be
+         * a power of 2 in size (2,4,8,16,32,etc). If you have lots of small images you
+         * could combine them into an atlas texture to improve performance.
+         *
+         * @param ID             - The ID to use to reference this image later.
+         * @param sImageFilename - The filename of the image to load.
+         * @return void
+         */
+        //@Signature
+        public native void LoadImageJPHP(int ID, String sImageFilename);
 
         /**
          * Loads an image from a file into a specified image ID, can also be used to
@@ -13789,8 +13822,8 @@ public class AppGameKitEngine extends BaseObject {
          *                       otherwise (default 0)
          * @return int
          */
-        @Signature
-        public native int LoadImage(String sImageFilename, int bBlackToAlpha);
+        //@Signature
+        public native int LoadImageJPHP(String sImageFilename, int bBlackToAlpha);
 
         /**
          * Loads an image from a file into a specified image ID, can also be used to
@@ -13804,24 +13837,48 @@ public class AppGameKitEngine extends BaseObject {
          * @param sImageFilename - The filename of the image to load.
          * @return int
          */
-        @Signature
-        public native int LoadImage(String sImageFilename);
+        //@Signature
+        public native int LoadImageJPHP(String sImageFilename);
 
-        /**
-         * Loads an image from a file into a specified image ID, can also be used to
-         * load an atlas texture that will be used by sub images. If loading an atlas
-         * texture a subimages.txt file must exist detailing all the images contained on
-         * it. Image width and height must be between 1 and 2048 pixels, some devices
-         * may support larger sizes but this is not guaranteed. Images do not need to be
-         * a power of 2 in size (2,4,8,16,32,etc). If you have lots of small images you
-         * could combine them into an atlas texture to improve performance.
-         *
-         * @param ID             - The ID to use to reference this image later.
-         * @param sImageFilename - The filename of the image to load.
-         * @return void
-         */
-        // НЕ РАБОТАЕТ@Signature
-        public native void LoadImage(int ID, String sImageFilename);
+        //Организовываем правильный вызов функции в PHP
+
+         /**
+          *
+          * @param env
+          * @param args
+          * @return
+          */
+         @Signature({
+                 @Arg(value = "ID_or_sImageFilename", type = HintType.ANY)
+         })
+         public Memory LoadImage(Environment env, Memory... args) {
+             switch (args.length) {
+                 case 1:
+                     //Возвращает ID изображения
+                        return  LongMemory.valueOf(LoadImageJPHP(args[0].toString()));
+                 case 2:
+                     //Возвращает ID изображения + alpha channel
+                     if( args[0].isString() ){
+                        return  LongMemory.valueOf(LoadImageJPHP(args[0].toString(), args[1].toInteger()));
+                     }
+                     //ReturnVoid Назначаем ID изображения самостоятельно
+                     if(args[0].isNumber()){
+                         LoadImageJPHP(args[0].toInteger(), args[1].toString());
+                     }
+                     break;
+                 case 3:
+                     // ReturnVoid Назначаем ID изображения самостоятельно + alpha channel
+                     LoadImageJPHP(args[0].toInteger(), args[1].toString(), args[2].toInteger());
+                     break;
+                 default:
+                     env.error(env.trace(), "Invalid number of arguments in LoadImage(). Must be 4 or less.");
+                     break;
+             }
+
+             return Memory.NULL;
+         }
+
+        /*################################################################################################*/
 
         /**
          * Loads a sub image from an atlas texture for use as a standalone image into a
