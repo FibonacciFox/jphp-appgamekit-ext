@@ -11880,6 +11880,8 @@ public class AppGameKitEngine extends BaseObject {
         @Signature
         public native int PushNotificationSetup();
 
+        /*####################PrintC########################################*/
+
         /**
          * Prints the given value or string to the screen but does not add a new line
          * character to the end. The next Print or PrintC command will follow on
@@ -11913,6 +11915,8 @@ public class AppGameKitEngine extends BaseObject {
         // НЕ РАБОТАЕТ @Signature
         public native void PrintC(float f);
 
+        /*#######################Print#######################################*/
+
         /**
          * Prints the given value or string to the screen and adds a new line character
          * so that the next print command will be one line down.
@@ -11942,6 +11946,8 @@ public class AppGameKitEngine extends BaseObject {
          */
         @Signature
         public native void Print(String szString);
+
+        /*#######################Print#######################################*/
 
         /**
          * Reads a 4 byte integer from the given file, which must have been opened for
@@ -13529,6 +13535,7 @@ public class AppGameKitEngine extends BaseObject {
         @Signature
         public native int LoadObjectShape(int objID, String fileName);
 
+        /*############################LoadObject#####################################*/
         /**
          * Loads an object from a file, currently supported formats are .X .3ds .md3
          * .smd .md5 .lwo. .ac .b3d .dae .3d .lws .ms3d .blend .m3 .obj and .ago. This
@@ -13540,8 +13547,7 @@ public class AppGameKitEngine extends BaseObject {
          * @param szFilename - The name of the object file to load.
          * @return void
          */
-        // НЕ работает @Signature
-        public native void LoadObject(int objID, String szFilename);
+        public native void LoadObjectJPHP(int objID, String szFilename);
 
         /**
          * Loads an object from a file, currently supported formats are .X .3ds .md3
@@ -13554,8 +13560,7 @@ public class AppGameKitEngine extends BaseObject {
          * @param height     - Scale the loaded object to this height.
          * @return int
          */
-        @Signature
-        public native int LoadObject(String szFilename, float height);
+        public native int LoadObjectJPHP(String szFilename, float height);
 
         /**
          * Loads an object from a file, currently supported formats are .X .3ds .md3
@@ -13569,9 +13574,7 @@ public class AppGameKitEngine extends BaseObject {
          * @param height     - Scale the loaded object to this height.
          * @return void
          */
-        @Signature
-
-        public native void LoadObject(int objID, String szFilename, float height);
+        public native void LoadObjectJPHP(int objID, String szFilename, float height);
 
         /**
          * Loads an object from a file, currently supported formats are .X .3ds .md3
@@ -13583,8 +13586,66 @@ public class AppGameKitEngine extends BaseObject {
          * @param szFilename - The name of the object file to load.
          * @return int
          */
-        @Signature
-        public native int LoadObject(String szFilename);
+        public native int LoadObjectJPHP(String szFilename);
+
+    //Организовываем правильный вызов функции в PHP
+
+    /**
+     * Загружает объект из файла, в настоящее время поддерживаются форматы .X .3ds .md3 .smd .md5 .lwo. ac .b3d .dae
+     * .3d .lws .ms3d .blend .m3 .obj и .ago. Эта команда не будет загружать никаких анимационных или костных данных и
+     * объединит вершины в один объект с как можно меньшим количеством сеток. Для загрузки анимации и костных данных
+     * используйте вместо этого LoadObjectWithChildren.
+     *
+     * ################################################
+     *
+     * void LoadObject( int $objID, string $szFilename );
+     *
+     * int LoadObject( string $szFilename, float $height );
+     *
+     * void LoadObject( int $objID, string $szFilename, float $height );
+     *
+     * int LoadObject( string szFilename );
+     *
+     * ################################################
+     *
+     * @param  args Идентификатор, используемый для нового объекта.
+     * @param  args - Имя загружаемого объектного файла.
+     * @param  args Масштабируйте загруженный объект до этой высоты.
+     *
+     * @return mixed
+     */
+    @Signature({
+            @Arg(value = "szFilename_or_objID", type = HintType.ANY)
+    })
+    public Memory LoadObject(Environment env, Memory... args) {
+        switch (args.length) {
+            case 1:
+                //public native int LoadObjectJPHP(String szFilename);
+                return  LongMemory.valueOf(LoadObjectJPHP(args[0].toString()));
+            case 2:
+                //public native int LoadObjectJPHP(String szFilename, float height);
+                if( args[0].isString() ){
+                    return  LongMemory.valueOf(LoadObjectJPHP(args[0].toString(), args[1].toFloat()));
+                }
+                //public native void LoadObjectJPHP(int objID, String szFilename);
+                if(args[0].isNumber()){
+                    LoadObjectJPHP(args[0].toInteger(), args[1].toString());
+                }
+                break;
+            case 3:
+                //public native void LoadObjectJPHP(int objID, String szFilename, float height);
+                LoadObjectJPHP(args[0].toInteger(), args[1].toString(), args[2].toFloat());
+                break;
+            default:
+                env.error(env.trace(), "Invalid number of arguments in LoadObject(). Must be 4 or less.");
+                break;
+        }
+
+        return Memory.NULL;
+    }
+
+
+        /*##############################################################################*/
 
         /**
          * Loads a music file compressed with OGG Vorbis. This is supported on all

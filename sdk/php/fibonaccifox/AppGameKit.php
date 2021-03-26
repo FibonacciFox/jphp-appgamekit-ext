@@ -3,7 +3,7 @@
 namespace fibonaccifox;
 
 /**
- * Класс описания методов, реализованных в AppGameKit для <b>x64</b> и <b>x86</b>.
+ * Класс описания методов, реализованных в AppGameKit для <b>x64</b> и <b>x86</b>
  *
  * @author FibonacciFox
  * @version 0.9.1
@@ -4703,31 +4703,11 @@ class AppGameKit
      * @param int $category Категория, включающая или выключающая столкновение для этого спрайта, должна быть от 1 до
      *     16 включительно.
      * @param int $flag 1, чтобы включить столкновение, 0, чтобы выключить его для этого спрайта.
-     * @param int $shapeID идентификатор изменяемой фигуры, 0 для установки всех фигур спрайта на это значение
+     * @param int|null $shapeID идентификатор изменяемой фигуры, 0 для установки всех фигур спрайта на это значение
+     * (не обзяательный параметр)
      * @return void
      */
-    function SetSpriteCollideBit($iSpriteIndex, $category, $flag, $shapeID)
-    {
-    }
-
-    /**
-     * Устанавливает или удаляет категорию, с которой может столкнуться этот спрайт. Спрайтам присваиваются категории с
-     * помощью SetSpriteCategoryBit. Существует 16 категорий, значение 1 для этой категории означает, что этот спрайт
-     * столкнется со спрайтами из этой категории, а 0-что он не столкнется с этой категорией, независимо от того, к
-     * какой категории принадлежит сам этот спрайт. По умолчанию все спрайты относятся к категории 1 и сталкиваются со
-     * всеми категориями. Эта команда похожа на SetSpriteCategoryBits, за исключением того, что эта команда
-     * устанавливает одну категорию за раз, в то время как эта команда устанавливает их все сразу, используя битовую
-     * маску. По умолчанию это устанавливает все фигуры в одно и то же значение, вы можете установить это значение для
-     * каждой фигуры, указав значение shapeID больше 0. Идентификаторы фигур начинаются с 1 для первой фигуры, а
-     * shapeID 0 означает применить его ко всем фигурам.
-     *
-     * @param int $iSpriteIndex Идентификатор спрайта для изменения.
-     * @param int $category Категория, включающая или выключающая столкновение для этого спрайта, должна быть от 1 до
-     *     16 включительно.
-     * @param int $flag 1, чтобы включить столкновение, 0, чтобы выключить его для этого спрайта.
-     * @return void
-     */
-    function SetSpriteCollideBit($iSpriteIndex, $category, $flag)
+    function SetSpriteCollideBit(int $iSpriteIndex, int $category, int $flag, int|null $shapeID = null)
     {
     }
 
@@ -4742,27 +4722,11 @@ class AppGameKit
      * @param int $iSpriteIndex Идентификатор спрайта для изменения.
      * @param int $category Категория, которую нужно изменить, должна быть от 1 до 16 включительно.
      * @param int $flag 1, чтобы сделать спрайт частью этой категории, 0, чтобы удалить его.
+     * @param int|null $shapeID идентификатор изменяемой фигуры, 0 для установки всех фигур спрайта на это значение
+     * (не обязательный параметр)
      * @return void
      */
-    function SetSpriteCategoryBit($iSpriteIndex, $category, $flag)
-    {
-    }
-
-    /**
-     * Назначает или удаляет спрайт из определенной категории. Существует 16 категорий, к которым может принадлежать
-     * спрайт, и спрайт может принадлежать к любому числу сразу. Эта команда похожа на SetSpriteCategoryBits, за
-     * исключением того, что эта команда устанавливает одну категорию за раз, в то время как эта команда устанавливает
-     * их все сразу, используя битовую маску. По умолчанию это устанавливает все фигуры в одно и то же значение, вы
-     * можете установить это значение для каждой фигуры, указав значение shapeID больше 0. Идентификаторы фигур
-     * начинаются с 1 для первой фигуры, а shapeID 0 означает применить его ко всем фигурам.
-     *
-     * @param int $iSpriteIndex Идентификатор спрайта для изменения.
-     * @param int $category Категория, которую нужно изменить, должна быть от 1 до 16 включительно.
-     * @param int $flag 1, чтобы сделать спрайт частью этой категории, 0, чтобы удалить его.
-     * @param int $shapeID идентификатор изменяемой фигуры, 0 для установки всех фигур спрайта на это значение
-     * @return void
-     */
-    function SetSpriteCategoryBit($iSpriteIndex, $category, $flag, $shapeID)
+    function SetSpriteCategoryBit(int $iSpriteIndex, int $category, int $flag, int|null $shapeID = null)
     {
     }
 
@@ -5719,19 +5683,6 @@ class AppGameKit
     {
     }
 
-    /**
-     * Задает цвет печатного текста. Это глобальная команда, которая будет влиять на весь печатный текст при следующем
-     * вызове синхронизации. Для управления цветом на основе каждой строки используйте текстовые команды. Эта версия
-     * устанавливает альфа-код на 255, полностью непрозрачный.
-     *
-     * @param int $iRed Красная составляющая цвета.
-     * @param int $iGreen Зеленая составляющая цвета.
-     * @param int $iBlue Синяя составляющая цвета.
-     * @return void
-     */
-    function SetPrintColor($iRed, $iGreen, $iBlue)
-    {
-    }
 
     /**
      * Задает цвет печатного текста. Это глобальная команда, которая будет влиять на весь печатный текст при следующем
@@ -5741,10 +5692,10 @@ class AppGameKit
      * @param int $iRed Красная составляющая цвета.
      * @param int $iGreen Зеленая составляющая цвета.
      * @param int $iBlue Синяя составляющая цвета.
-     * @param int $iAlpha Альфа-компонент цвета.
+     * @param int|null $iAlpha Альфа-компонент цвета. (не обязательный параметр)
      * @return void
      */
-    function SetPrintColor($iRed, $iGreen, $iBlue, $iAlpha)
+    function SetPrintColor(int $iRed, int $iGreen, int $iBlue, int|null $iAlpha = 255)
     {
     }
 
@@ -6367,28 +6318,19 @@ class AppGameKit
     {
     }
 
-    /**
-     * Задает форму столкновения в виде сферы в зависимости от размера объекта. Сначала вы должны создать физическое
-     * тело для объекта, иначе эта команда не будет выполнена.
-     *
-     * @param int $objID идентификатор объекта
-     * @return void
-     */
-    function SetObjectShapeSphere($objID)
-    {
-    }
 
     /**
      * Задает форму столкновения в виде сферы в зависимости от размера объекта. Сначала вы должны создать физическое
      * тело для объекта, иначе эта команда не будет выполнена.
      *
      * @param int $objID идентификатор объекта
-     * @param float $diameter размер сферы
+     * @param float|null $diameter размер сферы (не обязательный параметр)
      * @return void
      */
-    function SetObjectShapeSphere($objID, $diameter)
+    function SetObjectShapeSphere(int $objID, float|null $diameter = null)
     {
     }
+
 
     /**
      * Задает форму столкновения в виде цилиндра в зависимости от размера объекта. Сначала вы должны создать физическое
@@ -6396,23 +6338,11 @@ class AppGameKit
      *
      * @param int $objID идентификатор объекта
      * @param int $axis 0 =Ось X, 1 =ось Y, 2 = ориентация оси Z
+     * @param float|null $height высота по оси y (не оябзательный параметр)
+     * @param float|null $diameter диаметр на x и z (не оябзательный параметр)
      * @return void
      */
-    function SetObjectShapeCylinder($objID, $axis)
-    {
-    }
-
-    /**
-     * Задает форму столкновения в виде цилиндра в зависимости от размера объекта. Сначала вы должны создать физическое
-     * тело для объекта, иначе эта команда не будет выполнена.
-     *
-     * @param int $objID идентификатор объекта
-     * @param int $axis 0 =Ось X, 1 =ось Y, 2 = ориентация оси Z
-     * @param float $height высота по оси y
-     * @param float $diameter диаметр на x и z
-     * @return void
-     */
-    function SetObjectShapeCylinder($objID, $axis, $height, $diameter)
+    function SetObjectShapeCylinder(int $objID, int $axis, float|null $height = null, float|null $diameter = null)
     {
     }
 
@@ -6433,25 +6363,14 @@ class AppGameKit
      *
      * @param int $objID идентификатор объекта
      * @param int $axis 0 =Ось X, 1 =ось Y, 2 = ориентация оси Z
-     * @param float $height высота по оси y
-     * @param float $diameter диаметр на x и z
+     * @param float|null $height высота по оси y (не обязательный параметр)
+     * @param float|null $diameter диаметр на x и z (не обязательный параметр)
      * @return void
      */
-    function SetObjectShapeCone($objID, $axis, $height, $diameter)
+    function SetObjectShapeCone(int $objID, int $axis, float|null $height = null, float|null $diameter = null)
     {
     }
 
-    /**
-     * Устанавливает форму столкновения в виде конуса на основе переданного размера. Сначала вы должны создать
-     * физическое тело для объекта, иначе эта команда не будет выполнена. Возвращает идентификатор фигуры.
-     *
-     * @param int $objID идентификатор объекта
-     * @param int $axis 0 =Ось X, 1 =ось Y, 2 = ориентация оси Z
-     * @return void
-     */
-    function SetObjectShapeCone($objID, $axis)
-    {
-    }
 
     /**
      * Устанавливает форму столкновения объектов в составную форму, готовую к добавлению новых фигур. Объект должен
@@ -6460,7 +6379,7 @@ class AppGameKit
      * @param int $objID идентификатор объекта
      * @return void
      */
-    function SetObjectShapeCompound($objID)
+    function SetObjectShapeCompound(int $objID)
     {
     }
 
@@ -6475,9 +6394,10 @@ class AppGameKit
      * @param float $sizeZ размер по оси Z
      * @return void
      */
-    function SetObjectShapeCapsule($objID, $axis, $sizeX, $sizeY, $sizeZ)
+    function SetObjectShapeCapsule(int $objID, int $axis, float $sizeX, float $sizeY, float $sizeZ)
     {
     }
+
 
     /**
      * Устанавливает форму столкновения в капсулу на основе переданного размера. Сначала вы должны создать физическое
@@ -6485,22 +6405,10 @@ class AppGameKit
      *
      * @param int $objID идентификатор объекта
      * @param int $axis 0 =Ось X, 1 =ось Y, 2 = ориентация оси Z
+     * @param int|null $vectorID Идентификатор вектора измерения.
      * @return void
      */
-    function SetObjectShapeCapsule($objID, $axis)
-    {
-    }
-
-    /**
-     * Устанавливает форму столкновения в капсулу на основе переданного размера. Сначала вы должны создать физическое
-     * тело для объекта, иначе эта команда не будет выполнена.
-     *
-     * @param int $objID идентификатор объекта
-     * @param int $axis 0 =Ось X, 1 =ось Y, 2 = ориентация оси Z
-     * @param int $vectorID Идентификатор вектора измерения.
-     * @return void
-     */
-    function SetObjectShapeCapsule($objID, $axis, $vectorID)
+    function SetObjectShapeCapsule(int $objID, int $axis, int|null $vectorID = null)
     {
     }
 
@@ -11162,32 +11070,10 @@ class AppGameKit
      * Выводит заданное значение или строку на экран, но не добавляет новый символ строки в конец. Следующая команда
      * Print или PrintC будет следовать непосредственно из этой.
      *
-     * @param string $szString Строка для печати.
+     * @param mixed $szString Значание или строка для печати
      * @return void
      */
-    function PrintC($szString)
-    {
-    }
-
-    /**
-     * Выводит заданное значение или строку на экран, но не добавляет новый символ строки в конец. Следующая команда
-     * Print или PrintC будет следовать непосредственно из этой.
-     *
-     * @param int $i Целое число для печати.
-     * @return void
-     */
-    function PrintC($i)
-    {
-    }
-
-    /**
-     * Выводит заданное значение или строку на экран, но не добавляет новый символ строки в конец. Следующая команда
-     * Print или PrintC будет следовать непосредственно из этой.
-     *
-     * @param float $f Поплавок для печати.
-     * @return void
-     */
-    function PrintC($f)
+    function PrintC(mixed $szString)
     {
     }
 
@@ -11195,32 +11081,10 @@ class AppGameKit
      * Выводит заданное значение или строку на экран и добавляет новый символ строки, чтобы следующая команда печати
      * была на одну строку ниже.
      *
-     * @param int $i Целое число для печати.
+     * @param mixed $szString Значание или строка для печати.
      * @return void
      */
-    function Print($i)
-    {
-    }
-
-    /**
-     * Выводит заданное значение или строку на экран и добавляет новый символ строки, чтобы следующая команда печати
-     * была на одну строку ниже.
-     *
-     * @param float $f Поплавок для печати.
-     * @return void
-     */
-    function Print($f)
-    {
-    }
-
-    /**
-     * Выводит заданное значение или строку на экран и добавляет новый символ строки, чтобы следующая команда печати
-     * была на одну строку ниже.
-     *
-     * @param string $szString Строка для печати.
-     * @return void
-     */
-    function Print($szString)
+    function Print(mixed $szString)
     {
     }
 
@@ -11231,7 +11095,7 @@ class AppGameKit
      * @param float $b Сила.
      * @return float
      */
-    function Pow($a, $b)
+    function Pow(float $a, float $b): float
     {
     }
 
@@ -12719,59 +12583,34 @@ class AppGameKit
     {
     }
 
+
+
     /**
      * Загружает объект из файла, в настоящее время поддерживаются форматы .X .3ds .md3 .smd .md5 .lwo. ac .b3d .dae
      * .3d .lws .ms3d .blend .m3 .obj и .ago. Эта команда не будет загружать никаких анимационных или костных данных и
      * объединит вершины в один объект с как можно меньшим количеством сеток. Для загрузки анимации и костных данных
      * используйте вместо этого LoadObjectWithChildren.
+     *
+     * ################################################
+     *
+     * void LoadObject( int $objID, string $szFilename );
+     *
+     * int LoadObject( string $szFilename, float $height );
+     *
+     * void LoadObject( int $objID, string $szFilename, float $height );
+     *
+     * int LoadObject( string szFilename );
+     *
+     * ################################################
      *
      * @param int $objID Идентификатор, используемый для нового объекта.
-     * @param string $szFilename Имя загружаемого объектного файла.
-     * @return void
-     */
-    function LoadObject($objID, $szFilename)
-    {
-    }
-
-    /**
-     * Загружает объект из файла, в настоящее время поддерживаются форматы .X .3ds .md3 .smd .md5 .lwo. ac .b3d .dae
-     * .3d .lws .ms3d .blend .m3 .obj и .ago. Эта команда не будет загружать никаких анимационных или костных данных и
-     * объединит вершины в один объект с как можно меньшим количеством сеток. Для загрузки анимации и костных данных
-     * используйте вместо этого LoadObjectWithChildren.
-     *
-     * @param string $szFilename Имя загружаемого объектного файла.
+     * @param string $szFilename - Имя загружаемого объектного файла.
      * @param float $height Масштабируйте загруженный объект до этой высоты.
-     * @return int
-     */
-    function LoadObject($szFilename, $height)
-    {
-    }
-
-    /**
-     * Загружает объект из файла, в настоящее время поддерживаются форматы .X .3ds .md3 .smd .md5 .lwo. ac .b3d .dae
-     * .3d .lws .ms3d .blend .m3 .obj и .ago. Эта команда не будет загружать никаких анимационных или костных данных и
-     * объединит вершины в один объект с как можно меньшим количеством сеток. Для загрузки анимации и костных данных
-     * используйте вместо этого LoadObjectWithChildren.
      *
-     * @param int $objID Идентификатор, используемый для нового объекта.
-     * @param string $szFilename Имя загружаемого объектного файла.
-     * @param float $height Масштабируйте загруженный объект до этой высоты.
-     * @return void
+     * @return mixed
      */
-    function LoadObject($objID, $szFilename, $height)
-    {
-    }
 
-    /**
-     * Загружает объект из файла, в настоящее время поддерживаются форматы .X .3ds .md3 .smd .md5 .lwo. ac .b3d .dae
-     * .3d .lws .ms3d .blend .m3 .obj и .ago. Эта команда не будет загружать никаких анимационных или костных данных и
-     * объединит вершины в один объект с как можно меньшим количеством сеток. Для загрузки анимации и костных данных
-     * используйте вместо этого LoadObjectWithChildren.
-     *
-     * @param string $szFilename Имя загружаемого объектного файла.
-     * @return int
-     */
-    function LoadObject($szFilename)
+    function LoadObject(...$args): mixed
     {
     }
 
