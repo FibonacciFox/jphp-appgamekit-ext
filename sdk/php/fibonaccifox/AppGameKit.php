@@ -784,7 +784,7 @@ class AppGameKit
      * @param null $decimals Количество мест после десятичной точки для включения.
      * @return string
      */
-    function Str(float|int $value, $decimals = null): string
+    function Str( $value, $decimals = null): string
     {
     }
 
@@ -4065,7 +4065,7 @@ class AppGameKit
      * заменить их этой новой(необязательный параметр)
      * @return void
      */
-    function SetSpriteShape(int $iSpriteIndex, int $shape, int|null $shapeID = null)
+    function SetSpriteShape(int $iSpriteIndex, int $shape, int $shapeID = null)
     {
     }
 
@@ -4207,7 +4207,7 @@ class AppGameKit
      * (необязательный параметр)
      * @return void
      */
-    function SetSpritePhysicsRestitution(int $iSpriteIndex, float $restitution, int|null $shapeID)
+    function SetSpritePhysicsRestitution(int $iSpriteIndex, float $restitution, int $shapeID)
     {
     }
 
@@ -4303,7 +4303,7 @@ class AppGameKit
      * (необязательный параметр)
      * @return void
      */
-    function SetSpritePhysicsIsSensor(int $iSpriteIndex, int $sensor, int|null $shapeID = null)
+    function SetSpritePhysicsIsSensor(int $iSpriteIndex, int $sensor, int $shapeID = null)
     {
     }
 
@@ -4342,7 +4342,7 @@ class AppGameKit
      * (необязательный параметр)
      * @return void
      */
-    function SetSpritePhysicsFriction(int $iSpriteIndex, float $friction, int|null $shapeID = null)
+    function SetSpritePhysicsFriction(int $iSpriteIndex, float $friction, int $shapeID = null)
     {
     }
 
@@ -4513,7 +4513,7 @@ class AppGameKit
      * изображением. ( 1 или 0 ) (не обязательный параметр)
      * @return void
      */
-    function SetSpriteImage(int $iSpriteIndex, int $iImageIndex, int|null $bUpdateShape = null)
+    function SetSpriteImage(int $iSpriteIndex, int $iImageIndex, int $bUpdateShape = null)
     {
     }
 
@@ -4533,7 +4533,8 @@ class AppGameKit
      * (не обязательный параметр)
      * @return void
      */
-    function SetSpriteGroup(int $iSpriteIndex, int $group, int|null $shapeID = null)
+    function SetSpriteGroup(int $iSpriteIndex, int $group, int
+    $shapeID = null)
     {
     }
 
@@ -4662,7 +4663,7 @@ class AppGameKit
      * (не обязательный параметр)
      * @return void
      */
-    function SetSpriteCollideBits(int $iSpriteIndex, int $mask, int|null $shapeID = null)
+    function SetSpriteCollideBits(int $iSpriteIndex, int $mask, int $shapeID = null)
     {
     }
 
@@ -4683,7 +4684,7 @@ class AppGameKit
      * (не обязательный параметр)
      * @return void
      */
-    function SetSpriteCategoryBits(int $iSpriteIndex, int $categories, int|null $shapeID = null)
+    function SetSpriteCategoryBits(int $iSpriteIndex, int $categories, int $shapeID = null)
     {
     }
 
@@ -4707,7 +4708,7 @@ class AppGameKit
      * (не обзяательный параметр)
      * @return void
      */
-    function SetSpriteCollideBit(int $iSpriteIndex, int $category, int $flag, int|null $shapeID = null)
+    function SetSpriteCollideBit(int $iSpriteIndex, int $category, int $flag, int $shapeID = null)
     {
     }
 
@@ -4726,7 +4727,7 @@ class AppGameKit
      * (не обязательный параметр)
      * @return void
      */
-    function SetSpriteCategoryBit(int $iSpriteIndex, int $category, int $flag, int|null $shapeID = null)
+    function SetSpriteCategoryBit(int $iSpriteIndex, int $category, int $flag, int $shapeID = null)
     {
     }
 
@@ -5695,7 +5696,7 @@ class AppGameKit
      * @param int|null $iAlpha Альфа-компонент цвета. (не обязательный параметр)
      * @return void
      */
-    function SetPrintColor(int $iRed, int $iGreen, int $iBlue, int|null $iAlpha = 255)
+    function SetPrintColor(int $iRed, int $iGreen, int $iBlue, int $iAlpha = 255)
     {
     }
 
@@ -6327,7 +6328,7 @@ class AppGameKit
      * @param float|null $diameter размер сферы (не обязательный параметр)
      * @return void
      */
-    function SetObjectShapeSphere(int $objID, float|null $diameter = null)
+    function SetObjectShapeSphere(int $objID, float $diameter = null)
     {
     }
 
@@ -6342,7 +6343,7 @@ class AppGameKit
      * @param float|null $diameter диаметр на x и z (не оябзательный параметр)
      * @return void
      */
-    function SetObjectShapeCylinder(int $objID, int $axis, float|null $height = null, float|null $diameter = null)
+    function SetObjectShapeCylinder(int $objID, int $axis, float $height = null, float $diameter = null)
     {
     }
 
@@ -6367,7 +6368,7 @@ class AppGameKit
      * @param float|null $diameter диаметр на x и z (не обязательный параметр)
      * @return void
      */
-    function SetObjectShapeCone(int $objID, int $axis, float|null $height = null, float|null $diameter = null)
+    function SetObjectShapeCone(int $objID, int $axis, float $height = null, float $diameter = null)
     {
     }
 
@@ -6387,28 +6388,23 @@ class AppGameKit
      * Устанавливает форму столкновения в капсулу на основе переданного размера. Сначала вы должны создать физическое
      * тело для объекта, иначе эта команда не будет выполнена.
      *
+     *
+     * Пример вызова:
+     *
+     * void SetObjectShapeCapsule($objID, int $axis);
+     *
+     * void SetObjectShapeCapsule($objID, $axis, $vectorID);
+     *
+     * void SetObjectShapeCapsule(int $objID, int $axis, float $sizeX, float $sizeY, float $sizeZ);
      * @param int $objID идентификатор объекта
      * @param int $axis 0 =Ось X, 1 =ось Y, 2 = ориентация оси Z
+     * @param int $vectorID Идентификатор вектора измерения.
      * @param float $sizeX размер по оси x
      * @param float $sizeY размер по оси Y
      * @param float $sizeZ размер по оси Z
      * @return void
      */
-    function SetObjectShapeCapsule(int $objID, int $axis, float $sizeX, float $sizeY, float $sizeZ)
-    {
-    }
-
-
-    /**
-     * Устанавливает форму столкновения в капсулу на основе переданного размера. Сначала вы должны создать физическое
-     * тело для объекта, иначе эта команда не будет выполнена.
-     *
-     * @param int $objID идентификатор объекта
-     * @param int $axis 0 =Ось X, 1 =ось Y, 2 = ориентация оси Z
-     * @param int|null $vectorID Идентификатор вектора измерения.
-     * @return void
-     */
-    function SetObjectShapeCapsule(int $objID, int $axis, int|null $vectorID = null)
+    function SetObjectShapeCapsule(mixed...$args)
     {
     }
 
@@ -6416,36 +6412,21 @@ class AppGameKit
      * Устанавливает форму столкновения в поле на основе переданного размера. Сначала вы должны создать физическое тело
      * для объекта, иначе эта команда не будет выполнена.
      *
-     * @param int $objID идентификатор объекта
-     * @param float $sizeX размер по оси x
-     * @param float $sizeY размер по оси Y
-     * @param float $sizeZ размер по оси Z
-     * @return void
-     */
-    function SetObjectShapeBox($objID, $sizeX, $sizeY, $sizeZ)
-    {
-    }
-
-    /**
-     * Устанавливает форму столкновения в поле на основе переданного размера. Сначала вы должны создать физическое тело
-     * для объекта, иначе эта команда не будет выполнена.
+     * Пример вызова:
      *
+     * void SetObjectShapeBox($objID);
+     *
+     * void SetObjectShapeBox($objID,$vectorID);
+     *
+     * void SetObjectShapeBox($objID, $sizeX, $sizeY, $sizeZ);
      * @param int $objID идентификатор объекта
      * @param int $vectorID Идентификатор вектора измерения
+     * @param float $sizeX размер по оси x
+     * @param float $sizeY размер по оси Y
+     * @param float $sizeZ размер по оси Z
      * @return void
      */
-    function SetObjectShapeBox($objID, $vectorID)
-    {
-    }
-
-    /**
-     * Устанавливает форму столкновения в поле на основе переданного размера. Сначала вы должны создать физическое тело
-     * для объекта, иначе эта команда не будет выполнена.
-     *
-     * @param int $objID идентификатор объекта
-     * @return void
-     */
-    function SetObjectShapeBox($objID)
+    function SetObjectShapeBox(mixed...$args)
     {
     }
 
@@ -7292,26 +7273,20 @@ class AppGameKit
     /**
      * Задает вектор линейной скорости объекта. Вектор направления автоматически нормализуется.
      *
+     * Пример вызова:
+     *
+     * void SetObject3DPhysicsLinearVelocity($objID, $vectorID, $initialSpeed);
+     *
+     * void SetObject3DPhysicsLinearVelocity($objID, $dirX, $dirY, $dirZ, $initialSpeed);
      * @param int $objID идентификатор объекта
      * @param int $vectorID Идентификатор вектора направления
-     * @param float $initialSpeed начальная скорость.
-     * @return void
-     */
-    function SetObject3DPhysicsLinearVelocity($objID, $vectorID, $initialSpeed)
-    {
-    }
-
-    /**
-     * Задает вектор линейной скорости объекта. Вектор направления автоматически нормализуется.
-     *
-     * @param int $objID идентификатор объекта
      * @param float $dirX X компонент вектора направления
      * @param float $dirY компонент Y вектора направления
      * @param float $dirZ Z-составляющая вектора направления
      * @param float $initialSpeed начальная скорость.
      * @return void
      */
-    function SetObject3DPhysicsLinearVelocity($objID, $dirX, $dirY, $dirZ, $initialSpeed)
+    function SetObject3DPhysicsLinearVelocity(mixed...$args)
     {
     }
 
@@ -7391,9 +7366,10 @@ class AppGameKit
      * когда он придет в состояние покоя, прежде чем он станет деактивированным.
      *
      * @param int $objID идентификатор объекта
+     * @param $time
      * @return void
      */
-    function SetObject3DPhysicsDeactivationTime($objID, $time)
+    function SetObject3DPhysicsDeactivationTime(int $objID, $time)
     {
     }
 
@@ -7401,11 +7377,11 @@ class AppGameKit
      * Все динамические объекты автоматически переводятся в состояние покоя. Это остановит автоматическое погружение
      * динамического объекта в спящий режим.
      *
-     * @param int $objID идентификатор объекта
-     * @param int $canSleep 1 = истина , 0 = ложь
+     * @param int $objID идентификатор объекта.
+     * @param int $canSleep 1 = true , 0 = false.
      * @return void
      */
-    function SetObject3DPhysicsCanSleep($objID, $canSleep)
+    function SetObject3DPhysicsCanSleep(int $objID, int $canSleep)
     {
     }
 
@@ -7423,58 +7399,35 @@ class AppGameKit
      * @param int $iNetID Идентификатор сети для проверки.
      * @param string $name Имя этой переменной.
      * @param int $i Значение для установки этой переменной.
-     * @param int $mode Тип этой переменной: 0=нормальный, 1=сброс
+     * @param int|null $mode Тип этой переменной: 0=нормальный, 1=сброс
      * @return void
      */
-    function SetNetworkLocalInteger($iNetID, $name, $i, $mode)
+    function SetNetworkLocalInteger(int $iNetID, string $name, int $i, int $mode = null)
     {
     }
 
-    /**
-     * Задает локальную целочисленную переменную для этого клиента по имени. Затем другие клиенты могут прочитать эту
-     * переменную, используя то же имя при запросе ее значения. Параметр mode указывает, как должна вести себя эта
-     * переменная, со значением 1, означающим, что эта переменная будет сброшена до 0 при чтении. Например, если вы
-     * хотите отправить уведомление о щелчке, вы можете установить значение 1, чтобы обозначить щелчок со значением
-     * режима 1. Когда каждый клиент читает переменную, каждый увидит значение 1, но если он попытается прочитать ее
-     * снова, то получит значение 0. Каждый клиент сбрасывает только свою собственную копию переменной. Значение режима
-     * 0 означает, что это нормальная переменная, которая не изменится при чтении. Если переменная с таким именем не
-     * существует, она создается. Как только переменная создается в обычном или сброшенном режиме, она не может быть
-     * изменена, и параметр mode игнорируется.
-     *
-     * @param int $iNetID Идентификатор сети для проверки.
-     * @param string $name Имя этой переменной.
-     * @param int $i Значение для установки этой переменной.
-     * @return void
-     */
-    function SetNetworkLocalInteger($iNetID, $name, $i)
-    {
-    }
 
     /**
      * Задает угловую скорость объекта. Вектор угла автоматически нормализуется.
      *
+     *
+     * Пример вызова:
+     *
+     * void SetObject3DPhysicsAngularVelocity($objID, $vectorID, $initialSpeed);
+     *
+     * void SetObject3DPhysicsAngularVelocity($objID, $angX, $angY, $angZ, $initialSpeed);
      * @param int $objID идентификатор объекта
+     * @param int $vectorID Идентификатор вектора направления.
      * @param float $angX X компонент вектора угла
      * @param float $angY компонент Y вектора угла
      * @param float $angZ Z-составляющая вектора угла
      * @param float $initialSpeed начальная скорость.
      * @return void
      */
-    function SetObject3DPhysicsAngularVelocity($objID, $angX, $angY, $angZ, $initialSpeed)
+    function SetObject3DPhysicsAngularVelocity(mixed...$args)
     {
     }
 
-    /**
-     * Задает угловую скорость объекта. Вектор угла автоматически нормализуется.
-     *
-     * @param int $objID идентификатор объекта
-     * @param int $vectorID Идентификатор вектора направления.
-     * @param float $initialSpeed начальная скорость.
-     * @return void
-     */
-    function SetObject3DPhysicsAngularVelocity($objID, $vectorID, $initialSpeed)
-    {
-    }
 
     /**
      * Задает локальную переменную float для этого клиента по имени. Затем другие клиенты могут прочитать эту
@@ -7484,24 +7437,10 @@ class AppGameKit
      * @param int $iNetID Идентификатор сети для проверки.
      * @param string $name Имя этой переменной.
      * @param float $f Значение для установки этой переменной.
+     * @param int|null $mode Тип этой переменной: 0=нормальный, 1=сброс
      * @return void
      */
-    function SetNetworkLocalFloat($iNetID, $name, $f)
-    {
-    }
-
-    /**
-     * Задает локальную переменную float для этого клиента по имени. Затем другие клиенты могут прочитать эту
-     * переменную, используя то же имя при запросе ее значения. Переменная с плавающей точкой может не иметь того же
-     * имени, что и целочисленная переменная. Если переменная с таким именем не существует, она создается.
-     *
-     * @param int $iNetID Идентификатор сети для проверки.
-     * @param string $name Имя этой переменной.
-     * @param float $f Значение для установки этой переменной.
-     * @param int $mode Тип этой переменной: 0=нормальный, 1=сброс
-     * @return void
-     */
-    function SetNetworkLocalFloat($iNetID, $name, $f, $mode)
+    function SetNetworkLocalFloat(int $iNetID, string $name, float $f, int $mode = null)
     {
     }
 
@@ -7817,32 +7756,10 @@ class AppGameKit
      * @param int $iID Идентификатор, который будет использоваться для ссылки на это уведомление в будущем
      * @param int $datetime Дата и время отображения этого уведомления в unix time
      * @param string $szMessage Сообщение для отображения в уведомлении
+     * @param string|null $szDeepLink URL-адрес для отправки в приложение, если уведомление прослушивается
      * @return void
      */
-    function SetLocalNotification($iID, $datetime, $szMessage)
-    {
-    }
-
-    /**
-     * Создает локальное уведомление, которое появится в какой-то момент в будущем. Уведомления ссылаются на
-     * идентификатор и могут быть перезаписаны путем создания нового уведомления с тем же идентификатором, что и
-     * уведомление, которое вы хотите перезаписать. Если уведомление срабатывает во время работы приложения, то оно не
-     * появляется и бесшумно исчезает из списка запланированных уведомлений. Если приложение не открыто, то
-     * пользователю будет показано уведомление, и нажатие на него откроет ваше приложение. Если вы установите параметр
-     * deeplink, то этот URL-адрес будет отправлен в приложение при нажатии уведомления. URL-адрес можно получить с
-     * помощью команды GetURLSchemeText. Параметр datetime должен быть указан в unix time, который измеряется в
-     * секундах с 1 января 1970 года, вы можете использовать команду GetUnixTime для возврата текущей даты и времени, а
-     * затем изменить ее по мере необходимости. Если дата и время находятся в прошлом, то уведомление будет
-     * проигнорировано, оно не будет перезаписывать ни одно существующее уведомление. Идентификатор должен находиться в
-     * диапазоне от 1 до 100 включительно.
-     *
-     * @param int $iID Идентификатор, который будет использоваться для ссылки на это уведомление в будущем
-     * @param int $datetime Дата и время отображения этого уведомления в unix time
-     * @param string $szMessage Сообщение для отображения в уведомлении
-     * @param string $szDeepLink URL-адрес для отправки в приложение, если уведомление прослушивается
-     * @return void
-     */
-    function SetLocalNotification($iID, $datetime, $szMessage, $szDeepLink)
+    function SetLocalNotification(int $iID, int $datetime, string $szMessage, string $szDeepLink = null)
     {
     }
 
@@ -7859,7 +7776,7 @@ class AppGameKit
      * @param float $size Диаметр джойстика в экранных координатах.
      * @return void
      */
-    function SetJoystickScreenPosition($x, $y, $size)
+    function SetJoystickScreenPosition(float $x, float $y, float $size)
     {
     }
 
@@ -8178,31 +8095,11 @@ class AppGameKit
      * @param string $szHost Домен для подключения.
      * @param int $iSecure Установите значение 1, чтобы использовать защищенное соединение HTTPS, и 0, чтобы
      *     использовать стандартное соединение HTTP.
+     * @param string|null $szUser Имя пользователя для отправки на сервер.
+     * @param string|null $szPass Пароль для отправки на сервер.
      * @return int
      */
-    function SetHTTPHost($iHTTP, $szHost, $iSecure)
-    {
-    }
-
-    /**
-     * Задает домен хоста, к которому вы хотите подключиться, например для доступа www.thegamecreators.com/index.php вы
-     * бы использовали значение хоста www.thegamecreators.com, не включайте http:, который обычно идет перед ним.
-     * Обратите внимание, что попытка использовать определенный порт с www.thegamecreators.com:8080 на некоторых
-     * платформах это может быть проигнорировано, и в этих случаях будет использоваться порт 80. При экспорте в HTML5
-     * обратите внимание, что веб-браузеры ограничивают количество серверов, к которым вы можете подключиться. По
-     * умолчанию вы ограничены файлами, размещенными на том же сервере, что и ваше приложение. Однако если сервер
-     * отправляет заголовок Access-Control-Allow-Origin в своем ответе, который разрешает сервер вашего приложения, то
-     * браузер позволит вам подключиться к нему.
-     *
-     * @param int $iHTTP Идентификатор устанавливаемого соединения.
-     * @param string $szHost Домен для подключения.
-     * @param int $iSecure Установите значение 1, чтобы использовать защищенное соединение HTTPS, и 0, чтобы
-     *     использовать стандартное соединение HTTP.
-     * @param string $szUser Имя пользователя для отправки на сервер.
-     * @param string $szPass Пароль для отправки на сервер.
-     * @return int
-     */
-    function SetHTTPHost($iHTTP, $szHost, $iSecure, $szUser, $szPass)
+    function SetHTTPHost(int $iHTTP, string $szHost, int $iSecure, string $szUser = null, string $szPass = null): int
     {
     }
 
@@ -9581,7 +9478,7 @@ class AppGameKit
     /**
      * Устанавливает высоту, на которую контроллер может подниматься и опускаться.
      *
-     * @param int $objID идентификатор объекта
+     * @param int $objID идентификатор объекта.
      * @param float $stepHeight Высота шага в мировых ценностях.
      * @return void
      */
@@ -9594,34 +9491,28 @@ class AppGameKit
      * установлена на ( 0.0, -10.0, 0.0 ). Вам нужно только вызвать эту команду, если вам нужно изменить настройки по
      * умолчанию.
      *
+     * Пример вызова:
+     *
+     * void Set3DPhysicsGravity($vectorID);
+     *
+     * void Set3DPhysicsGravity($x, $y, $z);
+     * @param int $vectorID Идентификатор вектора для использования.
      * @param float $x Величина силы тяжести по оси Х в метрах в секунду.
      * @param float $y Величина силы тяжести по оси Y в метрах в секунду.
      * @param float $z Величина силы тяжести по оси Z в метрах в секунду.
      * @return void
      */
-    function Set3DPhysicsGravity($x, $y, $z)
-    {
-    }
-
-    /**
-     * Устанавливает гравитацию мира физики, гравитация измеряется в метрах в секунду. По умолчанию гравитация
-     * установлена на ( 0.0, -10.0, 0.0 ). Вам нужно только вызвать эту команду, если вам нужно изменить настройки по
-     * умолчанию.
-     *
-     * @param int $vectorID Идентификатор вектора для использования
-     * @return void
-     */
-    function Set3DPhysicsGravity($vectorID)
+    function Set3DPhysicsGravity(mixed...$args)
     {
     }
 
     /**
      * Перемещает Контроллер в новые переданные координаты. Не размещайте контроллер внутри другого физического объекта.
      *
-     * @param int $objID идентификатор объекта
-     * @param float $posX Новая координата X
-     * @param float $posY Новая координата Y
-     * @param float $posZ Новая координата Z
+     * @param int $objID идентификатор объекта.
+     * @param float $posX Новая координата X.
+     * @param float $posY Новая координата Y.
+     * @param float $posZ Новая координата Z.
      * @return void
      */
     function Set3DPhysicsCharacterControllerPosition($objID, $posX, $posY, $posZ)
@@ -9986,25 +9877,10 @@ class AppGameKit
      * @param int $iHTTP Идентификатор используемого соединения.
      * @param string $szServerFile Файл, который нужно запросить с сервера, включает в себя все, что находится после
      *     доменной части URL-адреса.
+     * @param string|null $szPostData Необработанные данные post для отправки на сервер обратите внимание, что & и =
      * @return int
      */
-    function SendHTTPRequestASync($iHTTP, $szServerFile)
-    {
-    }
-
-    /**
-     * Отправьте запрос на сервер, указанный в SetHTTPHost, например, если запрашивается http:
-     * www.thegamecreators.com/index.php szServerFile должен быть "index.php". Эта команда немедленно возвращается и
-     * ждет ответа сервера в фоновом режиме. Вы можете проверить статус ответа с помощью GetHTTPResponseReady и, когда
-     * он будет готов, получить ответ с помощью GetHTTPResponse.
-     *
-     * @param int $iHTTP Идентификатор используемого соединения.
-     * @param string $szServerFile Файл, который нужно запросить с сервера, включает в себя все, что находится после
-     *     доменной части URL-адреса.
-     * @param string $szPostData Необработанные данные post для отправки на сервер обратите внимание, что & и =
-     * @return int
-     */
-    function SendHTTPRequestASync($iHTTP, $szServerFile, $szPostData)
+    function SendHTTPRequestASync(int $iHTTP, string $szServerFile, string $szPostData = null): int
     {
     }
 
@@ -10017,25 +9893,10 @@ class AppGameKit
      * @param int $iHTTP Идентификатор используемого соединения.
      * @param string $szServerFile Файл, который нужно запросить с сервера, включает в себя все, что находится после
      *     доменной части URL-адреса.
+     * @param string|null $szPostData Необработанные данные post для отправки на сервер обратите внимание, что & и =
      * @return string
      */
-    function SendHTTPRequest($iHTTP, $szServerFile)
-    {
-    }
-
-    /**
-     * Отправьте запрос на сервер, указанный в SetHTTPHost (), например, если запрашивается http:
-     * www.thegamecreators.com/index.php szServerFile должен быть "index.php". Эта команда ожидает ответа сервера и
-     * возвращает ответ сервера. Если вы используете уровень 2, вы должны удалить этот ответ, когда закончите с ним. Не
-     * работает при экспорте в HTML5
-     *
-     * @param int $iHTTP Идентификатор используемого соединения.
-     * @param string $szServerFile Файл, который нужно запросить с сервера, включает в себя все, что находится после
-     *     доменной части URL-адреса.
-     * @param string $szPostData Необработанные данные post для отправки на сервер обратите внимание, что & и =
-     * @return string
-     */
-    function SendHTTPRequest($iHTTP, $szServerFile, $szPostData)
+    function SendHTTPRequest(int $iHTTP, string $szServerFile, string $szPostData = null): string
     {
     }
 
@@ -10951,36 +10812,14 @@ class AppGameKit
      * поддерживается только на iOS.
      *
      * @param string $szID Это идентификатор вашего приложения. Вы можете получить его в iTunes Connect.
-     * @param string $szTitle Строка, используемая в качестве заголовка диалогового окна, обычно это "Rate AppName"
+     * @param string|null $szTitle Строка, используемая в качестве заголовка диалогового окна, обычно это "Rate AppName"
+     * @param string|null $szMessage Строка, используемая в качестве сообщения диалогового окна
      * @return void
      */
-    function RateApp($szID, $szTitle)
+    function RateApp(string $szID, string $szTitle = null, string $szMessage = null)
     {
     }
 
-    /**
-     * Отображает диалоговое окно с запросом пользователя оценить приложение в App Store. В настоящее время эта команда
-     * поддерживается только на iOS.
-     *
-     * @param string $szID Это идентификатор вашего приложения. Вы можете получить его в iTunes Connect.
-     * @param string $szTitle Строка, используемая в качестве заголовка диалогового окна, обычно это "Rate AppName"
-     * @param string $szMessage Строка, используемая в качестве сообщения диалогового окна
-     * @return void
-     */
-    function RateApp($szID, $szTitle, $szMessage)
-    {
-    }
-
-    /**
-     * Отображает диалоговое окно с запросом пользователя оценить приложение в App Store. В настоящее время эта команда
-     * поддерживается только на iOS.
-     *
-     * @param string $szID Это идентификатор вашего приложения. Вы можете получить его в iTunes Connect.
-     * @return void
-     */
-    function RateApp($szID)
-    {
-    }
 
     /**
      * Генерирует случайное число на основе текущего начального значения. Генератор случайных чисел встроен в AGK,
@@ -10988,23 +10827,16 @@ class AppGameKit
      * платформе. Производит случайное число между -2,147,483,648 и 2,147,483,647. Этот генератор работает медленнее,
      * чем Случайный, но производит более качественную случайность в большем диапазоне значений.
      *
-     * @return int
-     */
-    function Random2()
-    {
-    }
-
-    /**
-     * Генерирует случайное число на основе текущего начального значения. Генератор случайных чисел встроен в AGK,
-     * поэтому определенное начальное значение будет производить одну и ту же последовательность чисел на каждой
-     * платформе. Производит случайное число между -2,147,483,648 и 2,147,483,647. Этот генератор работает медленнее,
-     * чем Случайный, но производит более качественную случайность в большем диапазоне значений.
+     * Пример вызова:
      *
-     * @param int $from Самое низкое значение для возврата
-     * @param int $to Самое высокое значение для возврата
+     * int Random2();
+     *
+     * int Random2($from, $to);
+     * @param int|null $from Самое низкое значение для возврата
+     * @param int|null $to Самое высокое значение для возврата
      * @return int
      */
-    function Random2($from, $to)
+    function Random2(int $from = null, int $to = null): int
     {
     }
 
@@ -11024,22 +10856,16 @@ class AppGameKit
      * поэтому определенное начальное значение будет производить одну и ту же последовательность чисел на каждой
      * платформе. Производит случайное число от 0 до 65535
      *
-     * @return int
-     */
-    function Random()
-    {
-    }
-
-    /**
-     * Генерирует случайное число на основе текущего начального значения. Генератор случайных чисел встроен в AGK,
-     * поэтому определенное начальное значение будет производить одну и ту же последовательность чисел на каждой
-     * платформе. Производит случайное число от 0 до 65535
+     * пример вызова:
      *
-     * @param int $from Самое низкое значение для возврата
-     * @param int $to Самое высокое значение для возврата
+     * int Random();
+     *
+     * int Random($from, $to);
+     * @param int|null $from Самое низкое значение для возврата
+     * @param int|null $to Самое высокое значение для возврата
      * @return int
      */
-    function Random($from, $to)
+    function Random(int $from = null, int $to = null): int
     {
     }
 
@@ -11268,56 +11094,20 @@ class AppGameKit
      * Начинается анимация спрайта на основе заданных значений. Скорость анимации основана на кадрах анимации в секунду
      * и не зависит от частоты кадров рисования.
      *
-     * @param int $iSpriteIndex Идентификатор анимируемого спрайта.
-     * @return void
-     */
-    function PlaySprite($iSpriteIndex)
-    {
-    }
-
-    /**
-     * Начинается анимация спрайта на основе заданных значений. Скорость анимации основана на кадрах анимации в секунду
-     * и не зависит от частоты кадров рисования.
+     * Пример вызова:
+     *
+     * void PlaySprite($iSpriteIndex);
+     * void PlaySprite($iSpriteIndex, $fFps);
+     * void PlaySprite($iSpriteIndex, $fFps, $iLoop);
      *
      * @param int $iSpriteIndex Идентификатор анимируемого спрайта.
-     * @param float $fFps Кадров в секунду. Количество кадров, которые спрайт должен пытаться циклически проходить
+     * @param float|null $fFps Кадров в секунду. Количество кадров, которые спрайт должен пытаться циклически проходить
      *     каждую секунду (необязательно, по умолчанию 10).
-     * @return void
-     */
-    function PlaySprite($iSpriteIndex, $fFps)
-    {
-    }
-
-    /**
-     * Начинается анимация спрайта на основе заданных значений. Скорость анимации основана на кадрах анимации в секунду
-     * и не зависит от частоты кадров рисования.
-     *
-     * @param int $iSpriteIndex Идентификатор анимируемого спрайта.
-     * @param float $fFps Кадров в секунду. Количество кадров, которые спрайт должен пытаться циклически проходить
-     *     каждую секунду (необязательно, по умолчанию 10).
-     * @param int $iLoop Режим зацикливания спрайта, 0 равно не зацикливаться, 1 равно зацикливаться навсегда
+     * @param int|null $iLoop Режим зацикливания спрайта, 0 равно не зацикливаться, 1 равно зацикливаться навсегда
      *     (необязательно, по умолчанию 1).
      * @return void
      */
-    function PlaySprite($iSpriteIndex, $fFps, $iLoop)
-    {
-    }
-
-    /**
-     * Начинается анимация спрайта на основе заданных значений. Скорость анимации основана на кадрах анимации в секунду
-     * и не зависит от частоты кадров рисования.
-     *
-     * @param int $iSpriteIndex Идентификатор анимируемого спрайта.
-     * @param float $fFps Кадров в секунду. Количество кадров, которые спрайт должен пытаться циклически проходить
-     *     каждую секунду (необязательно, по умолчанию 10).
-     * @param int $iLoop Режим зацикливания спрайта, 0 равно не зацикливаться, 1 равно зацикливаться навсегда
-     *     (необязательно, по умолчанию 1).
-     * @param int $iFromFrame Кадр, с которого нужно начать, начинается с 1 (необязательно, по умолчанию минус 1).
-     * @param int $iToFrame Фрейм, на который нужно закончить, фреймы заканчиваются на GetSpriteFrameCount
-     *     (необязательно, по умолчанию минус 1).
-     * @return void
-     */
-    function PlaySprite($iSpriteIndex, $fFps, $iLoop, $iFromFrame, $iToFrame)
+    function PlaySprite(int $iSpriteIndex, float $fFps = null, int $iLoop = null)
     {
     }
 
@@ -11327,61 +11117,26 @@ class AppGameKit
      * качестве экземпляров. Команда вернет идентификатор экземпляра, который можно использовать для взаимодействия с
      * этим экземпляром во время его воспроизведения. Когда экземпляр перестает воспроизводиться, он автоматически
      * удаляется и больше не может быть использован. По умолчанию звук не зацикливается.
+     * Пример вызова:
+     *
+     * int PlaySound($iID);
+     *
+     * int PlaySound($iID, $iVol);
+     *
+     * int PlaySound($iID, $iVol, $iLoop);
+     *
+     * int PlaySound(int $iID, int $iVol = null, int $iLoop = null, int $iPriority = null);
      *
      * @param int $iID Звуковой номер для воспроизведения.
-     * @param int $iVol Громкость, на которой должен воспроизводиться звук (необязательно, по умолчанию 100).
+     * @param int|null $iVol Громкость, на которой должен воспроизводиться звук (необязательно, по умолчанию 100).
+     * @param int|null $iLoop Количество раз, чтобы зациклить экземпляр, или 1 навсегда.
+     * @param int|null $iPriority Зарезервировано для будущего использования, должно быть 0 (необязательно, по умолчанию 0).
      * @return int
      */
-    function PlaySound($iID, $iVol)
+    function PlaySound(int $iID, int $iVol = null, int $iLoop = null, int $iPriority = null): int
     {
     }
 
-    /**
-     * Воспроизведение звука, ранее загруженного в указанный звуковой номер. Эта команда может быть вызвана несколько
-     * раз для одного и того же идентификатора звука, и она запустит несколько копий этого звука, воспроизводимых в
-     * качестве экземпляров. Команда вернет идентификатор экземпляра, который можно использовать для взаимодействия с
-     * этим экземпляром во время его воспроизведения. Когда экземпляр перестает воспроизводиться, он автоматически
-     * удаляется и больше не может быть использован. По умолчанию звук не зацикливается.
-     *
-     * @param int $iID Звуковой номер для воспроизведения.
-     * @param int $iVol Громкость, на которой должен воспроизводиться звук (необязательно, по умолчанию 100).
-     * @param int $iLoop Количество раз, чтобы зациклить экземпляр, или 1 навсегда.
-     * @return int
-     */
-    function PlaySound($iID, $iVol, $iLoop)
-    {
-    }
-
-    /**
-     * Воспроизведение звука, ранее загруженного в указанный звуковой номер. Эта команда может быть вызвана несколько
-     * раз для одного и того же идентификатора звука, и она запустит несколько копий этого звука, воспроизводимых в
-     * качестве экземпляров. Команда вернет идентификатор экземпляра, который можно использовать для взаимодействия с
-     * этим экземпляром во время его воспроизведения. Когда экземпляр перестает воспроизводиться, он автоматически
-     * удаляется и больше не может быть использован. По умолчанию звук не зацикливается.
-     *
-     * @param int $iID Звуковой номер для воспроизведения.
-     * @param int $iVol Громкость, на которой должен воспроизводиться звук (необязательно, по умолчанию 100).
-     * @param int $iLoop Количество раз, чтобы зациклить экземпляр, или 1 навсегда.
-     * @param int $iPriority Зарезервировано для будущего использования, должно быть 0 (необязательно, по умолчанию 0).
-     * @return int
-     */
-    function PlaySound($iID, $iVol, $iLoop, $iPriority)
-    {
-    }
-
-    /**
-     * Воспроизведение звука, ранее загруженного в указанный звуковой номер. Эта команда может быть вызвана несколько
-     * раз для одного и того же идентификатора звука, и она запустит несколько копий этого звука, воспроизводимых в
-     * качестве экземпляров. Команда вернет идентификатор экземпляра, который можно использовать для взаимодействия с
-     * этим экземпляром во время его воспроизведения. Когда экземпляр перестает воспроизводиться, он автоматически
-     * удаляется и больше не может быть использован. По умолчанию звук не зацикливается.
-     *
-     * @param int $iID Звуковой номер для воспроизведения.
-     * @return int
-     */
-    function PlaySound($iID)
-    {
-    }
 
     /**
      * Воспроизводит данную анимацию по имени, если она существует с необязательным временем начала (По умолчанию 0),
@@ -11437,20 +11192,10 @@ class AppGameKit
      * Воспроизведение музыкального файла. Несколько музыкальных файлов OGG могут воспроизводиться одновременно.
      *
      * @param int $musicID Идентификатор музыкального файла для воспроизведения
-     * @param int $iLoop Количество раз, чтобы зациклиться, или 1, чтобы зациклиться навсегда
+     * @param int|null $iLoop Количество раз, чтобы зациклиться, или 1, чтобы зациклиться навсегда
      * @return void
      */
-    function PlayMusicOGG($musicID, $iLoop)
-    {
-    }
-
-    /**
-     * Воспроизведение музыкального файла. Несколько музыкальных файлов OGG могут воспроизводиться одновременно.
-     *
-     * @param int $musicID Идентификатор музыкального файла для воспроизведения
-     * @return void
-     */
-    function PlayMusicOGG($musicID)
+    function PlayMusicOGG(int $musicID, int $iLoop = null)
     {
     }
 
@@ -11460,45 +11205,14 @@ class AppGameKit
      * должны использовать дополнительные параметры PlayMusic для воспроизведения треков один за другим. В любой момент
      * времени может воспроизводиться только один музыкальный файл.
      *
-     * @param int $iID Начнем с музыкального файла.
-     * @param int $bLoop 1
-     * @return void
-     */
-    function PlayMusic($iID, $bLoop)
-    {
-    }
-
-    /**
-     * Воспроизводит только данный музыкальный файл и при желании зацикливает его. Это изменение по сравнению с
-     * предыдущими версиями, где AGK продолжал бы воспроизводить следующий музыкальный трек после этого. Теперь вы
-     * должны использовать дополнительные параметры PlayMusic для воспроизведения треков один за другим. В любой момент
-     * времени может воспроизводиться только один музыкальный файл.
+     * Пример вызова:
      *
-     * @param int $iID Начнем с музыкального файла.
-     * @return void
-     */
-    function PlayMusic($iID)
-    {
-    }
-
-    /**
-     * Воспроизводит только данный музыкальный файл и при желании зацикливает его. Это изменение по сравнению с
-     * предыдущими версиями, где AGK продолжал бы воспроизводить следующий музыкальный трек после этого. Теперь вы
-     * должны использовать дополнительные параметры PlayMusic для воспроизведения треков один за другим. В любой момент
-     * времени может воспроизводиться только один музыкальный файл.
+     * void PlayMusic();
      *
-     * @return void
-     */
-    function PlayMusic()
-    {
-    }
-
-    /**
-     * Воспроизводит только данный музыкальный файл и при желании зацикливает его. Это изменение по сравнению с
-     * предыдущими версиями, где AGK продолжал бы воспроизводить следующий музыкальный трек после этого. Теперь вы
-     * должны использовать дополнительные параметры PlayMusic для воспроизведения треков один за другим. В любой момент
-     * времени может воспроизводиться только один музыкальный файл.
+     * void PlayMusic($iID);
      *
+     * void PlayMusic($iID, $bLoop);
+     * void PlayMusic($iID, $bLoop, $iStartID, $iEndID);
      * @param int $iID Начнем с музыкального файла.
      * @param int $bLoop 1
      * @param int $iStartID Идентификатор, к которому нужно вернуться при циклическом переходе от конца к началу списка
@@ -11506,7 +11220,7 @@ class AppGameKit
      * @param int $iEndID Идентификатор, после которого он должен вернуться к началу цикла.
      * @return void
      */
-    function PlayMusic($iID, $bLoop, $iStartID, $iEndID)
+    function PlayMusic(int...$args)
     {
     }
 
@@ -11718,79 +11432,22 @@ class AppGameKit
      * pin-кода GPIO, например OpenToWrite(1, "gpio:4"), это чувствительно к регистру. Затем вы можете использовать
      * writeByte для записи 0 или 1 в pin-код и CloseFile для закрытия pin-кода.
      *
-     * @param int $ID Идентификатор, который будет использоваться для ссылки на этот файл позже.
-     * @param string $szFile Имя файла, которое нужно открыть для записи.
-     * @return void
-     */
-    function OpenToWrite($ID, $szFile)
-    {
-    }
-
-    /**
-     * Открывает файл, хранящийся в локальной файловой системе, для записи в указанный идентификатор. Все платформы
-     * ограничены одной папкой для записи, поэтому пути к файлам должны быть относительными, а не абсолютными. Эта
-     * папка записи не является той же папкой, что и само приложение, поэтому изображения, звуки и само приложение не
-     * могут быть перезаписаны. Файлы, записанные в эту папку, можно читать с помощью OpenToRead. Если файл не
-     * существует, он будет создан, если файл существует, он будет перезаписан, если append равен 0. или добавлен, если
-     * append равен 1. Если каталог указан в имени файла и не существует, он будет создан. Чтобы записать файл вне
-     * обычной папки записи, вы можете использовать "raw:", за которым следует абсолютный путь для текущей платформы,
-     * например "raw:C:\MyFolder\MyFile.txt" на окнах или "raw:/sdcard/Documents/MyFile.txt-на Андроиде. Если
-     * какие-либо папки в выбранном вами пути не существуют, они будут созданы. На Raspberry Pi вы можете использовать
-     * эту команду, чтобы открыть pin-код GPIO для записи, используя имя файла "gpio:", за которым следует номер
-     * pin-кода GPIO, например OpenToWrite(1, "gpio:4"), это чувствительно к регистру. Затем вы можете использовать
-     * writeByte для записи 0 или 1 в pin-код и CloseFile для закрытия pin-кода.
+     * Пример вызова:
      *
-     * @param string $szFile Имя файла, которое нужно открыть для записи.
-     * @param int $append Установите значение 1 для добавления в файл, 0 для перезаписи всех данных (необязательно, по
-     *     умолчанию 0).
-     * @return int
-     */
-    function OpenToWrite($szFile, $append)
-    {
-    }
-
-    /**
-     * Открывает файл, хранящийся в локальной файловой системе, для записи в указанный идентификатор. Все платформы
-     * ограничены одной папкой для записи, поэтому пути к файлам должны быть относительными, а не абсолютными. Эта
-     * папка записи не является той же папкой, что и само приложение, поэтому изображения, звуки и само приложение не
-     * могут быть перезаписаны. Файлы, записанные в эту папку, можно читать с помощью OpenToRead. Если файл не
-     * существует, он будет создан, если файл существует, он будет перезаписан, если append равен 0. или добавлен, если
-     * append равен 1. Если каталог указан в имени файла и не существует, он будет создан. Чтобы записать файл вне
-     * обычной папки записи, вы можете использовать "raw:", за которым следует абсолютный путь для текущей платформы,
-     * например "raw:C:\MyFolder\MyFile.txt" на окнах или "raw:/sdcard/Documents/MyFile.txt-на Андроиде. Если
-     * какие-либо папки в выбранном вами пути не существуют, они будут созданы. На Raspberry Pi вы можете использовать
-     * эту команду, чтобы открыть pin-код GPIO для записи, используя имя файла "gpio:", за которым следует номер
-     * pin-кода GPIO, например OpenToWrite(1, "gpio:4"), это чувствительно к регистру. Затем вы можете использовать
-     * writeByte для записи 0 или 1 в pin-код и CloseFile для закрытия pin-кода.
+     * int OpenToWrite($szFile);
      *
-     * @param string $szFile Имя файла, которое нужно открыть для записи.
-     * @return int
-     */
-    function OpenToWrite($szFile)
-    {
-    }
-
-    /**
-     * Открывает файл, хранящийся в локальной файловой системе, для записи в указанный идентификатор. Все платформы
-     * ограничены одной папкой для записи, поэтому пути к файлам должны быть относительными, а не абсолютными. Эта
-     * папка записи не является той же папкой, что и само приложение, поэтому изображения, звуки и само приложение не
-     * могут быть перезаписаны. Файлы, записанные в эту папку, можно читать с помощью OpenToRead. Если файл не
-     * существует, он будет создан, если файл существует, он будет перезаписан, если append равен 0. или добавлен, если
-     * append равен 1. Если каталог указан в имени файла и не существует, он будет создан. Чтобы записать файл вне
-     * обычной папки записи, вы можете использовать "raw:", за которым следует абсолютный путь для текущей платформы,
-     * например "raw:C:\MyFolder\MyFile.txt" на окнах или "raw:/sdcard/Documents/MyFile.txt-на Андроиде. Если
-     * какие-либо папки в выбранном вами пути не существуют, они будут созданы. На Raspberry Pi вы можете использовать
-     * эту команду, чтобы открыть pin-код GPIO для записи, используя имя файла "gpio:", за которым следует номер
-     * pin-кода GPIO, например OpenToWrite(1, "gpio:4"), это чувствительно к регистру. Затем вы можете использовать
-     * writeByte для записи 0 или 1 в pin-код и CloseFile для закрытия pin-кода.
+     * int OpenToWrite($szFile, $append);
      *
+     * void OpenToWrite($ID, $szFile)
+     *
+     * void OpenToWrite($ID, $szFile, $append);
      * @param int $ID Идентификатор, который будет использоваться для ссылки на этот файл позже.
      * @param string $szFile Имя файла, которое нужно открыть для записи.
      * @param int $append Установите значение 1 для добавления в файл, 0 для перезаписи всех данных (необязательно, по
      *     умолчанию 0).
-     * @return void
+     * @return int|void
      */
-    function OpenToWrite($ID, $szFile, $append)
+    function OpenToWrite(mixed...$args): int
     {
     }
 
@@ -11806,30 +11463,16 @@ class AppGameKit
      * OpenToRead(1, "gpio:4"), это чувствительно к регистру. Затем вы можете использовать ReadByte для чтения из
      * pin-кода и CloseFile для закрытия pin-кода.
      *
+     * Пример вызова:
+     *
+     * int OpenToRead($szFile);
+     *
+     * void OpenToRead($ID, $szFile)
      * @param int $ID Идентификатор, который будет использоваться для ссылки на этот файл позже.
      * @param string $szFile Имя файла, которое нужно открыть для чтения.
-     * @return void
+     * @return int|void
      */
-    function OpenToRead($ID, $szFile)
-    {
-    }
-
-    /**
-     * Открывает файл, хранящийся в локальной файловой системе, для чтения в указанный идентификатор. Все платформы
-     * ограничены одной папкой для чтения и записи, поэтому пути к файлам должны быть относительными, а не абсолютными.
-     * Эта команда сначала проверит специальную папку записи, а если она не сможет найти файл, то проверит папку
-     * мультимедиа, так что вы можете загрузить изображения, звуки и другие связанные медиафайлы с помощью этой
-     * команды. Чтобы прочитать файл вне обычных папок чтения или записи, вы можете использовать "raw:", за которым
-     * следует абсолютный путь для текущей платформы, например "raw:C:\MyFolder\MyFile.txt" на окнах или
-     * "raw:/sdcard/Documents/MyFile.txt-на Андроиде. На Raspberry Pi вы можете использовать эту команду, чтобы открыть
-     * pin-код GPIO для чтения, используя имя файла "gpio:", за которым следует номер pin-кода GPIO, например
-     * OpenToRead(1, "gpio:4"), это чувствительно к регистру. Затем вы можете использовать ReadByte для чтения из
-     * pin-кода и CloseFile для закрытия pin-кода.
-     *
-     * @param string $szFile Имя файла, которое нужно открыть для чтения.
-     * @return int
-     */
-    function OpenToRead($szFile)
+    function OpenToRead(mixed...$args): int
     {
     }
 
@@ -12033,25 +11676,19 @@ class AppGameKit
     /**
      * Перемещает контроллер.
      *
+     * Пример вызова:
+     *
+     * void Move3DPhysicsCharacterController($objID, $x, $z, $velocity);
+     *
+     * void Move3DPhysicsCharacterController($objID, $direction, $velocity)
      * @param int $objID идентификатор объекта
+     * @param int $direction 0 = стоп, 1 = вперед, 2 = назад, 3 = стрейф влево, 4 = стрейф вправо
      * @param float $x Сумма, которая будет двигаться в направлении x, будет нормализована с направлением z
      * @param float $z Сумма, которая будет двигаться в направлении z, будет нормализована с направлением x
      * @param float $velocity скорость перемещения
      * @return void
      */
-    function Move3DPhysicsCharacterController($objID, $x, $z, $velocity)
-    {
-    }
-
-    /**
-     * Перемещает контроллер.
-     *
-     * @param int $objID идентификатор объекта
-     * @param int $direction 0 = стоп, 1 = вперед, 2 = назад, 3 = стрейф влево, 4 = стрейф вправо
-     * @param float $velocity скорость перемещения
-     * @return void
-     */
-    function Move3DPhysicsCharacterController($objID, $direction, $velocity)
+    function Move3DPhysicsCharacterController(mixed...$args)
     {
     }
 
@@ -12153,7 +11790,7 @@ class AppGameKit
      * @param string $szMessage текстовое сообщение для отправки в область журнала/вывода
      * @return void
      */
-    function Log($szMessage)
+    function Log(string $szMessage)
     {
     }
 
@@ -12162,10 +11799,11 @@ class AppGameKit
      *
      * @param float $a Входное значение
      * @return float
-     */
+
     function Log($a)
     {
     }
+    */
 
     /**
      * Загружает субизображение из текстуры атласа для использования в качестве автономного изображения в указанный
@@ -12186,42 +11824,20 @@ class AppGameKit
      * вашим субизображениям границу в 1 пиксель соответствующего цвета, которую он может безопасно украсть при
      * фильтрации.
      *
-     * @param int $iParentIndex Идентификатор изображения, содержащего текстуру атласа, загруженную ранее.
-     * @param string $sImageFilename Имя файла вложенного образа, хранящегося в subimages.txt. Не используйте путь
-     *     перед именем файла.
-     * @return int
-     */
-    function LoadSubImage($iParentIndex, $sImageFilename)
-    {
-    }
-
-    /**
-     * Загружает субизображение из текстуры атласа для использования в качестве автономного изображения в указанный
-     * идентификатор изображения. В subimages.txt файл должен начинаться с того же имени, что и файл изображения,
-     * например, атласное изображение myImage.png будет иметь файл подизображений с именем "myImage subimages.txt".
-     * Файл подизображений содержит ряд строк, каждая из которых описывает изображение, существующее в изображении
-     * атласа. Каждая строка должна иметь имя формата:X:Y:Width:Height с разделителем :, используемым между полями.
-     * Поле Name - это имя, которое вы хотите использовать для ссылки на субизображение при загрузке, оно должно
-     * соответствовать параметру sImageFilename этой команды LoadSubImage. Поля X:Y-это координаты пикселей X и Y,
-     * представляющие верхний левый угол подизображения, а поля Width:Height-это размер в пикселях подизображения. Эти
-     * значения затем используются для извлечения вашего именованного изображения из атласа и загрузки его в свой
-     * собственный идентификатор изображения, который будет использоваться как обычное изображение. Изображение атласа
-     * должно оставаться загруженным в течение всего времени использования загруженного субизображения. Обратите
-     * внимание, что при загрузке подизображения AGK немного изменит UV-координаты, чтобы изображение не крало пиксели
-     * из соседних изображений во время фильтрации, по умолчанию он сдвигает UV внутрь на 0,5 пикселя. Вы можете
-     * переопределить это, установив SetSpriteUVBorder равным 0 для спрайтов, где вам нужны идеальные пиксельные
-     * результаты, но вам придется следить за тем, чтобы пиксель кровоточил по краям, и, возможно, вам придется дать
-     * вашим субизображениям границу в 1 пиксель соответствующего цвета, которую он может безопасно украсть при
-     * фильтрации.
      *
+     * Пример вызова:
+     *
+     * int LoadSubImage($iParentIndex, $sImageFilename);
+     *
+     * void LoadSubImage($iImageIndex, $iParentIndex, $sImageFilename);
      * @param int $iImageIndex Идентификатор изображения, который будет использоваться для ссылки на это изображение
-     *     позже.
+     * позже.
      * @param int $iParentIndex Идентификатор изображения, содержащего текстуру атласа, загруженную ранее.
      * @param string $sImageFilename Имя файла вложенного образа, хранящегося в subimages.txt. Не используйте путь
-     *     перед именем файла.
-     * @return void
+     * перед именем файла.
+     * @return int|void
      */
-    function LoadSubImage($iImageIndex, $iParentIndex, $sImageFilename)
+    function LoadSubImage(mixed...$args): int
     {
     }
 
@@ -12250,29 +11866,17 @@ class AppGameKit
      * одно и то же изображение, вы должны загрузить его отдельно и передать его идентификатор команде CreateSprite для
      * экономии памяти.
      *
-     * @param string $imagefile Имя файла изображения, которое будет использоваться при рисовании этого спрайта
-     * @return int
-     */
-    function LoadSprite($imagefile)
-    {
-    }
-
-    /**
-     * Создает спрайт в пустом идентификаторе спрайта с явным изображением для использования при рендеринге, возвращает
-     * используемый идентификатор спрайта. По умолчанию спрайты создаются с глубиной 10, имеют размер, используя данное
-     * изображение в качестве направляющей, и позиционируются на 0,0, используя их верхний левый угол. Если назначенное
-     * изображение имеет альфа-пиксели, то спрайт создается с режимом прозрачности 1, в противном случае он использует
-     * режим прозрачности 0 (непрозрачный) Эта команда берет имя файла изображения и загружает его специально для этого
-     * спрайта, это изображение будет удалено, когда спрайт будет удален. Если много спрайтов собираются использовать
-     * одно и то же изображение, вы должны загрузить его отдельно и передать его идентификатор команде CreateSprite для
-     * экономии памяти.
+     * Пример вызова:
      *
+     * int LoadSprite($imagefile);
+     *
+     * void LoadSprite($iSpriteIndex, $imagefile);
      * @param int $iSpriteIndex Идентификатор спрайта, который будет использоваться для ссылки на этот спрайт позже
      *     (отдельно от идентификаторов изображений, поэтому может быть как спрайт 1, так и изображение 1)
      * @param string $imagefile Имя файла изображения, которое будет использоваться при рисовании этого спрайта
-     * @return void
+     * @return int|void
      */
-    function LoadSprite($iSpriteIndex, $imagefile)
+    function LoadSprite(mixed...$args): int
     {
     }
 
@@ -12288,30 +11892,16 @@ class AppGameKit
      * в других командах. Идентификаторы являются общими для всех типов шейдеров, поэтому загрузка спрайтового шейдера
      * в ID 1 не будет работать, если 3D-шейдер существует с ID 1.
      *
-     * @param string $szPixelFile Имя файла пиксельного шейдера, обычно заканчивающееся на .ps
-     * @return int
-     */
-    function LoadSpriteShader($szPixelFile)
-    {
-    }
-
-    /**
-     * Загружает шейдер, используемый для изменения спрайтов, поскольку он содержит только пиксельный шейдер, вершинный
-     * шейдер автоматически генерируется, чтобы убедиться, что он появляется в нужном месте. Этот тип шейдера должен
-     * применяться только к спрайтам, но ничего плохого не произойдет, если вы решите применить его к объектам, он
-     * просто даст необычные результаты рендеринга для этого объекта. В настоящее время шейдеры по умолчанию используют
-     * GLSL версии 1.10, строка "#version 110" будет автоматически добавлена в качестве первой строки шейдера, если вы
-     * не укажете свою собственную строку "#version". Обратите внимание, что это может означать, что ваш шейдер
-     * работает не на всех устройствах и платформах. Глобальное значение "точность" будет добавлено и не должно быть
-     * включено в исходный код шейдера. Возвращает идентификатор, который можно использовать для ссылки на этот шейдер
-     * в других командах. Идентификаторы являются общими для всех типов шейдеров, поэтому загрузка спрайтового шейдера
-     * в ID 1 не будет работать, если 3D-шейдер существует с ID 1.
+     * Пример вызова:
      *
+     * int LoadSpriteShader($szPixelFile);
+     *
+     * void LoadSpriteShader($shaderID, $szPixelFile);
      * @param int $shaderID Идентификатор, используемый для ссылки на этот шейдер в других командах.
      * @param string $szPixelFile Имя файла пиксельного шейдера, обычно заканчивающееся на .ps
-     * @return void
+     * @return int|void
      */
-    function LoadSpriteShader($shaderID, $szPixelFile)
+    function LoadSpriteShader(mixed...$args): int
     {
     }
 
@@ -12323,30 +11913,19 @@ class AppGameKit
      * и костей в соответствии с выбранным вами разрешением. Значение 1 не изменит размеров, значение 2 сделает все в
      * два раза больше, значение 0,5 уменьшит размер вдвое, и так далее.
      *
-     * @param string $filename Имя файла, который нужно загрузить, должно быть таким .экспорт json из позвоночника
-     * @param float $scale Сумма для масштабирования размеров объекта
-     * @param int $atlasImage зарезервировано, должно быть 0
-     * @return int
-     */
-    function LoadSkeleton2DFromSpriterFile($filename, $scale, $atlasImage)
-    {
-    }
-
-    /**
-     * Загружает анимацию спрайтера, экспортированную в формате JSON. Пожалуйста, обратитесь к разделу руководства для
-     * получения подробной информации о том, что поддерживается. Возвращает идентификатор, используемый для ссылки на
-     * этот скелет. Параметр atlas image еще не поддерживается и должен быть равен 0, изображения будут загружаться по
-     * путям, указанным в файле Spriter JSON. Вы можете использовать значение масштаба, чтобы изменить размер спрайтов
-     * и костей в соответствии с выбранным вами разрешением. Значение 1 не изменит размеров, значение 2 сделает все в
-     * два раза больше, значение 0,5 уменьшит размер вдвое, и так далее.
      *
+     * Пример вызова:
+     *
+     * int LoadSkeleton2DFromSpriterFile($filename, $scale, $atlasImage);
+     *
+     * void LoadSkeleton2DFromSpriterFile($iSkeleton, $filename, $scale, $atlasImage)
      * @param int $iSkeleton ID для использования для этого скелета
      * @param string $filename Имя файла, который нужно загрузить, должно быть таким .экспорт json из позвоночника
      * @param float $scale Сумма для масштабирования размеров объекта
      * @param int $atlasImage зарезервировано, должно быть 0
-     * @return void
+     * @return int|void
      */
-    function LoadSkeleton2DFromSpriterFile($iSkeleton, $filename, $scale, $atlasImage)
+    function LoadSkeleton2DFromSpriterFile(mixed...$args): int
     {
     }
 
@@ -12356,24 +11935,16 @@ class AppGameKit
      * внимание, что сжатые WAV-файлы не поддерживаются. Вы должны использовать несжатые WAV-файлы, чтобы обеспечить
      * совместимость на всех платформах.
      *
-     * @param string $sFilename Имя файла загружаемого звукового файла должно быть WAV-файлом.
-     * @return int
-     */
-    function LoadSound($sFilename)
-    {
-    }
-
-    /**
-     * Загружает звуковой файл из папки мультимедиа приложения и возвращает номер звука. Пути к файлам должны быть
-     * относительными, а не абсолютными, вы не можете загружать звуковые файлы из другого места на диске. Обратите
-     * внимание, что сжатые WAV-файлы не поддерживаются. Вы должны использовать несжатые WAV-файлы, чтобы обеспечить
-     * совместимость на всех платформах.
+     * Пример вызова:
      *
+     * int LoadSound($sFilename);
+     *
+     * void LoadSound($iID, $sFilename);
      * @param int $iID Звуковой номер для хранения звука.
      * @param string $sFilename Имя файла загружаемого звукового файла должно быть WAV-файлом.
-     * @return void
+     * @return int|void
      */
-    function LoadSound($iID, $sFilename)
+    function LoadSound(mixed...$args): int
     {
     }
 
@@ -12384,25 +11955,15 @@ class AppGameKit
      * же, как если бы вы использовали WAV-файл. Если вы хотите использовать OGG, а также экономить память, то
      * используйте новые команды LoadMusicOGG.
      *
+     * Пример вызова:
+     *
+     * int LoadSoundOGG($sFilename);
+     * void LoadSoundOGG($iID, $sFilename);
      * @param int $iID Звуковой номер для хранения звука.
      * @param string $sFilename Имя файла загружаемого звукового файла должно быть OGG-файлом.
-     * @return void
+     * @return int|void
      */
-    function LoadSoundOGG($iID, $sFilename)
-    {
-    }
-
-    /**
-     * Загружает звуковой файл из папки мультимедиа приложения. Пути к файлам должны быть относительными, а не
-     * абсолютными, вы не можете загружать звуковые файлы из других мест на диске. Эта команда берет сжатый OGG-файл и
-     * распаковывает его во время загрузки, позволяя вам сохранить размер файла, но использование памяти будет таким
-     * же, как если бы вы использовали WAV-файл. Если вы хотите использовать OGG, а также экономить память, то
-     * используйте новые команды LoadMusicOGG.
-     *
-     * @param string $sFilename Имя файла загружаемого звукового файла должно быть OGG-файлом.
-     * @return int
-     */
-    function LoadSoundOGG($sFilename)
+    function LoadSoundOGG(mixed...$args): int
     {
     }
 
@@ -12415,33 +11976,19 @@ class AppGameKit
      * размер спрайтов и костей в соответствии с выбранным вами разрешением. Значение 1 не изменит размеров, значение 2
      * сделает все в два раза больше, значение 0,5 уменьшит размер вдвое, и так далее.
      *
-     * @param string $filename Имя файла, который нужно загрузить, должно быть таким .экспорт json из позвоночника
-     * @param float $scale Сумма для масштабирования размеров объекта
-     * @param int $atlasImage Идентификатор изображения атласа, содержащего все изображения
-     * @param int $loadAnim 1 для загрузки анимации, 0 для загрузки только спрайтов и костей
-     * @return int
-     */
-    function LoadSkeleton2DFromSpineFile($filename, $scale, $atlasImage, $loadAnim)
-    {
-    }
-
-    /**
-     * Загружает анимацию позвоночника, экспортированную в формате JSON. Пожалуйста, обратитесь к разделу руководства
-     * для получения подробной информации о том, что поддерживается. Возвращает идентификатор, используемый для ссылки
-     * на этот скелет. Сначала вы должны загрузить изображение атласа, экспортированное Spine, в изображение AGK с
-     * помощью команды normal LoadImage и передать его в эту функцию. Вы также можете загрузить анимацию или просто
-     * спрайты и кости и переместить или изменить их вручную. Вы можете использовать значение масштаба, чтобы изменить
-     * размер спрайтов и костей в соответствии с выбранным вами разрешением. Значение 1 не изменит размеров, значение 2
-     * сделает все в два раза больше, значение 0,5 уменьшит размер вдвое, и так далее.
+     * Пример вызова:
      *
+     * int LoadSkeleton2DFromSpineFile($filename, $scale, $atlasImage, $loadAnim);
+     *
+     * void LoadSkeleton2DFromSpineFile($iSkeleton, $filename, $scale, $atlasImage, $loadAnim);
      * @param int $iSkeleton ID для использования для этого скелета
      * @param string $filename Имя файла, который нужно загрузить, должно быть таким .экспорт json из позвоночника
      * @param float $scale Сумма для масштабирования размеров объекта
      * @param int $atlasImage Идентификатор изображения атласа, содержащего все изображения
      * @param int $loadAnim 1 для загрузки анимации, 0 для загрузки только спрайтов и костей
-     * @return void
+     * @return int|void
      */
-    function LoadSkeleton2DFromSpineFile($iSkeleton, $filename, $scale, $atlasImage, $loadAnim)
+    function LoadSkeleton2DFromSpineFile(mixed...$args): int
     {
     }
 
@@ -12478,12 +12025,17 @@ class AppGameKit
      * внимание, что это может означать, что ваш шейдер работает не на всех устройствах и платформах. Глобальное
      * значение "точность" будет добавлено и не должно быть включено в исходный код шейдера.
      *
+     * Пример:
+     *
+     * int LoadShaderFromString($szVertexSource, $szPixelSource);
+     *
+     * void LoadShaderFromString($shaderID, $szVertexSource, $szPixelSource);
      * @param int $shaderID Идентификатор, используемый для ссылки на этот шейдер в других командах.
      * @param string $szVertexSource Имя файла вершинного шейдера, обычно заканчивающееся .vs
      * @param string $szPixelSource Имя файла пиксельного шейдера, обычно заканчивающееся на .ps
-     * @return void
+     * @return int|void
      */
-    function LoadShaderFromString($shaderID, $szVertexSource, $szPixelSource)
+    function LoadShaderFromString(mixed...$args): int
     {
     }
 
@@ -12495,44 +12047,16 @@ class AppGameKit
      * внимание, что это может означать, что ваш шейдер работает не на всех устройствах и платформах. Глобальное
      * значение "точность" будет добавлено и не должно быть включено в исходный код шейдера.
      *
-     * @param string $szVertexSource Имя файла вершинного шейдера, обычно заканчивающееся .vs
-     * @param string $szPixelSource Имя файла пиксельного шейдера, обычно заканчивающееся на .ps
-     * @return int
-     */
-    function LoadShaderFromString($szVertexSource, $szPixelSource)
-    {
-    }
-
-    /**
-     * Загружает шейдер, используемый для рисования объектов. Вершинный шейдер преобразует полигоны в экранное
-     * пространство, а пиксельный шейдер определяет окончательный цвет каждого пикселя, который покрывает объект. В
-     * настоящее время шейдеры по умолчанию используют GLSL версии 1.10, строка "#version 110" будет автоматически
-     * добавлена в качестве первой строки шейдера, если вы не укажете свою собственную строку "#version". Обратите
-     * внимание, что это может означать, что ваш шейдер работает не на всех устройствах и платформах. Глобальное
-     * значение "точность" будет добавлено и не должно быть включено в исходный код шейдера.
+     * Пример вызова:
+     * int LoadShader($szVertexFile, $szPixelFile);
      *
+     * void LoadShader($shaderID, $szVertexFile, $szPixelFile);
      * @param int $shaderID Идентификатор, используемый для ссылки на этот шейдер в других командах.
      * @param string $szVertexFile Имя файла вершинного шейдера, обычно заканчивающееся .vs
      * @param string $szPixelFile Имя файла пиксельного шейдера, обычно заканчивающееся на .ps
-     * @return void
+     * @return int|void
      */
-    function LoadShader($shaderID, $szVertexFile, $szPixelFile)
-    {
-    }
-
-    /**
-     * Загружает шейдер, используемый для рисования объектов. Вершинный шейдер преобразует полигоны в экранное
-     * пространство, а пиксельный шейдер определяет окончательный цвет каждого пикселя, который покрывает объект. В
-     * настоящее время шейдеры по умолчанию используют GLSL версии 1.10, строка "#version 110" будет автоматически
-     * добавлена в качестве первой строки шейдера, если вы не укажете свою собственную строку "#version". Обратите
-     * внимание, что это может означать, что ваш шейдер работает не на всех устройствах и платформах. Глобальное
-     * значение "точность" будет добавлено и не должно быть включено в исходный код шейдера.
-     *
-     * @param string $szVertexFile Имя файла вершинного шейдера, обычно заканчивающееся .vs
-     * @param string $szPixelFile Имя файла пиксельного шейдера, обычно заканчивающееся на .ps
-     * @return int
-     */
-    function LoadShader($szVertexFile, $szPixelFile)
+    function LoadShader(mixed...$args)
     {
     }
 
@@ -12546,28 +12070,17 @@ class AppGameKit
      * каких-либо костей, анимации или детей, то вместо этого используйте LoadObject. Возвращает идентификатор, который
      * можно использовать для ссылки на этот объект в других командах.
      *
-     * @param string $szFilename Имя загружаемого объектного файла.
-     * @return int
-     */
-    function LoadObjectWithChildren($szFilename)
-    {
-    }
-
-    /**
-     * Загружает объект из файла, в настоящее время поддерживаются форматы .X .FBX .dae (collada) .3ds .md3 .smd .md5
-     * .lwo .ac .b3d .dae .3d .lws .ms3d .blend .obj и .ago. Если файл модели содержит иерархию костей или анимационные
-     * данные, то они также будут загружены и связаны с объектом. Обратите внимание, что объекты с более чем 50 костями
-     * могут не отображаться на некоторых старых устройствах. AGK имеет предел в 200 костей. Если файл модели содержит
-     * график сцены, содержащий несколько объектов, то они также будут загружены и сохранены в отдельных объектах,
-     * которые могут быть обнаружены с помощью GetObjectNumChildren. Если вы просто хотите загрузить один объект без
-     * каких-либо костей, анимации или детей, то вместо этого используйте LoadObject. Возвращает идентификатор, который
-     * можно использовать для ссылки на этот объект в других командах.
+     * Пример вызова:
+     *
+     * int LoadObjectWithChildren($szFilename);
+     *
+     * void LoadObjectWithChildren($objID, $szFilename)
      *
      * @param int $objID Идентификатор, используемый для нового объекта.
      * @param string $szFilename Имя загружаемого объектного файла.
-     * @return void
+     * @return int|void
      */
-    function LoadObjectWithChildren($objID, $szFilename)
+    function LoadObjectWithChildren(mixed...$args): int
     {
     }
 
@@ -12579,7 +12092,7 @@ class AppGameKit
      * @param string $fileName имя файла
      * @return int
      */
-    function LoadObjectShape($objID, $fileName)
+    function LoadObjectShape($objID, $fileName): int
     {
     }
 
@@ -12622,26 +12135,15 @@ class AppGameKit
      * MP3, вместо этого она попытается загрузить файл OGG Vorbis. Например, если вы попытаетесь загрузить "music.mp3",
      * на Meego это будет интерпретировано как "music.ogg". Идентификатор должен находиться в диапазоне от 1 до 50.
      *
+     * Пример вызова:
+     * int LoadMusic($sFile);
+     *
+     * void LoadMusic($iID, $sFile)
      * @param int $iID Музыкальный номер для хранения музыки.
      * @param string $sFile Имя файла загружаемого музыкального файла.
-     * @return void
+     * @return int|void
      */
-    function LoadMusic($iID, $sFile)
-    {
-    }
-
-    /**
-     * Загружает музыкальный файл из папки мультимедиа приложения в указанный идентификатор. Пути к файлам должны быть
-     * относительными, а не абсолютными, вы не можете загружать музыкальные файлы из других мест на диске. Он
-     * возвращает идентификатор музыкального файла для последующей ссылки на него. Рекомендуемый формат для
-     * кросс-платформенной совместимости-MP3. Обратите внимание, что платформа Meego в настоящее время не поддерживает
-     * MP3, вместо этого она попытается загрузить файл OGG Vorbis. Например, если вы попытаетесь загрузить "music.mp3",
-     * на Meego это будет интерпретировано как "music.ogg". Идентификатор должен находиться в диапазоне от 1 до 50.
-     *
-     * @param string $sFile Имя файла загружаемого музыкального файла.
-     * @return int
-     */
-    function LoadMusic($sFile)
+    function LoadMusic(mixed...$args): int
     {
     }
 
@@ -12651,26 +12153,19 @@ class AppGameKit
      * несколько музыкальных файлов OGG. Идентификаторы музыкальных файлов OGG отделены от обычных идентификаторов
      * музыкальных файлов и не ограничены определенным диапазоном чисел.
      *
+     * Пример вызова:
+     *
+     * int LoadMusicOGG($sFile);
+     *
+     * void LoadMusicOGG($musicID, $sFile);
      * @param int $musicID Идентификатор, используемый для ссылки на этот музыкальный файл.
      * @param string $sFile Имя файла загружаемого музыкального файла.
-     * @return void
+     * @return int|void
      */
-    function LoadMusicOGG($musicID, $sFile)
+    function LoadMusicOGG(mixed...$args): int
     {
     }
 
-    /**
-     * Загружает музыкальный файл, сжатый с помощью OGG Vorbis. Это поддерживается на всех платформах, как и новый
-     * предпочтительный способ воспроизведения музыки, заменяющий команду LoadMusic. Одновременно можно воспроизводить
-     * несколько музыкальных файлов OGG. Идентификаторы музыкальных файлов OGG отделены от обычных идентификаторов
-     * музыкальных файлов и не ограничены определенным диапазоном чисел.
-     *
-     * @param string $sFile Имя файла загружаемого музыкального файла.
-     * @return int
-     */
-    function LoadMusicOGG($sFile)
-    {
-    }
 
     /**
      * Загружает изображение, изменяя его размер в процессе. Это позволяет вам иметь одно высококачественное
@@ -12685,37 +12180,19 @@ class AppGameKit
      * чтобы LoadSubImage по-прежнему работал правильно. Параметр кэша больше не используется, так как масштабирование
      * изображения теперь выполняется графическим процессором, поэтому почти не влияет на производительность
      *
-     * @param string $szFilename Имя загружаемого файла
-     * @param float $scaleX Сумма для масштабирования в направлении X, 1.0-это исходный размер
-     * @param float $scaleY Сумма для масштабирования в направлении Y, 1.0-это исходный размер
-     * @param int $cache Больше не используется, должно быть 0
-     * @return int
-     */
-    function LoadImageResized($szFilename, $scaleX, $scaleY, $cache)
-    {
-    }
-
-    /**
-     * Загружает изображение, изменяя его размер в процессе. Это позволяет вам иметь одно высококачественное
-     * изображение, а затем изменять его размер в зависимости от разрешения устройства во время выполнения, вместо того
-     * чтобы иметь несколько уровней качества. Уменьшение размера изображения предпочтительнее увеличения размера
-     * изображения, так как увеличение размера изображения не улучшает качество, но оба варианта поддерживаются.
-     * Значение 1.0 не изменяет размер изображения, значение меньше 1 сделает изображение меньше, значение больше 1
-     * сделает изображение больше. Значения масштабирования должны быть больше 0, но могут быть любой дробью, то есть
-     * допустима шкала 0,6742. Масштаб 0,5 уменьшит размер изображения вдвое, 2,0-вдвое, и так далее. Изображение может
-     * быть изменено по-разному в направлениях X и Y, хотя это приведет к растяжению. Если вы загружаете текстуру
-     * атласа с помощью этой команды, то subimages.txt файл также будет иметь свои значения, измененные таким образом,
-     * чтобы LoadSubImage по-прежнему работал правильно. Параметр кэша больше не используется, так как масштабирование
-     * изображения теперь выполняется графическим процессором, поэтому почти не влияет на производительность
+     * Пример вызова:
      *
+     * int LoadImageResized($szFilename, $scaleX, $scaleY, $cache);
+     *
+     * void LoadImageResized($iImageID, $szFilename, $scaleX, $scaleY, $cache);
      * @param int $iImageID Идентификатор, который будет использоваться для ссылки на это изображение в будущем
      * @param string $szFilename Имя загружаемого файла
      * @param float $scaleX Сумма для масштабирования в направлении X, 1.0-это исходный размер
      * @param float $scaleY Сумма для масштабирования в направлении Y, 1.0-это исходный размер
      * @param int $cache Больше не используется, должно быть 0
-     * @return void
+     * @return int|void
      */
-    function LoadImageResized($iImageID, $szFilename, $scaleX, $scaleY, $cache)
+    function LoadImageResized(mixed...$args): int
     {
     }
 
@@ -12769,33 +12246,20 @@ class AppGameKit
      * использовать этот идентификатор для всех целей, а не загружать несколько копий файла шрифта Arial в отдельные
      * идентификаторы.
      *
+     *
+     * Пример вызова:
+     *
+     * int LoadFont($szFontFile);
+     *
+     * void LoadFont($iFontID, $szFontFile);
      * @param int $iFontID Идентификатор, который будет использоваться для ссылки на этот шрифт в будущем
      * @param string $szFontFile Имя файла загружаемого шрифта
-     * @return void
+     * @return int|void
      */
-    function LoadFont($iFontID, $szFontFile)
+    function LoadFont(mixed...$args): int
     {
     }
 
-
-    /**
-     * Загружает файл шрифта в AGK, как правило, в формате TrueType, но все, что поддерживается FreeType, должно
-     * работать. Параметр szFontFile может быть либо файлом шрифта, расположенным в вашей папке мультимедиа, либо
-     * именем системного шрифта, эта команда сначала проверит вашу папку мультимедиа, прежде чем проверять наличие
-     * системных шрифтов. Если вы загружаете системный шрифт, то расширение файла является необязательным, например
-     * "Arial.ttf" и "Arial" будут загружать системный шрифт "Arial", если он существует. При загрузке системного
-     * шрифта имя файла не должно иметь никаких путей к папкам в имени файла, то есть никаких прямых или обратных косых
-     * черт. Чтобы повысить производительность, вы должны загрузить шрифт только один раз. Например, если вы хотите
-     * использовать шрифт "Arial" в нескольких местах, то вам следует загрузить его в идентификатор, а затем
-     * использовать этот идентификатор для всех целей, а не загружать несколько копий файла шрифта Arial в отдельные
-     * идентификаторы.
-     *
-     * @param string $szFontFile Имя файла загружаемого шрифта
-     * @return int
-     */
-    function LoadFont($szFontFile)
-    {
-    }
 
     /**
      * Загружает текущий статус согласия пользователя с сервера AdMob, это необходимо сделать перед вызовом
@@ -12823,31 +12287,16 @@ class AppGameKit
      * общими для всех типов шейдеров, поэтому загрузка полноэкранного шейдера в ID 1 не будет работать, если
      * существует обычный шейдер с ID 1.
      *
-     * @param string $szPixelFile Имя файла пиксельного шейдера, обычно заканчивающееся на .ps
-     * @return int
-     */
-    function LoadFullScreenShader($szPixelFile)
-    {
-    }
-
-    /**
-     * Загружает шейдер, используемый для изменения целей рендеринга, поскольку он содержит только пиксельный шейдер,
-     * вершинный шейдер автоматически генерируется, чтобы убедиться, что он применим к полному экрану. Этот тип шейдера
-     * должен применяться только к объектам, созданным с помощью CreateObjectQuad, но ничего плохого не произойдет,
-     * если вы решите применить его к другим объектам, он просто даст необычные результаты рендеринга для этого
-     * объекта. В настоящее время шейдеры по умолчанию используют GLSL версии 1.10, строка "#version 110" будет
-     * автоматически добавлена в качестве первой строки шейдера, если вы не укажете свою собственную строку "#version".
-     * Обратите внимание, что это может означать, что ваш шейдер работает не на всех устройствах и платформах.
-     * Глобальное значение "точность" будет добавлено и не должно быть включено в исходный код шейдера. Возвращает
-     * идентификатор, который можно использовать для ссылки на этот шейдер в других командах. Идентификаторы являются
-     * общими для всех типов шейдеров, поэтому загрузка полноэкранного шейдера в ID 1 не будет работать, если
-     * существует обычный шейдер с ID 1.
+     * Пример вызова:
      *
+     * int LoadFullScreenShader($szPixelFile);
+     *
+     * void LoadFullScreenShader($shaderID, $szPixelFile);
      * @param int $shaderID Идентификатор, используемый для ссылки на этот шейдер в других командах.
      * @param string $szPixelFile Имя файла пиксельного шейдера, обычно заканчивающееся на .ps
-     * @return void
+     * @return int|void
      */
-    function LoadFullScreenShader($shaderID, $szPixelFile)
+    function LoadFullScreenShader(mixed...$args): int
     {
     }
 
@@ -12934,41 +12383,18 @@ class AppGameKit
      * уникальным. Возвращает идентификатор сети, используемый при взаимодействии с этой сетью. Не работает при
      * экспорте в HTML5
      *
-     * @param string $szIP IP-адрес хоста для подключения может быть IPv4 или IPv6
-     * @param int $port Порт для подключения.
-     * @param string $szMyName Имя, которое нужно использовать для идентификации этого клиента.
-     * @return int
-     */
-    function JoinNetwork($szIP, $port, $szMyName)
-    {
-    }
-
-    /**
-     * Присоединяется к сети AGK, размещенной другим приложением. Сеть определяется по имени или по IP-адресу и номеру
-     * порта. Для именованных сетей приложение будет искать любые сети AGK, транслируемые с этим именем, и подключаться
-     * к ним, если они будут найдены. В качестве альтернативы, используя IP-адрес и номер порта, вы попытаетесь
-     * установить прямое соединение с хостом. В случае подключения к Интернету IP-адрес и порт-это единственный способ
-     * подключения, так как широковещательные передачи не покидают локальную сеть. IP-адреса могут быть IPv4 или IPv6 в
-     * зависимости от того, какие IP-адреса использует хост (он может иметь один или несколько из них). Вы можете
-     * обнаружить все сети, доступные для подключения, настроив прослушиватель широковещательных передач и прослушивая
-     * их самостоятельно, а затем отобразить список обнаруженных сетей пользователю, чтобы он мог решить, к какой из
-     * них подключиться. Эта функция не подключается сразу, она возвращает идентификатор сети и продолжает пытаться
-     * подключиться в фоновом режиме. Вы можете определить, когда установлено соединение, проверив, что
-     * GetNetworkNumClients больше 1, что указывает на то, что по крайней мере локальный клиент и серверный клиент были
-     * обнаружены. Если IsNetworkActive возвращает 0 в любой момент, то соединение с сервером не удалось и сеть должна
-     * быть закрыта, вы можете попытаться восстановить соединение, открыв новую сеть. После подключения приложение
-     * становится клиентом сети вместе с хостом и любыми другими клиентами, которые подключились к нему. Все клиенты
-     * обрабатываются одинаково и имеют список локальных переменных, которые они могут читать и записывать, все клиенты
-     * также могут читать любые переменные на других клиентах только для чтения. Вы должны идентифицировать своего
-     * клиента с именем клиента, которое будет видно другим клиентам, имя клиента не обязательно должно быть
-     * уникальным. Возвращает идентификатор сети, используемый при взаимодействии с этой сетью. Не работает при
-     * экспорте в HTML5
+     * Пример вызова:
      *
+     * int JoinNetwork($szIP, $port, $szMyName);
+     *
+     * int JoinNetwork($szNetworkName, $szMyName);
+     * @param string $szIP IP-адрес хоста для подключения может быть IPv4 или IPv6.
+     * @param int $port Порт для подключения.
      * @param string $szNetworkName Имя сети для подключения.
      * @param string $szMyName Имя, которое нужно использовать для идентификации этого клиента.
      * @return int
      */
-    function JoinNetwork($szNetworkName, $szMyName)
+    function JoinNetwork(mixed...$args): int
     {
     }
 
@@ -13207,47 +12633,11 @@ class AppGameKit
      * @param string $szMyName Имя, которое нужно использовать для идентификации этого клиента.
      * @param int $port Порт, который другие клиенты должны использовать для подключения к этой сети при использовании
      *     IPv4, 0 для отключения IPv4-соединений.
-     * @param int $portv6 Порт, который другие клиенты должны использовать для подключения к этой сети при
+     * @param int|null $portv6 Порт, который другие клиенты должны использовать для подключения к этой сети при
      *     использовании IPv6, 0 для отключения соединений IPv6.
      * @return int
      */
-    function HostNetwork($szNetworkName, $szMyName, $port, $portv6)
-    {
-    }
-
-    /**
-     * Создает сеть AGK с этим приложением в качестве контроллера, это приложение добавляется в качестве первого
-     * клиента в сеть. Сети AGK идентифицируются по имени и автоматически транслируются всем, кто слушает в локальной
-     * сети, а это означает, что другие приложения AGK в локальной сети могут принимать все широковещательные сети,
-     * отображать их имена своим пользователям и позволять им выбирать одну из них для присоединения. Приложения AGK
-     * вне локальной сети нуждаются в IP-адресе и порту хостера, чтобы присоединиться к сети, этот порт будет нуждаться
-     * в переадресации на хост через любой промежуточный брандмауэр. Значение порта должно быть между 1025 и 65535 и
-     * завершится ошибкой, если другое приложение уже прослушивает этот порт. Вы также должны указать имя клиента,
-     * которое будет использоваться для идентификации вашего клиента, все имена клиентов должны быть уникальными. Это
-     * имя будет видно всем остальным клиентам. Клиенты будут добавлены в сеть автоматически и могут быть подсчитаны с
-     * помощью GetNetworkNumClients. Вы можете вызвать IsNetworkActive сразу после этой команды, чтобы проверить, что
-     * сеть была успешно настроена, после установки сеть не станет неактивной для хостера. После подключения приложение
-     * становится клиентом сети, и все другие клиенты, подключающиеся к нему, присоединяются к сети. Все клиенты
-     * обрабатываются одинаково и имеют список локальных переменных, которые они могут читать и записывать, все клиенты
-     * также могут читать любые переменные на других клиентах только для чтения. Некоторые порты используются AGK для
-     * внутренней сети и не должны использоваться вашим приложением. Порты 5689-5692 используются для управления
-     * приложениями, транслируемыми из IDE. Порты 45631 и 45632 используются для именованных сетевых соединений. В
-     * сетях IPv4 сетевая трансляция идет на все устройства в локальной подсети, в сетях IPv6 трансляция идет на адрес
-     * AGK multicast "FF02::41:474B". Если устройство имеет как IPv4, так и IPv6 IP-адреса, то хост-сеть будет
-     * принимать соединения как из сетей IPv4, так и из сетей IPv6. Если вы укажете 0 для порта, то он отключит
-     * IPv4-соединения, если вы установите portv6 в 0, то он отключит IPv6-соединения. По крайней мере один должен быть
-     * больше 0, иначе будет сгенерирована ошибка. Если вы вообще не укажете portv6, то он будет установлен в 0. Должно
-     * быть безопасно использовать один и тот же порт как для IPv4, так и для IPv6, но это не было широко
-     * протестировано. Возвращает идентификатор, который можно использовать для взаимодействия с этой сетью. Не
-     * работает при экспорте в HTML5
-     *
-     * @param string $szNetworkName Имя, используемое для идентификации этой сети.
-     * @param string $szMyName Имя, которое нужно использовать для идентификации этого клиента.
-     * @param int $port Порт, который другие клиенты должны использовать для подключения к этой сети при использовании
-     *     IPv4, 0 для отключения IPv4-соединений.
-     * @return int
-     */
-    function HostNetwork($szNetworkName, $szMyName, $port)
+    function HostNetwork(string $szNetworkName, string $szMyName, int $port, int $portv6 = null): int
     {
     }
 
@@ -20014,29 +19404,13 @@ class AppGameKit
      * @param string $szServerFile Файл, который нужно запросить с сервера, включает в себя все, что находится после
      *     доменной части URL-адреса.
      * @param string $szLocalFile Место для сохранения в файл, это будет внутри папки записи для текущего устройства.
-     * @param string $szPostData Необработанные данные post для отправки на сервер обратите внимание, что & и =
+     * @param string|null $szPostData Необработанные данные post для отправки на сервер обратите внимание, что & и =
      * @return int
      */
-    function GetHTTPFile($iHTTP, $szServerFile, $szLocalFile, $szPostData)
+    function GetHTTPFile(int $iHTTP, string $szServerFile, string $szLocalFile, string $szPostData = null): int
     {
     }
 
-    /**
-     * Загружает HTTP - файл с сервера, указанного в SetHTTPHost, и сохраняет его в указанном месте. Также позволяет
-     * отправлять POST-данные на сервер, которые могут включать переменные или файловые данные, например
-     * "myvar=5&var2=test". Эта команда немедленно возвращается и продолжает загрузку файла в фоновом режиме. Вы можете
-     * проверить ход загрузки с помощью GetHTTPFileProgress и GetHTTPFileComplete. Затем файл будет находиться в
-     * указанном вами месте, готовый к использованию с AGK.
-     *
-     * @param int $iHTTP Идентификатор используемого соединения.
-     * @param string $szServerFile Файл, который нужно запросить с сервера, включает в себя все, что находится после
-     *     доменной части URL-адреса.
-     * @param string $szLocalFile Место для сохранения в файл, это будет внутри папки записи для текущего устройства.
-     * @return int
-     */
-    function GetHTTPFile($iHTTP, $szServerFile, $szLocalFile)
-    {
-    }
 
     /**
      * Возвращает 1, если текущее устройство имеет гироскоп, который в настоящее время поддерживается AGK, и 0, если
@@ -20179,20 +19553,11 @@ class AppGameKit
     /**
      * Возвращает количество папок в текущей папке. Не включает в себя . или ..
      *
-     * @param int $mode 0 для подсчета только папок в папке чтения, 1 для подсчета только папки записи, 2 для подсчета
+     * @param int|null $mode 0 для подсчета только папок в папке чтения, 1 для подсчета только папки записи, 2 для подсчета
      *     обоих
      * @return int
      */
-    function GetFolderCount($mode)
-    {
-    }
-
-    /**
-     * Возвращает количество папок в текущей папке. Не включает в себя . или ..
-     *
-     * @return int
-     */
-    function GetFolderCount()
+    function GetFolderCount(int $mode = null): int
     {
     }
 
@@ -20216,36 +19581,11 @@ class AppGameKit
      * чтения и записи в один список (mode=2), который можно изменить на только возвращаемые папки в папке чтения
      * (mode=0) или только возвращаемые папки из папки записи (mode=1)
      *
-     * @return string
-     */
-    function GetFirstFolder()
-    {
-    }
-
-    /**
-     * Возвращает имя первой папки, найденной в текущей папке, которая задается с помощью SetFolder. Вы можете вызвать
-     * GetNextFolder, чтобы продолжить вниз по списку папок в текущей папке. Возвращает пустую строку, если в текущей
-     * папке нет папок. Не включает в себя . или .. Обратите внимание, что на Android существует известное ограничение,
-     * что любые папки в папке "активы" не могут быть найдены с помощью этой команды. Вы можете обойти эту проблему,
-     * используя MakeFolder для создания той же структуры папок в папке write, которую AGK затем может использовать для
-     * поиска файлов в папке assets с помощью GetFirstFile. По умолчанию эта команда объединит списки папок из папок
-     * чтения и записи в один список (mode=2), который можно изменить на только возвращаемые папки в папке чтения
-     * (mode=0) или только возвращаемые папки из папки записи (mode=1)
-     *
-     * @param int $mode 0 для возврата только папок из папки чтения, 1 для возврата только папок из папки записи, 2 для
+     * @param int|null $mode 0 для возврата только папок из папки чтения, 1 для возврата только папок из папки записи, 2 для
      *     обоих (по умолчанию)
      * @return string
      */
-    function GetFirstFolder($mode)
-    {
-    }
-
-    /**
-     * Возвращает 1, если 3D fog в данный момент включен, в противном случае он возвращает 0.
-     *
-     * @return int
-     */
-    function GetFogMode()
+    function GetFirstFolder(int $mode = null): string
     {
     }
 
@@ -20259,27 +19599,11 @@ class AppGameKit
      * режимов запуска. С другой стороны, папка записи начинается как пустая при запуске приложения непосредственно из
      * IDE или при запуске конечного исполняемого файла приложения в папке проекта.
      *
-     * @param int $mode 0 для возврата только файлов из папки чтения, 1 для возврата только файлов из папки записи, 2
+     * @param int|null $mode 0 для возврата только файлов из папки чтения, 1 для возврата только файлов из папки записи, 2
      *     для обоих (по умолчанию)
      * @return string
      */
-    function GetFirstFile($mode)
-    {
-    }
-
-    /**
-     * Возвращает имя первого файла, найденного в текущей папке, который задается с помощью SetFolder. Вы можете
-     * вызвать GetNextFile, чтобы продолжить вниз по списку файлов в текущей папке. Возвращает пустую строку, если в
-     * текущей папке нет файлов. По умолчанию эта команда объединит списки файлов из папок чтения и записи в один
-     * список (mode=2) это может быть изменено на возврат только файлов из папки чтения (mode=0) или только файлов из
-     * папки записи (mode=1) Обратите внимание, что папка чтения не существует при использовании широковещательной
-     * передачи или отладки для запуска приложения, так как файлы копируются в папку записи проигрывателя AGK для этих
-     * режимов запуска. С другой стороны, папка записи начинается как пустая при запуске приложения непосредственно из
-     * IDE или при запуске конечного исполняемого файла приложения в папке проекта.
-     *
-     * @return string
-     */
-    function GetFirstFile()
+    function GetFirstFile(int $mode = null): string
     {
     }
 
@@ -20317,22 +19641,14 @@ class AppGameKit
     /**
      * Возвращает количество файлов в текущей папке.
      *
-     * @param int $mode 0 для подсчета только файлов в папке чтения, 1 для подсчета только папки записи, 2 для подсчета
-     *     обоих
+     * @param int|null $mode 0 для подсчета только файлов в папке чтения, 1 для подсчета только папки записи, 2 для подсчета
+     * обоих
      * @return int
      */
-    function GetFileCount($mode)
+    function GetFileCount(int $mode = null): int
     {
     }
 
-    /**
-     * Возвращает количество файлов в текущей папке.
-     *
-     * @return int
-     */
-    function GetFileCount()
-    {
-    }
 
     /**
      * Facebook SDK был удален из AppGameKit, эта команда больше ничего не делает
@@ -21997,26 +21313,12 @@ class AppGameKit
      *
      * @param string $str Строка для проверки
      * @param string $findStr Строка, которую нужно найти
-     * @param int $ignoreCase 1-игнорировать регистр при поиске, 0
-     * @param int $start Индекс для начала, первый символ находится в индексе 1, используйте минус 1, чтобы начать с
+     * @param int|null $ignoreCase 1-игнорировать регистр при поиске, 0
+     * @param int|null $start Индекс для начала, первый символ находится в индексе 1, используйте минус 1, чтобы начать с
      *     самого конца
      * @return int
      */
-    function FindStringReverse($str, $findStr, $ignoreCase, $start)
-    {
-    }
-
-    /**
-     * Возвращает индекс первого вхождения findStr в заданную строку, начиная с конца строки и двигаясь назад.
-     * Используйте начальное значение -1, чтобы начать с самого конца строки независимо от ее длины. Индекс 1-это
-     * первый символ в строке, возвращающий 0, если он не найден. По умолчанию этот параметр не чувствителен к
-     * регистру, используйте параметр IgnoreCase для установки чувствительности к регистру.
-     *
-     * @param string $str Строка для проверки
-     * @param string $findStr Строка, которую нужно найти
-     * @return int
-     */
-    function FindStringReverse($str, $findStr)
+    function FindStringReverse(string $str, string $findStr, int $ignoreCase = null, int $start = null)
     {
     }
 
@@ -22055,23 +21357,11 @@ class AppGameKit
      *
      * @param string $str Строка для проверки
      * @param string $findStr Строка, которую нужно найти
+     * @param int|null $ignoreCase 1-игнорировать регистр при поиске, 0
+     * @param int|null $start Индекс, с которого нужно начать, первый символ находится в индексе 1
      * @return int
      */
-    function FindStringCount($str, $findStr)
-    {
-    }
-
-    /**
-     * Возвращает количество раз, когда findStr появляется в данной строке. По умолчанию этот параметр не чувствителен
-     * к регистру, используйте параметр IgnoreCase для установки чувствительности к регистру.
-     *
-     * @param string $str Строка для проверки
-     * @param string $findStr Строка, которую нужно найти
-     * @param int $ignoreCase 1-игнорировать регистр при поиске, 0
-     * @param int $start Индекс, с которого нужно начать, первый символ находится в индексе 1
-     * @return int
-     */
-    function FindStringCount($str, $findStr, $ignoreCase, $start)
+    function FindStringCount(string $str, string $findStr, int $ignoreCase = null, int $start = null): int
     {
     }
 
@@ -22082,24 +21372,11 @@ class AppGameKit
      *
      * @param string $str Строка для проверки
      * @param string $findStr Строка, которую нужно найти
-     * @param int $ignoreCase 1-игнорировать регистр при поиске, 0
-     * @param int $start Индекс, с которого нужно начать, первый символ находится в индексе 1
+     * @param int|null $ignoreCase 1-игнорировать регистр при поиске, 0
+     * @param int|null $start Индекс, с которого нужно начать, первый символ находится в индексе 1
      * @return int
      */
-    function FindString($str, $findStr, $ignoreCase, $start)
-    {
-    }
-
-    /**
-     * Возвращает индекс первого вхождения findStr в заданную строку. Индекс 1-это первый символ в строке, возвращающий
-     * 0, если он не найден. По умолчанию этот параметр не чувствителен к регистру, используйте параметр IgnoreCase для
-     * установки чувствительности к регистру.
-     *
-     * @param string $str Строка для проверки
-     * @param string $findStr Строка, которую нужно найти
-     * @return int
-     */
-    function FindString($str, $findStr)
+    function FindString(string $str, string $findStr, int $ignoreCase = null, int $start = null): int
     {
     }
 
@@ -22368,25 +21645,10 @@ class AppGameKit
      *
      * @param string $zipfilename Путь к zip-файлу для извлечения.
      * @param string $path Путь для размещения вновь извлеченных zip-файлов.
-     * @param string $password Пароль, который был использован для создания zip-файла.
+     * @param string|null $password Пароль, который был использован для создания zip-файла.
      * @return void
      */
-    function ExtractZip($zipfilename, $path, $password)
-    {
-    }
-
-    /**
-     * Извлекает zip-файл в указанный каталог. Все папки, созданные внутри zip-файла, будут созданы в процессе
-     * извлечения. Если zip - файл защищен паролем, укажите пароль для его извлечения. Если вы укажете неправильный
-     * пароль, извлеченные файлы из zip-архива будут пусты. Локальный путь к файлу находится относительно текущего
-     * каталога, установленного с помощью SetFolder, если только вы не начинаете путь с прямой косой черты, и в этом
-     * случае путь будет относительно корня каталога записи на текущей платформе.
-     *
-     * @param string $zipfilename Путь к zip-файлу для извлечения.
-     * @param string $path Путь для размещения вновь извлеченных zip-файлов.
-     * @return void
-     */
-    function ExtractZip($zipfilename, $path)
+    function ExtractZip(string $zipfilename, string $path, string $password = null)
     {
     }
 
@@ -22518,39 +21780,31 @@ class AppGameKit
     function DrawBox($x, $y, $x2, $y2, $color1, $color2, $color3, $color4, $filled)
     {
     }
+    
 
     /**
      * Рисует 2D-линию из одной точки экрана в другую с выбранным цветом. Линии появляются над всеми другими чертежами,
      * кроме команды Print, и могут использоваться с функцией getImage для создания новых изображений. Координаты XY
      * находятся в экранных координатах, поэтому команда SetViewOffset на них не влияет.
      *
-     * @param float $x X-компонент начальной позиции линии.
-     * @param float $y Компонент Y начального положения линии.
-     * @param float $x2 X-составляющая конечного положения линии.
-     * @param float $y2 Компонент Y конечного положения линии.
-     * @param int $red Красная составляющая цвета линии.
-     * @param int $green Зеленая составляющая цвета линии.
-     * @param int $blue Синяя составляющая цвета линии.
-     * @return void
-     */
-    function DrawLine($x, $y, $x2, $y2, $red, $green, $blue)
-    {
-    }
-
-    /**
-     * Рисует 2D-линию из одной точки экрана в другую с выбранным цветом. Линии появляются над всеми другими чертежами,
-     * кроме команды Print, и могут использоваться с функцией getImage для создания новых изображений. Координаты XY
-     * находятся в экранных координатах, поэтому команда SetViewOffset на них не влияет.
      *
+     * Пример вызова:
+     *
+     * void DrawLine($x, $y, $x2, $y2, $red, $green, $blue);
+     *
+     * DrawLine($x, $y, $x2, $y2, $color1, $color2);
      * @param float $x X-компонент начальной позиции линии.
      * @param float $y Компонент Y начального положения линии.
      * @param float $x2 X-составляющая конечного положения линии.
      * @param float $y2 Компонент Y конечного положения линии.
      * @param int $color1 Цвет, который будет использоваться в начале строки.
      * @param int $color2 Цвет, который нужно использовать в конце строки.
+     * @param int $red Красная составляющая цвета линии.
+     * @param int $green Зеленая составляющая цвета линии.
+     * @param int $blue Синяя составляющая цвета линии.
      * @return void
      */
-    function DrawLine($x, $y, $x2, $y2, $color1, $color2)
+    function DrawLine(mixed...$args): void
     {
     }
 
@@ -22944,7 +22198,7 @@ class AppGameKit
      * @param int $iID Идентификатор прослушивателя широковещательной передачи для удаления.
      * @return void
      */
-    function DeleteBroadcastListener($iID)
+    function DeleteBroadcastListener(int $iID)
     {
     }
 
@@ -22954,7 +22208,7 @@ class AppGameKit
      * @param int $index Идентификатор поля редактирования для удаления.
      * @return void
      */
-    function DeleteEditBox($index)
+    function DeleteEditBox(int $index)
     {
     }
 
@@ -22965,7 +22219,7 @@ class AppGameKit
      * @param string $varName Имя переменной, которую нужно удалить, должно быть меньше 64 байт
      * @return void
      */
-    function DeleteCloudDataVariable($varName)
+    function DeleteCloudDataVariable(string $varName)
     {
     }
 
@@ -23024,7 +22278,7 @@ class AppGameKit
      * @param int $planeID статический идентификатор плоскости
      * @return void
      */
-    function Delete3DPhysicsStaticPlane($planeID)
+    function Delete3DPhysicsStaticPlane(int $planeID)
     {
     }
 
@@ -23043,7 +22297,7 @@ class AppGameKit
      * @param int $rayID Идентификатор луча для удаления.
      * @return void
      */
-    function Delete3DPhysicsRay($rayID)
+    function Delete3DPhysicsRay(int $rayID)
     {
     }
 
@@ -23053,7 +22307,7 @@ class AppGameKit
      * @param int $objID идентификатор объекта
      * @return void
      */
-    function Delete3DPhysicsRagdoll($objID)
+    function Delete3DPhysicsRagdoll(int $objID)
     {
     }
 
@@ -23064,7 +22318,7 @@ class AppGameKit
      * @param string $szFile Имя файла для удаления.
      * @return void
      */
-    function DeleteFile($szFile)
+    function DeleteFile(string $szFile)
     {
     }
 
@@ -23084,7 +22338,7 @@ class AppGameKit
      * @param int $objID идентификатор объекта
      * @return void
      */
-    function Delete3DPhysicsCharacterController($objID)
+    function Delete3DPhysicsCharacterController(int $objID)
     {
     }
 
@@ -23094,7 +22348,7 @@ class AppGameKit
      * @param int $jointID Id соединения
      * @return void
      */
-    function Delete3DPhysicsPickJoint($jointID)
+    function Delete3DPhysicsPickJoint(int $jointID)
     {
     }
 
@@ -23105,7 +22359,7 @@ class AppGameKit
      * @param int $ID Идентификатор излучателя для удаления.
      * @return void
      */
-    function Delete3DParticles($ID)
+    function Delete3DParticles(int $ID)
     {
     }
 
@@ -23118,7 +22372,7 @@ class AppGameKit
      *     камеры
      * @return string
      */
-    function DecodeQRCode($image)
+    function DecodeQRCode(int $image): string
     {
     }
 
@@ -23148,25 +22402,16 @@ class AppGameKit
      * или извлечены из zip-файла с помощью этой команды. Используйте ExtractZip для извлечения файлов из него. Путь к
      * файлу относится к текущему каталогу, установленному с помощью SetFolder, если только вы не начинаете путь с
      * прямой косой черты, и в этом случае путь будет относительно корня каталога записи на текущей платформе.
+     * Пример вызова:
      *
-     * @param string $filename Имя файла и путь к этому новому zip-файлу.
-     * @return int
-     */
-    function CreateZip($filename)
-    {
-    }
-
-    /**
-     * Создает zip-файл в указанном месте и открывает его готовым для добавления файлов. Файлы не могут быть прочитаны
-     * или извлечены из zip-файла с помощью этой команды. Используйте ExtractZip для извлечения файлов из него. Путь к
-     * файлу относится к текущему каталогу, установленному с помощью SetFolder, если только вы не начинаете путь с
-     * прямой косой черты, и в этом случае путь будет относительно корня каталога записи на текущей платформе.
+     * int CreateZip($filename);
      *
+     * void CreateZip($zipID, $filename)
      * @param int $zipID Идентификатор, используемый для ссылки на этот zip-файл.
      * @param string $filename Имя файла и путь к этому новому zip-файлу.
-     * @return void
+     * @return int|void
      */
-    function CreateZip($zipID, $filename)
+    function CreateZip(mixed...$args): int
     {
     }
 
@@ -23178,6 +22423,11 @@ class AppGameKit
      * спрайта. Соединение может быть удалено системой, если какой-либо из спрайтов, которые он соединяет, будет
      * удален.
      *
+     * Пример вызова:
+     *
+     * int CreateWeldJoint($iSpriteIndex1, $iSpriteIndex2, $x, $y, $colConnected);
+     *
+     * void CreateWeldJoint($iJointIndex, $iSpriteIndex1, $iSpriteIndex2, $x, $y, $colConnected);
      * @param int $iJointIndex Идентификатор, который будет использоваться для этого сустава.
      * @param int $iSpriteIndex1 Идентификатор первого спрайта, который присоединится.
      * @param int $iSpriteIndex2 Идентификатор второго спрайта, к которому нужно присоединиться.
@@ -23185,50 +22435,26 @@ class AppGameKit
      * @param float $y Координата y опорной точки.
      * @param int $colConnected Установите, могут ли два спрайта, соединенные соединением, сталкиваться друг с другом,
      *     0=нет, 1=да.
-     * @return void
+     * @return int|void
      */
-    function CreateWeldJoint($iJointIndex, $iSpriteIndex1, $iSpriteIndex2, $x, $y, $colConnected)
-    {
-    }
-
-    /**
-     * Создает сварное соединение между двумя спрайтами. Сварное соединение пытается ограничить все относительные
-     * перемещения и вращения между двумя спрайтами. Укажите единственную опорную точку в мировых координатах со
-     * спрайтами, уже находящимися в нужных позициях. Соединение не является идеальным креплением, и при достаточно
-     * большом усилии спрайты могут сдвинуться с места. Точка привязки может быть смещена от центральных положений
-     * спрайта. Соединение может быть удалено системой, если какой-либо из спрайтов, которые он соединяет, будет
-     * удален.
-     *
-     * @param int $iSpriteIndex1 Идентификатор первого спрайта, который присоединится.
-     * @param int $iSpriteIndex2 Идентификатор второго спрайта, к которому нужно присоединиться.
-     * @param float $x Координата x опорной точки.
-     * @param float $y Координата y опорной точки.
-     * @param int $colConnected Установите, могут ли два спрайта, соединенные соединением, сталкиваться друг с другом,
-     *     0=нет, 1=да.
-     * @return int
-     */
-    function CreateWeldJoint($iSpriteIndex1, $iSpriteIndex2, $x, $y, $colConnected)
+    function CreateWeldJoint(mixed...$args): int
     {
     }
 
     /**
      * Создает вектор и заполняет его переданными значениями. Возвращает идентификатор вектора
+     * Пример вызова:
      *
-     * @param float $x x компонент вектора
-     * @param float $y Компонент y вектора
-     * @param float $z z компонент вектора
+     * int CreateVector3();
+     *
+     * int CreateVector3($x, $y, $z);
+     *
+     * @param float|null $x x компонент вектора
+     * @param float|null $y Компонент y вектора
+     * @param float|null $z z компонент вектора
      * @return int
      */
-    function CreateVector3($x, $y, $z)
-    {
-    }
-
-    /**
-     * Создает вектор и заполняет его переданными значениями. Возвращает идентификатор вектора
-     *
-     * @return int
-     */
-    function CreateVector3()
+    function CreateVector3(float $x = null, float $y = null, float $z = null): int
     {
     }
 
@@ -23240,26 +22466,16 @@ class AppGameKit
      * этой анимации, таких как положение X и Угол, которые будут перемещаться от их начальных значений к конечным
      * значениям в течение заданной продолжительности.
      *
-     * @param float $duration Продолжительность анимации в секундах
-     * @return int
-     */
-    function CreateTweenText($duration)
-    {
-    }
-
-    /**
-     * Создает текстовую анимацию с заданной длительностью и возвращает для нее идентификатор. Эта анимация-всего лишь
-     * шаблон, который может быть применен к нескольким текстовым объектам или цепочкам одновременно. Все типы твинов
-     * разделяют одно и то же пространство идентификаторов, поэтому спрайт-твин с идентификатором 1 не может
-     * существовать одновременно с текстовым твином с идентификатором 1. Вы можете установить несколько параметров для
-     * этой анимации, таких как положение X и Угол, которые будут перемещаться от их начальных значений к конечным
-     * значениям в течение заданной продолжительности.
+     * Пример вызова:
      *
+     * int CreateTweenText($duration);
+     *
+     * void CreateTweenText($tweenID, $duration)
      * @param int $tweenID Идентификатор твина
      * @param float $duration Продолжительность анимации в секундах
-     * @return void
+     * @return int|void
      */
-    function CreateTweenText($tweenID, $duration)
+    function CreateTweenText(mixed...$args): int
     {
     }
 
@@ -23274,31 +22490,18 @@ class AppGameKit
      * использовать один и тот же порт. Эта команда вернет идентификатор прослушивателя, который вы можете использовать
      * для ссылки на него в будущих командах.
      *
+     *
+     * Пример вызова:
+     *
+     * int CreateUDPListener($ip, $port);
+     *
+     * int CreateUDPListener($listenerID, $ip, $port);
      * @param int $listenerID Идентификатор, который будет использоваться для ссылки на этот прослушиватель в будущем.
      * @param string $ip Локальный IP-адрес для привязки.
      * @param int $port Локальный порт для привязки.
      * @return int
      */
-    function CreateUDPListener($listenerID, $ip, $port)
-    {
-    }
-
-    /**
-     * Создает прослушиватель UDP, который будет получать UDP-пакеты по указанному IP-адресу и порту. Значение порта
-     * должно находиться в диапазоне от 1 до 65535, хотя значения ниже 1024, скорее всего, будут защищены операционной
-     * системой. Если порт уже занят, то эта команда завершится ошибкой и вернет 0. IP-адрес может быть адресом IPv4
-     * или IPv6 и может использоваться для привязки к одному входящему сетевому соединению, когда устройство имеет
-     * более одного IP-адреса. Для привязки к любому IP-адресу используйте IP-адрес "anyip4" или "anyip6". Один
-     * прослушиватель UDP может прослушивать либо IPv4, либо IPv6-адрес, но не оба одновременно. Для прослушивания
-     * обоих вы должны создать два прослушивателя, один для IPv4 и один для IPv6, в этом случае они оба могут
-     * использовать один и тот же порт. Эта команда вернет идентификатор прослушивателя, который вы можете использовать
-     * для ссылки на него в будущих командах.
-     *
-     * @param string $ip Локальный IP-адрес для привязки.
-     * @param int $port Локальный порт для привязки.
-     * @return int
-     */
-    function CreateUDPListener($ip, $port)
+    function CreateUDPListener(mixed...$args): int
     {
     }
 
@@ -23310,28 +22513,20 @@ class AppGameKit
      * анимации, таких как положение X и Угол, которые будут перемещаться от их начальных значений к конечным значениям
      * в течение заданной продолжительности.
      *
+     *
+     * Пример вызова:
+     *
+     * int CreateTweenSprite($duration);
+     *
+     * void CreateTweenSprite($tweenID, $duration);
+     * @param int $tweenID Идентификатор твина
      * @param float $duration Продолжительность анимации в секундах
-     * @return int
+     * @return int|void
      */
-    function CreateTweenSprite($duration)
+    function CreateTweenSprite(mixed...$args): int
     {
     }
 
-    /**
-     * Создает анимацию спрайта с заданной длительностью и возвращает для нее идентификатор. Эта анимация-просто
-     * шаблон, который может быть применен к нескольким спрайтам или цепочкам одновременно. Все типы твинов разделяют
-     * одно и то же пространство идентификаторов, поэтому спрайт-твин с идентификатором 1 не может существовать
-     * одновременно с текстовым твином с идентификатором 1. Вы можете установить несколько параметров для этой
-     * анимации, таких как положение X и Угол, которые будут перемещаться от их начальных значений к конечным значениям
-     * в течение заданной продолжительности.
-     *
-     * @param int $tweenID Идентификатор твина
-     * @param float $duration Продолжительность анимации в секундах
-     * @return void
-     */
-    function CreateTweenSprite($tweenID, $duration)
-    {
-    }
 
     /**
      * Создает пользовательскую анимацию с заданной длительностью и возвращает для нее идентификатор. Эта анимация не
@@ -23342,27 +22537,16 @@ class AppGameKit
      * для этой анимации, до 4 значений с плавающей точкой и 4 целочисленных значений, которые будут перемещаться от их
      * начальных значений к конечным значениям в течение заданной продолжительности.
      *
-     * @param float $duration Продолжительность анимации в секундах
-     * @return int
-     */
-    function CreateTweenCustom($duration)
-    {
-    }
-
-    /**
-     * Создает пользовательскую анимацию с заданной длительностью и возвращает для нее идентификатор. Эта анимация не
-     * связана ни с каким элементом, и ее значения можно считывать во время работы. Это делает его полезным для
-     * управления значениями, которые не покрываются ни одним из других шаблонов анимации. Все типы твинов используют
-     * одно и то же пространство идентификаторов, поэтому пользовательский твин с идентификатором 1 не может
-     * существовать одновременно со спрайтовым твином с идентификатором 1. Вы можете установить несколько параметров
-     * для этой анимации, до 4 значений с плавающей точкой и 4 целочисленных значений, которые будут перемещаться от их
-     * начальных значений к конечным значениям в течение заданной продолжительности.
+     * Пример вызова:
      *
+     * int CreateTweenCustom($duration);
+     *
+     * void CreateTweenCustom($tweenID, $duration);
      * @param int $tweenID Идентификатор твина
      * @param float $duration Продолжительность анимации в секундах
-     * @return void
+     * @return int|void
      */
-    function CreateTweenCustom($tweenID, $duration)
+    function CreateTweenCustom(mixed...$args): int
     {
     }
 
@@ -23374,26 +22558,17 @@ class AppGameKit
      * положение X и Угол, которые будут перемещаться от их начальных значений к конечным значениям в течение заданной
      * продолжительности.
      *
-     * @param float $duration Продолжительность анимации в секундах
-     * @return int
-     */
-    function CreateTweenObject($duration)
-    {
-    }
-
-    /**
-     * Создает объект tween с заданной длительностью и возвращает для него ИДЕНТИФИКАТОР. Эта анимация-просто шаблон,
-     * который может быть применен к нескольким объектам или цепочкам одновременно. Все типы твинов разделяют одно и то
-     * же пространство идентификаторов, поэтому спрайт-твин с идентификатором 1 не может существовать одновременно с
-     * объектным твином с идентификатором 1. Вы можете установить несколько параметров для этой анимации, таких как
-     * положение X и Угол, которые будут перемещаться от их начальных значений к конечным значениям в течение заданной
-     * продолжительности.
      *
+     * Пример вызова:
+     *
+     * int CreateTweenObject($duration);
+     *
+     * void CreateTweenObject($tweenID, $duration);
      * @param int $tweenID Идентификатор твина
      * @param float $duration Продолжительность анимации в секундах
-     * @return void
+     * @return int|void
      */
-    function CreateTweenObject($tweenID, $duration)
+    function CreateTweenObject(mixed...$args): int
     {
     }
 
@@ -23407,20 +22582,6 @@ class AppGameKit
     {
     }
 
-    /**
-     * Создает символ tween с заданной длительностью и возвращает для него ИДЕНТИФИКАТОР. Это может быть применено к
-     * отдельным символам текстового объекта. Эта анимация-всего лишь шаблон, который может быть применен к нескольким
-     * текстовым символам или цепочкам одновременно. Все типы твинов разделяют одно и то же пространство
-     * идентификаторов, поэтому спрайт-твин с идентификатором 1 не может существовать одновременно с char-твином с
-     * идентификатором 1. Вы можете установить несколько параметров для этой анимации, таких как положение X и Угол,
-     * которые будут перемещаться от их начальных значений к конечным значениям в течение заданной продолжительности.
-     *
-     * @param float $duration Продолжительность анимации в секундах
-     * @return int
-     */
-    function CreateTweenChar($duration)
-    {
-    }
 
     /**
      * Создает символ tween с заданной длительностью и возвращает для него ИДЕНТИФИКАТОР. Это может быть применено к
@@ -23430,11 +22591,16 @@ class AppGameKit
      * идентификатором 1. Вы можете установить несколько параметров для этой анимации, таких как положение X и Угол,
      * которые будут перемещаться от их начальных значений к конечным значениям в течение заданной продолжительности.
      *
+     * Пример вызова:
+     *
+     * int CreateTweenChar($duration);
+     *
+     * void CreateTweenChar($tweenID, $duration);
      * @param int $tweenID Идентификатор твина
      * @param float $duration Продолжительность анимации в секундах
-     * @return void
+     * @return int|void
      */
-    function CreateTweenChar($tweenID, $duration)
+    function CreateTweenChar(mixed...$args): int
     {
     }
 
@@ -23446,31 +22612,21 @@ class AppGameKit
      * таких как положение X и Угол, которые будут перемещаться от их начальных значений к конечным значениям в течение
      * заданной продолжительности.
      *
-     * @param float $duration Продолжительность анимации в секундах
-     * @return int
-     */
-    function CreateTweenCamera($duration)
-    {
-    }
-
-    /**
-     * Создает анимацию камеры с заданной длительностью и возвращает для нее идентификатор. Эта анимация-всего лишь
-     * шаблон, который может быть применен к нескольким камерам или цепочкам одновременно. Все типы твинов используют
-     * одно и то же пространство идентификаторов, поэтому твин камеры с идентификатором 1 не может существовать
-     * одновременно с твином объекта с идентификатором 1. Вы можете установить несколько параметров для этой анимации,
-     * таких как положение X и Угол, которые будут перемещаться от их начальных значений к конечным значениям в течение
-     * заданной продолжительности.
+     * Пример вызова:
      *
+     * int CreateTweenCamera($duration);
+     * void CreateTweenCamera($tweenID, $duration);
      * @param int $tweenID Идентификатор твина
      * @param float $duration Продолжительность анимации в секундах
-     * @return void
+     * @return int|void
      */
-    function CreateTweenCamera($tweenID, $duration)
+    function CreateTweenCamera(mixed...$args): int
     {
     }
 
+
     /**
-     * Создает цепочку твинов, которую можно использовать для заказа подростков, чтобы они играли один за другим.
+     * Создает цепочку твинов, которую можно использовать для заказа Tween, чтобы они играли один за другим.
      * Цепочка анимаций может содержать несколько спрайтов, символов, объектов и т. Д., Так что анимация камеры может
      * быть запущена после завершения анимации спрайтов или наоборот. Несколько цепочек могут быть применены к одним и
      * тем же спрайтам, объектам или другим объектам до тех пор, пока цепочки не изменяют один и тот же параметр
@@ -23478,25 +22634,16 @@ class AppGameKit
      * с цепочкой 2, которая также начинает изменять значение X того же спрайта, то одна цепочка перезапишет изменения
      * другой. В противном случае несколько цепочек на одном и том же спрайте будут работать правильно.
      *
-     * @return int
-     */
-    function CreateTweenChain()
-    {
-    }
-
-    /**
-     * Создает цепочку твинов, которую можно использовать для заказа подростков, чтобы они играли один за другим.
-     * Цепочка анимаций может содержать несколько спрайтов, символов, объектов и т. Д., Так что анимация камеры может
-     * быть запущена после завершения анимации спрайтов или наоборот. Несколько цепочек могут быть применены к одним и
-     * тем же спрайтам, объектам или другим объектам до тех пор, пока цепочки не изменяют один и тот же параметр
-     * одновременно. Например, если цепочка 1 начинается с изменения значения X спрайта и воспроизводится одновременно
-     * с цепочкой 2, которая также начинает изменять значение X того же спрайта, то одна цепочка перезапишет изменения
-     * другой. В противном случае несколько цепочек на одном и том же спрайте будут работать правильно.
+     * Пример вызова:
+     *
+     * int CreateTweenChain();
+     *
+     * void CreateTweenChain($chainID);
      *
      * @param int $chainID Идентификатор цепочки
-     * @return void
+     * @return int|void
      */
-    function CreateTweenChain($chainID)
+    function CreateTweenChain(int $chainID): int
     {
     }
 
@@ -23528,20 +22675,6 @@ class AppGameKit
     {
     }
 
-    /**
-     * Создает спрайт в пустом идентификаторе спрайта с изображением, используемым при рендеринге, и возвращает
-     * используемый идентификатор спрайта. По умолчанию спрайты создаются с глубиной 10, имеют размер, используя данное
-     * изображение в качестве направляющей, и позиционируются на 0,0, используя их верхний левый угол. Вы можете
-     * использовать идентификатор изображения 0 для создания пустого спрайта, нарисованного только цветом. Если
-     * назначенное изображение имеет альфа-пиксели, то спрайт создается с режимом прозрачности 1, в противном случае он
-     * использует режим прозрачности 0 (непрозрачный)
-     *
-     * @param int $iImageIndex Идентификатор изображения, которое будет использоваться при рисовании этого спрайта
-     * @return int
-     */
-    function CreateSprite($iImageIndex)
-    {
-    }
 
     /**
      * Создает спрайт в пустом идентификаторе спрайта с изображением, используемым при рендеринге, и возвращает
@@ -23551,12 +22684,17 @@ class AppGameKit
      * назначенное изображение имеет альфа-пиксели, то спрайт создается с режимом прозрачности 1, в противном случае он
      * использует режим прозрачности 0 (непрозрачный)
      *
+     * Пример вызова:
+     *
+     * int CreateSprite($iImageIndex);
+     *
+     * void CreateSprite($iSpriteIndex, $iImageIndex);
      * @param int $iSpriteIndex Идентификатор спрайта, который будет использоваться для ссылки на этот спрайт позже
-     *     (отдельно от идентификаторов изображений, поэтому может быть как спрайт 1, так и изображение 1)
+     * (отдельно от идентификаторов изображений, поэтому может быть как спрайт 1, так и изображение 1)
      * @param int $iImageIndex Идентификатор изображения, которое будет использоваться при рисовании этого спрайта
-     * @return void
+     * @return int|void
      */
-    function CreateSprite($iSpriteIndex, $iImageIndex)
+    function CreateSprite(int...$args): int
     {
     }
 
@@ -23565,23 +22703,16 @@ class AppGameKit
      * не повлияет ни на какие уже воспроизводимые звуковые экземпляры, только на будущие. Memblock должен содержать
      * допустимый OGG-файл, например загруженный CreateMemblockFromFile(memID, "sound.ogg")
      *
-     * @param int $memID Идентификатор считываемого memblock, memblock не зависит от этой команды.
-     * @return int
-     */
-    function CreateSoundFromOGGMemblock($memID)
-    {
-    }
-
-    /**
-     * Создает звук из мемблока. Memblock должен существовать, это создает новый звук и возвращает идентификатор. Это
-     * не повлияет ни на какие уже воспроизводимые звуковые экземпляры, только на будущие. Memblock должен содержать
-     * допустимый OGG-файл, например загруженный CreateMemblockFromFile(memID, "sound.ogg")
+     * Пример вызова:
      *
+     * int CreateSoundFromOGGMemblock($memID);
+     *
+     * void CreateSoundFromOGGMemblock($soundID, $memID);
      * @param int $soundID Идентификатор звука для создания или изменения.
      * @param int $memID Идентификатор считываемого memblock, memblock не зависит от этой команды.
-     * @return void
+     * @return mixed
      */
-    function CreateSoundFromOGGMemblock($soundID, $memID)
+    function CreateSoundFromOGGMemblock(int...$args): mixed
     {
     }
 
@@ -23602,39 +22733,21 @@ class AppGameKit
      * часто будут использоваться другими приложениями и сервисами. Если что-то уже прослушивает порт, то ваша попытка
      * прослушать его потерпит неудачу. Возвращает 0, если он не смог начать прослушивание.
      *
+     *
+     * Пример вызова:
+     *
+     * int CreateSocketListener($szIP, $port);
+     *
+     * int CreateSocketListener($listenerID, $szIP, $port);
      * @param int $listenerID Идентификатор, который будет использоваться для ссылки на этот прослушиватель в будущем
      * @param string $szIP IP-адрес интерфейса для прослушивания может быть IPv4 или IPv6, или "anyip4", или "anyip6"
      * @param int $port TCP-порт для прослушивания находится в диапазоне от 1025 до 65535
      * @return int
      */
-    function CreateSocketListener($listenerID, $szIP, $port)
+    function CreateSocketListener(mixed...$args): int
     {
     }
 
-    /**
-     * Создает прослушиватель сокетов, который прослушивает на указанном порту входящие соединения сокетов. Когда
-     * соединение происходит, оно будет удерживаться в очереди до тех пор, пока вы не получите его с помощью
-     * GetSocketListenerConnection. Если вы хотите отклонить соединение, вы должны получить его, а затем удалить.
-     * Прослушиватель будет продолжать принимать соединения до тех пор, пока он не будет удален. Если ваше устройство
-     * имеет несколько сетевых интерфейсов, то вы можете указать, какой из них будет прослушиваться с помощью параметра
-     * IP-адрес. Для прослушивания всех интерфейсов используйте пустую строку в качестве IP-адреса. Если устройство
-     * имеет оба адреса IPv4 и IPv6, то слушатель может слушать только один или другой, а не оба. Для прослушивания
-     * соединений IPv4 и IPv6 необходимо создать два прослушивателя: один для соединений IPv4 и один для соединений
-     * IPv6. Соединения из любого из них будут вести себя точно так же после того, как они будут подключены. Чтобы
-     * создать прослушиватель IPv6, передайте IPv6 IP-адрес CreateSocketListener или "anyip6" для прослушивания любого
-     * подходящего IPv6-адреса. Если вы передадите пустую строку или "anyip4" в качестве IP-адреса, то он будет
-     * прослушивать IPv4-соединения. Вы можете иметь несколько активных слушателей одновременно, но все они должны
-     * использовать разные порты или IP-адреса. При выборе номера порта следует избегать низких значений, так как они
-     * часто будут использоваться другими приложениями и сервисами. Если что-то уже прослушивает порт, то ваша попытка
-     * прослушать его потерпит неудачу. Возвращает 0, если он не смог начать прослушивание.
-     *
-     * @param string $szIP IP-адрес интерфейса для прослушивания может быть IPv4 или IPv6, или "anyip4", или "anyip6"
-     * @param int $port TCP-порт для прослушивания находится в диапазоне от 1025 до 65535
-     * @return int
-     */
-    function CreateSocketListener($szIP, $port)
-    {
-    }
 
     /**
      * Создает звук из мемблока. Memblock должен существовать, это создает новый звук и возвращает идентификатор. Это
@@ -23649,31 +22762,16 @@ class AppGameKit
      * левого канала 3 = Кадр 2, смещение байта данных правого канала 4 = Кадр 3, смещение байта данных левого канала 5
      * = Кадр 3, данные правого канала Возвращают идентификатор нового звука.
      *
-     * @param int $memID Идентификатор считываемого memblock, memblock не зависит от этой команды.
-     * @return int
-     */
-    function CreateSoundFromMemblock($memID)
-    {
-    }
-
-    /**
-     * Создает звук из мемблока. Memblock должен существовать, это создает новый звук и возвращает идентификатор. Это
-     * не повлияет ни на какие уже воспроизводимые звуковые экземпляры, только на будущие. Первые 2 байта memlbock
-     * хранят количество каналов (1 или 2 поддерживаемых), следующие 2 байта хранят биты на выборку (8 или 16
-     * поддерживаемых), следующие 4 байта хранят выборки в секунду, например 44100. Следующие 4 байта-это количество
-     * кадров в звуковых данных, размер звуковых данных в байтах можно вычислить из этого с помощью формулы
-     * numFrames*(BitsPerSample/8)*channels. В 2-канальном звуке кадр содержит 2 сэмпла, по одному для каждого канала.
-     * В моно-звуке кадр содержит 1 образец. Остальная часть memblock-это необработанные звуковые данные, например, в
-     * 8-битном стереозвуке с 3 кадрами необработанные данные будут выглядеть так. смещение байта 0 = Кадр 1, смещение
-     * байта данных левого канала 1 = Кадр 1, смещение байта данных правого канала 2 = Кадр 2, смещение байта данных
-     * левого канала 3 = Кадр 2, смещение байта данных правого канала 4 = Кадр 3, смещение байта данных левого канала 5
-     * = Кадр 3, данные правого канала Возвращают идентификатор нового звука.
+     * Пример вызова:
      *
+     * int CreateSoundFromMemblock($memID);
+     *
+     * void CreateSoundFromMemblock($soundID, $memID);
      * @param int $soundID Идентификатор звука для создания или изменения.
      * @param int $memID Идентификатор считываемого memblock, memblock не зависит от этой команды.
      * @return void
      */
-    function CreateSoundFromMemblock($soundID, $memID)
+    function CreateSoundFromMemblock(int...$args): mixed
     {
     }
 
@@ -23682,21 +22780,16 @@ class AppGameKit
      * команда не очень полезна, так как существует не так много команд для настройки скелета. Вместо этого скелеты
      * должны быть загружены с помощью LoadSkeleton2DFromSpineFile
      *
-     * @return int
-     */
-    function CreateSkeleton2D()
-    {
-    }
-
-    /**
-     * Создает 2D-скелет, который можно использовать для анимации спрайтов с помощью костей. В настоящее время эта
-     * команда не очень полезна, так как существует не так много команд для настройки скелета. Вместо этого скелеты
-     * должны быть загружены с помощью LoadSkeleton2DFromSpineFile
      *
-     * @param int $iSkeleton Идентификатор, используемый для ссылки на этот скелет
-     * @return void
+     * Пример вызова:
+     *
+     * int CreateSkeleton2D();
+     *
+     * void CreateSkeleton2D($iSkeleton);
+     * @param int|null $iSkeleton Идентификатор, используемый для ссылки на этот скелет
+     * @return mixed
      */
-    function CreateSkeleton2D($iSkeleton)
+    function CreateSkeleton2D($iSkeleton = null): mixed
     {
     }
 
@@ -23707,28 +22800,12 @@ class AppGameKit
      * инициализацию соединения. Опорные точки могут быть смещены от позиций спрайтов. Соединение может быть удалено
      * системой, если какой-либо из спрайтов, которые он соединяет, будет удален.
      *
-     * @param int $iSpriteIndex1 Идентификатор первого спрайта, который присоединится.
-     * @param int $iSpriteIndex2 Идентификатор второго спрайта, к которому нужно присоединиться.
-     * @param float $x Координата x опорной точки спрайта 1.
-     * @param float $y Координата y якорной точки спрайта 1.
-     * @param float $x2 Координата x опорной точки спрайта 2.
-     * @param float $y2 Координата y опорной точки спрайта 2.
-     * @param float $maxLength Максимальная длина, допустимая между опорными точками спрайта.
-     * @param int $colConnected Установите, могут ли два спрайта, соединенные соединением, сталкиваться друг с другом,
-     *     0=нет, 1=да.
-     * @return int
-     */
-    function CreateRopeJoint($iSpriteIndex1, $iSpriteIndex2, $x, $y, $x2, $y2, $maxLength, $colConnected)
-    {
-    }
-
-    /**
-     * Создает соединение веревки между двумя спрайтами. Канатное соединение обеспечивает максимальное расстояние между
-     * спрайтами без каких-либо других ограничений. Это не мешает им сближаться. Укажите две опорные точки в мировых
-     * координатах с максимальной длиной, которую вы хотите разрешить, текущее положение спрайтов не влияет на
-     * инициализацию соединения. Опорные точки могут быть смещены от позиций спрайтов. Соединение может быть удалено
-     * системой, если какой-либо из спрайтов, которые он соединяет, будет удален.
      *
+     * Пример вызова:
+     *
+     * int CreateRopeJoint($iSpriteIndex1, $iSpriteIndex2, $x, $y, $x2, $y2, $maxLength, $colConnected);
+     *
+     * void CreateRopeJoint($iJointIndex, $iSpriteIndex1, $iSpriteIndex2, $x, $y, $x2, $y2, $maxLength, $colConnected);
      * @param int $iJointIndex Идентификатор, который будет использоваться для этого сустава.
      * @param int $iSpriteIndex1 Идентификатор первого спрайта, который присоединится.
      * @param int $iSpriteIndex2 Идентификатор второго спрайта, к которому нужно присоединиться.
@@ -23739,9 +22816,9 @@ class AppGameKit
      * @param float $maxLength Максимальная длина, допустимая между опорными точками спрайта.
      * @param int $colConnected Установите, могут ли два спрайта, соединенные соединением, сталкиваться друг с другом,
      *     0=нет, 1=да.
-     * @return void
+     * @return mixed
      */
-    function CreateRopeJoint($iJointIndex, $iSpriteIndex1, $iSpriteIndex2, $x, $y, $x2, $y2, $maxLength, $colConnected)
+    function CreateRopeJoint(mixed...$args): mixed
     {
     }
 
@@ -23753,26 +22830,11 @@ class AppGameKit
      * системой, если какой-либо из спрайтов, которые оно соединяет, будет удален. Это соединение поддерживает
      * двигатели и ограничения.
      *
-     * @param int $iSpriteIndex1 Идентификатор первого спрайта, который присоединится.
-     * @param int $iSpriteIndex2 Идентификатор второго спрайта, к которому нужно присоединиться.
-     * @param float $x Координата x опорной точки.
-     * @param float $y Координата y опорной точки.
-     * @param int $colConnected Установите, могут ли два спрайта, соединенные соединением, сталкиваться друг с другом,
-     *     0=нет, 1=да.
-     * @return int
-     */
-    function CreateRevoluteJoint($iSpriteIndex1, $iSpriteIndex2, $x, $y, $colConnected)
-    {
-    }
-
-    /**
-     * Создает революционное соединение между двумя спрайтами. Поворотное соединение позволяет спрайтам вращаться
-     * только вокруг заданной точки. Укажите единственную опорную точку в мировых координатах, где спрайты уже
-     * находятся в нужном относительном положении. Точка привязки может быть смещена от центральных положений спрайта.
-     * Идентификатор соединения будет возвращен для ссылки на это соединение позже, соединение может быть удалено
-     * системой, если какой-либо из спрайтов, которые оно соединяет, будет удален. Это соединение поддерживает
-     * двигатели и ограничения.
+     * Пример вызова:
      *
+     * int CreateRevoluteJoint($iSpriteIndex1, $iSpriteIndex2, $x, $y, $colConnected);
+     *
+     * void CreateRevoluteJoint($iJointIndex, $iSpriteIndex1, $iSpriteIndex2, $x, $y, $colConnected);
      * @param int $iJointIndex Идентификатор, который будет использоваться для этого сустава.
      * @param int $iSpriteIndex1 Идентификатор первого спрайта, который присоединится.
      * @param int $iSpriteIndex2 Идентификатор второго спрайта, к которому нужно присоединиться.
@@ -23780,9 +22842,9 @@ class AppGameKit
      * @param float $y Координата y опорной точки.
      * @param int $colConnected Установите, могут ли два спрайта, соединенные соединением, сталкиваться друг с другом,
      *     0=нет, 1=да.
-     * @return void
+     * @return mixed
      */
-    function CreateRevoluteJoint($iJointIndex, $iSpriteIndex1, $iSpriteIndex2, $x, $y, $colConnected)
+    function CreateRevoluteJoint(mixed...$args): mixed
     {
     }
 
@@ -23842,31 +22904,12 @@ class AppGameKit
      * ссылки на это соединение позже, соединение может быть удалено системой, если какой-либо из спрайтов, которые оно
      * соединяет, будет удален. Это соединение поддерживает двигатели и ограничения.
      *
-     * @param int $iSpriteIndex1 Идентификатор первого спрайта, который присоединится.
-     * @param int $iSpriteIndex2 Идентификатор второго спрайта, к которому нужно присоединиться.
-     * @param float $x Координата x опорной точки.
-     * @param float $y Координата y опорной точки.
-     * @param float $vx Компонент x оси.
-     * @param float $vy Компонент y оси.
-     * @param int $colConnected Установите, могут ли два спрайта, соединенные соединением, сталкиваться друг с другом,
-     *     0=нет, 1=да.
-     * @return int
-     */
-    function CreatePrismaticJoint($iSpriteIndex1, $iSpriteIndex2, $x, $y, $vx, $vy, $colConnected)
-    {
-    }
-
-    /**
-     * Создает призматическое соединение между двумя спрайтами. Призматическое соединение позволяет спрайтам двигаться
-     * только вдоль заданной оси относительно друг друга. Его можно представить как поршень, на каждом конце которого
-     * спрайты не могут вращаться. Это похоже на линейное соединение, за исключением того, что предотвращается
-     * относительное вращение. Укажите единственную опорную точку в мировых координатах, чтобы спрайты уже находились в
-     * нужном относительном положении, на минимальном расстоянии поршня. С этого момента спрайтам будет позволено
-     * разделяться вдоль заданной оси и вращаться как единое целое, но не вращаться относительно друг друга. Точка
-     * привязки может быть смещена от центральных положений спрайта. Идентификатор соединения будет возвращен для
-     * ссылки на это соединение позже, соединение может быть удалено системой, если какой-либо из спрайтов, которые оно
-     * соединяет, будет удален. Это соединение поддерживает двигатели и ограничения.
      *
+     * Пример вызова:
+     *
+     * int CreatePrismaticJoint($iSpriteIndex1, $iSpriteIndex2, $x, $y, $vx, $vy, $colConnected);
+     *
+     * void CreatePrismaticJoint($iJointIndex, $iSpriteIndex1, $iSpriteIndex2, $x, $y, $vx, $vy, $colConnected);
      * @param int $iJointIndex Идентификатор, который будет использоваться для этого сустава.
      * @param int $iSpriteIndex1 Идентификатор первого спрайта, который присоединится.
      * @param int $iSpriteIndex2 Идентификатор второго спрайта, к которому нужно присоединиться.
@@ -23876,9 +22919,9 @@ class AppGameKit
      * @param float $vy Компонент y оси.
      * @param int $colConnected Установите, могут ли два спрайта, соединенные соединением, сталкиваться друг с другом,
      *     0=нет, 1=да.
-     * @return void
+     * @return mixed
      */
-    function CreatePrismaticJoint($iJointIndex, $iSpriteIndex1, $iSpriteIndex2, $x, $y, $vx, $vy, $colConnected)
+    function CreatePrismaticJoint(mixed...$args)
     {
     }
 
@@ -23926,22 +22969,6 @@ class AppGameKit
     {
     }
 
-    /**
-     * Создает излучатель частиц в свободном ID и в заданном месте в мировых координатах. Он возвращает идентификатор,
-     * используемый для создания излучателя. Излучатели частиц создают поток маленьких спрайтов, которые длятся
-     * фиксированное количество времени, прежде чем исчезнуть. Частицы могут подвергаться воздействию сил в течение
-     * своей жизни с помощью AddParticlesForce. Они также могут менять цвет с течением времени с помощью
-     * AddParticlesColorKeyFrame. Частицы не могут быть изменены по отдельности и вести себя как группа, используя одну
-     * и ту же текстуру и глубину. Это позволяет AGK рисовать их более эффективно, чем аналогичное количество обычных
-     * спрайтов.
-     *
-     * @param float $x Координата x для позиционирования этого излучателя.
-     * @param float $y Координата y для позиционирования этого излучателя.
-     * @return int
-     */
-    function CreateParticles($x, $y)
-    {
-    }
 
     /**
      * Создает излучатель частиц в свободном ID и в заданном месте в мировых координатах. Он возвращает идентификатор,
@@ -23952,31 +22979,33 @@ class AppGameKit
      * и ту же текстуру и глубину. Это позволяет AGK рисовать их более эффективно, чем аналогичное количество обычных
      * спрайтов.
      *
+     * Пример вызова:
+     *
+     * int CreateParticles($x, $y);
+     *
+     * void CreateParticles($ID, $x, $y);
      * @param int $ID Идентификатор, используемый при ссылке на этот излучатель частиц.
      * @param float $x Координата x для позиционирования этого излучателя.
      * @param float $y Координата y для позиционирования этого излучателя.
-     * @return void
+     * @return mixed
      */
-    function CreateParticles($ID, $x, $y)
+    function CreateParticles(mixed...$args): mixed
     {
     }
 
     /**
      * Создает плоскость, которая заполнит весь экран и может быть использована для рендеринга полноэкранных шейдеров.
      *
-     * @param int $objID Идентификатор, используемый для нового объекта.
-     * @return void
-     */
-    function CreateObjectQuad($objID)
-    {
-    }
-
-    /**
-     * Создает плоскость, которая заполнит весь экран и может быть использована для рендеринга полноэкранных шейдеров.
+     * Пример вызова:
      *
-     * @return int
+     * int CreateObjectQuad();
+     *
+     * void CreateObjectQuad($objID);
+     *
+     * @param int|null $objID Идентификатор, используемый для нового объекта.
+     * @return mixed
      */
-    function CreateObjectQuad()
+    function CreateObjectQuad(int $objID = null): mixed
     {
     }
 
@@ -23984,24 +23013,17 @@ class AppGameKit
      * Создает трехмерную двустороннюю плоскость с заданными шириной (X) и высотой (Y). Плоскость создается в плоскости
      * XY и не имеет размера в направлении Z.
      *
+     * Пример вызова:
+     *
+     * int CreateObjectPlane($width, $height);
+     *
+     * void CreateObjectPlane($objID, $width, $height);
      * @param int $objID Идентификатор, используемый для нового объекта.
      * @param float $width Ширина плоскости.
      * @param float $height Высота самолета.
-     * @return void
+     * @return mixed
      */
-    function CreateObjectPlane($objID, $width, $height)
-    {
-    }
-
-    /**
-     * Создает трехмерную двустороннюю плоскость с заданными шириной (X) и высотой (Y). Плоскость создается в плоскости
-     * XY и не имеет размера в направлении Z.
-     *
-     * @param float $width Ширина плоскости.
-     * @param float $height Высота самолета.
-     * @return int
-     */
-    function CreateObjectPlane($width, $height)
+    function CreateObjectPlane(mixed...$args): mixed
     {
     }
 
@@ -24045,58 +23067,17 @@ class AppGameKit
      * Наконец, это данные индекса, если таковые имеются. Каждый индекс представляет собой 4-байтовое целое число,
      * которое ссылается на вершину в данных вершин. Каждые три индекса представляют собой многоугольник.
      *
-     * @param int $memID Индекс memblock, используемый для создания сетки объекта
-     * @return int
-     */
-    function CreateObjectFromMeshMemblock($memID)
-    {
-    }
-
-    /**
-     * Создает объект с одной сеткой, построенной из данного memblock. Любые последующие изменения в memblock не
-     * повлияют на сетку, вы должны вызвать SetObjectMeshFromMemblock, чтобы изменить существующую сетку. Первые 4
-     * байта memblock представляют количество вершин в сетке. Вторые 4 байта представляют количество индексов в сетке,
-     * это может быть 0, и в этом случае каждые три вершины представляют собой многоугольник, и никакие вершины не
-     * могут быть общими. Если число индексов больше 0, то каждые три индекса представляют собой многоугольник, и
-     * вершины могут быть разделены между многоугольниками. Индексы начинаются с 0, поэтому индекс 0 ссылается на
-     * первую вершину в списке. Третьи 4 байта представляют количество атрибутов на вершину, например, позиция, нормали
-     * и УФ-данные-все это потенциальные атрибуты, поэтому вершина, содержащая все три, будет иметь 3 атрибута. Вершина
-     * должна иметь атрибут позиции, все остальное необязательно. Четвертые 4 байта представляют размер одной вершины в
-     * байтах, это можно вычислить по атрибутивным данным, но дано для удобства. Пятые 4 байта смещены для начала
-     * вершинных данных, так что вы можете легко добраться до них. Шестые 4 байта смещены для начала индексных данных,
-     * будут равны 0, если индексов нет. После этих 6 значений, начиная со смещения 24, идут данные атрибута вершины.
-     * Данные атрибута вершины описывают, как выкладываются данные вершины, например, если они имеют нормали, УФ-данные
-     * и т. Д. Для каждого атрибута существует 1 байт типа данных, 1 байт количества компонентов, 1 байт флага
-     * нормализации, 1 байт длины строки и X байт строковых данных для имени атрибута. Тип данных будет равен 0 для
-     * поплавков (используется почти для всего, например, позиции, нормалей и т. Д.) или 1 для беззнаковых байтов
-     * (используется для цветов вершин). Количество компонентов-это количество значений на атрибут, например, позиция
-     * имеет 3 компонента, x,y,z, UV - данные имеют 2 компонента, а цвета вершин-4 компонента. Обратите внимание, что
-     * любой тип данных unsigned byte должен иметь 4 компонента, даже если некоторые из них не используются. Флаг
-     * normalize используется только для типов данных unsigned byte и преобразует значения в диапазоне 0-255 в 0.0-1.0
-     * для использования в шейдере. Обычно флаг нормализации будет равен 1 для атрибутов цвета и 0 для всего
-     * остального. Байт длины строки всегда должен быть кратен 4 по соображениям выравнивания, сама строка может иметь
-     * немного меньше символов, но всегда округляется до ближайшего кратного 4 для значения длины строки. например,
-     * строка длины 5 должна иметь значение длины строки 8. Обратите внимание, что строка из 4 символов имеет нулевой
-     * терминатор на конце, что делает ее длиной 5, поэтому, даже если она уже имеет кратное 4 символам значение длины,
-     * она должна использовать значение длины 8 из-за нулевого терминатора. Строка имени атрибута будет использоваться
-     * шейдером для распознавания данных вершин, имена атрибутов, распознаваемые AGK, - "position", "normal",
-     * "tangent", "binormal", "color", "uv", "uv1", "boneweights" и "boneindices", однако вы можете добавлять атрибуты
-     * с любым именем, которое вам нравится, пока вы пишете соответствующий шейдер с теми же именами. Если вы не
-     * используете свой собственный шейдер и вместо этого полагаетесь на AGK для рисования объекта, то вы должны
-     * придерживаться приведенных выше имен атрибутов. За атрибутивными данными следуют необработанные вершинные
-     * данные, которые обычно начинаются с атрибута "позиция". Это будет 4-байтовый поплавок для позиции X, 4-байтовый
-     * поплавок для позиции Y и 4-байтовый поплавок для позиции Z. Это продолжается для каждого атрибута, указанного в
-     * атрибутивных данных. Обратите внимание, что цветовые данные всегда будут иметь в общей сложности 4 байта, по 1
-     * байту без знака для каждого цветового канала. Вы можете получить доступ к отдельным вершинам, используя размер
-     * вершины, указанный выше, и индекс вершины, например so offset=vertexDataOffset+(vertexIndex*vertexSize).
-     * Наконец, это данные индекса, если таковые имеются. Каждый индекс представляет собой 4-байтовое целое число,
-     * которое ссылается на вершину в данных вершин. Каждые три индекса представляют собой многоугольник.
      *
+     * Пример вызова:
+     *
+     * int CreateObjectFromMeshMemblock($memID);
+     *
+     * void CreateObjectFromMeshMemblock($objID, $memID);
      * @param int $objID Идентификатор создаваемого объекта
      * @param int $memID Индекс memblock, используемый для создания сетки объекта
-     * @return void
+     * @return mixed
      */
-    function CreateObjectFromMeshMemblock($objID, $memID)
+    function CreateObjectFromMeshMemblock(int...$args): mixed
     {
     }
 
@@ -24111,35 +23092,19 @@ class AppGameKit
      * текстурирования объектов в вашей сцене, если вы используете это изображение только для полноэкранных шейдеров,
      * вы не должны использовать mip-карты на нем.
      *
-     * @param int $width Ширина создаваемого изображения
-     * @param int $height Высота создаваемого изображения
-     * @param int $format 0=RGBA (32bit), 1=Глубина
-     * @param int $mipmap 1 для использования mipmapping на этом изображении, 0 для его отключения
-     * @return int
-     */
-    function CreateRenderImage($width, $height, $format, $mipmap)
-    {
-    }
-
-    /**
-     * Создает пустое изображение, пригодное для рендеринга, и возвращает идентификатор для ссылки на него. Это можно
-     * использовать с SetRenderToImage для рисования вещей на изображениях. Вы можете создавать изображения RGBA для
-     * обычного рендеринга или изображения глубины для захвата буфера глубины на устройствах, которые его поддерживают.
-     * Вы также можете использовать mipmapping на этом изображении или нет, это переопределяет глобальную команду
-     * SetGenerateMipmaps() только для этого изображения, это связано с тем, что mipmaps на визуализированных
-     * изображениях могут быть хитом производительности, поэтому их не следует использовать без необходимости.
-     * Mip-карты должны быть необходимы только в том случае, если вы собираетесь использовать это изображение для
-     * текстурирования объектов в вашей сцене, если вы используете это изображение только для полноэкранных шейдеров,
-     * вы не должны использовать mip-карты на нем.
+     * Пример вызова:
      *
+     * int CreateRenderImage($width, $height, $format, $mipmap);
+     *
+     * void CreateRenderImage($imageID, $width, $height, $format, $mipmap);
      * @param int $imageID Идентификатор изображения, используемый для этого изображения
      * @param int $width Ширина создаваемого изображения
      * @param int $height Высота создаваемого изображения
      * @param int $format 0=RGBA (32bit), 1=Глубина
      * @param int $mipmap 1 для использования mipmapping на этом изображении, 0 для его отключения
-     * @return void
+     * @return mixed
      */
-    function CreateRenderImage($imageID, $width, $height, $format, $mipmap)
+    function CreateRenderImage(int...$args): mixed
     {
     }
 
@@ -24149,28 +23114,18 @@ class AppGameKit
      * вычисления общего числа полигонов, используемых в цилиндре, равна 3*сегментам. Возвращает идентификатор, который
      * можно использовать для ссылки на этот объект в других командах.
      *
-     * @param float $height Высота цилиндра.
-     * @param float $diameter Диаметр основания цилиндра.
-     * @param int $segments Число столбцов многоугольников, составляющих цилиндр.
-     * @return int
-     */
-    function CreateObjectCylinder($height, $diameter, $segments)
-    {
-    }
-
-    /**
-     * Создает 3D-цилиндр с заданным диаметром и высотой, а также необязательным количеством полигонов. Параметр
-     * segments определяет, сколько столбцов полигонов составляет цилиндр и должно быть не менее 3. Формула для
-     * вычисления общего числа полигонов, используемых в цилиндре, равна 3*сегментам. Возвращает идентификатор, который
-     * можно использовать для ссылки на этот объект в других командах.
+     * Пример вызова:
      *
+     * int CreateObjectCylinder($height, $diameter, $segments);
+     *
+     * void CreateObjectCylinder($objID, $height, $diameter, $segments)
      * @param int $objID Идентификатор, используемый для нового объекта.
      * @param float $height Высота цилиндра.
      * @param float $diameter Диаметр основания цилиндра.
      * @param int $segments Число столбцов многоугольников, составляющих цилиндр.
-     * @return void
+     * @return mixed
      */
-    function CreateObjectCylinder($objID, $height, $diameter, $segments)
+    function CreateObjectCylinder(mixed...$args): mixed
     {
     }
 
@@ -24191,6 +23146,11 @@ class AppGameKit
      * возможно. Включение физики для этого объекта будет использовать еще больше памяти и не рекомендуется на
      * местности больше 1024x1024 на любой платформе.
      *
+     * Пример вызова:
+     *
+     * int CreateObjectFromHeightMap($szImageFile, $width, $height, $length, $smoothing, $split);
+     *
+     * void CreateObjectFromHeightMap($objID, $szImageFile, $width, $height, $length, $smoothing, $split);
      * @param int $objID Идентификатор создаваемого объекта
      * @param string $szImageFile Имя файла изображения для использования в качестве карты высоты, предпочтительно PNG,
      *     также поддерживает JPEG
@@ -24200,42 +23160,12 @@ class AppGameKit
      * @param int $smoothing Величина сглаживания, применяемая к значениям высоты, 0=нет, 1=один проход, 2=два прохода
      *     и т. Д.
      * @param int $split 1=одна сетка, 2=четыре сетки, 3=девять сеток, 4=шестнадцать сеток и т. Д.
-     * @return void
+     * @return mixed
      */
-    function CreateObjectFromHeightMap($objID, $szImageFile, $width, $height, $length, $smoothing, $split)
+    function CreateObjectFromHeightMap(mixed...$args): mixed
     {
     }
 
-    /**
-     * Создает объект из заданной карты высот, полезный для создания рельефа. Изображение должно быть PNG 8-битным в
-     * оттенках серого или RGB, если это RGB, то считывается только красный канал. В будущем может быть добавлена
-     * поддержка 16-битных оттенков серого. Объект будет иметь один УФ-канал с диапазоном от 0 до 1, отображенным на
-     * всю местность. Если вы хотите изменить это, то вы можете использовать SetObjectUVOffset и SetObjectUVScale или
-     * использовать шейдер, который умножает UV-координаты на заданную величину. Шейдер также можно использовать для
-     * создания нескольких УФ-каналов из этого одного канала, применяя к каждому из них различные масштабные
-     * коэффициенты. Для удаления артефактов шага рекомендуется использовать значение сглаживания 1, при необходимости
-     * корректируя его. Значение split позволяет создавать несколько сеток, которые могут повысить производительность,
-     * так как невидимые сетки не будут нарисованы. Значение разделения указывает, сколько сеток нужно создать вдоль
-     * каждого ребра, например, значение разделения 5 создаст в общей сложности 5x5 = 25 сеток. В отличие от других
-     * объектов, данные о столкновениях не генерируются по умолчанию на этом объекте, так как он может потреблять много
-     * памяти, используйте SetObjectCollisionMode, если вы хотите включить его. Для ландшафтов больше 1024x1024 это не
-     * рекомендуется на мобильных устройствах, и вы должны использовать GetObjectHeightMapHeight вместо этого, если это
-     * возможно. Включение физики для этого объекта будет использовать еще больше памяти и не рекомендуется на
-     * местности больше 1024x1024 на любой платформе.
-     *
-     * @param string $szImageFile Имя файла изображения для использования в качестве карты высоты, предпочтительно PNG,
-     *     также поддерживает JPEG
-     * @param float $width Желаемая ширина нового объекта в направлении X
-     * @param float $height Желаемая высота нового объекта в направлении Y
-     * @param float $length Желаемая длина нового объекта в направлении Z
-     * @param int $smoothing Величина сглаживания, применяемая к значениям высоты, 0=нет, 1=один проход, 2=два прохода
-     *     и т. Д.
-     * @param int $split 1=одна сетка, 2=четыре сетки, 3=девять сеток, 4=шестнадцать сеток и т. Д.
-     * @return int
-     */
-    function CreateObjectFromHeightMap($szImageFile, $width, $height, $length, $smoothing, $split)
-    {
-    }
 
     /**
      * Создает 3D-сферу с заданным диаметром и необязательным количеством полигонов. Параметр rows определяет, сколько
@@ -24243,30 +23173,24 @@ class AppGameKit
      * полигонов составляет сферу и должно быть не менее 3. Формула для расчета общего количества полигонов,
      * используемых в сфере, равна 2*столбцам*(строкам-1)
      *
+     *
+     * Пример вызова:
+     *
+     * int CreateObjectSphere($diameter, $rows, $columns)ж
+     *
+     * void CreateObjectSphere($objID, $diameter, $rows, $columns);
+     *
      * @param int $objID Идентификатор, используемый для нового объекта.
      * @param float $diameter Диаметр сферы.
      * @param int $rows Число рядов многоугольников, составляющих сферу.
      * @param int $columns Число столбцов многоугольников, составляющих сферу.
-     * @return void
+     * @return mixed
      */
-    function CreateObjectSphere($objID, $diameter, $rows, $columns)
+    function CreateObjectSphere(mixed...$args): mixed
     {
     }
 
-    /**
-     * Создает 3D-сферу с заданным диаметром и необязательным количеством полигонов. Параметр rows определяет, сколько
-     * рядов полигонов составляет сферу и должно быть не менее 2. Параметр columns определяет, сколько столбцов
-     * полигонов составляет сферу и должно быть не менее 3. Формула для расчета общего количества полигонов,
-     * используемых в сфере, равна 2*столбцам*(строкам-1)
-     *
-     * @param float $diameter Диаметр сферы.
-     * @param int $rows Число рядов многоугольников, составляющих сферу.
-     * @param int $columns Число столбцов многоугольников, составляющих сферу.
-     * @return int
-     */
-    function CreateObjectSphere($diameter, $rows, $columns)
-    {
-    }
+
 
     /**
      * Создает 3D-конус с заданным диаметром и высотой, а также необязательное количество полигонов. Параметр segments
@@ -24274,55 +23198,41 @@ class AppGameKit
      * числа полигонов, используемых в конусе, равна 2*сегментам. Возвращает идентификатор, который можно использовать
      * для ссылки на этот объект в других командах.
      *
-     * @param float $height Высота конуса.
-     * @param float $diameter Диаметр основания конуса.
-     * @param int $segments Количество столбцов многоугольников, составляющих конус.
-     * @return int
-     */
-    function CreateObjectCone($height, $diameter, $segments)
-    {
-    }
-
-    /**
-     * Создает 3D-конус с заданным диаметром и высотой, а также необязательное количество полигонов. Параметр segments
-     * определяет, сколько столбцов полигонов составляет конус и должно быть не менее 3. Формула для вычисления общего
-     * числа полигонов, используемых в конусе, равна 2*сегментам. Возвращает идентификатор, который можно использовать
-     * для ссылки на этот объект в других командах.
+     *
+     * Пример вызова:
+     *
+     * int CreateObjectCone($height, $diameter, $segments);
+     *
+     * void CreateObjectCone($objID, $height, $diameter, $segments);
      *
      * @param int $objID Идентификатор, используемый для нового объекта.
      * @param float $height Высота конуса.
      * @param float $diameter Диаметр основания конуса.
      * @param int $segments Количество столбцов многоугольников, составляющих конус.
-     * @return void
+     * @return mixed
      */
-    function CreateObjectCone($objID, $height, $diameter, $segments)
+    function CreateObjectCone(mixed...$args): mixed
     {
     }
 
     /**
      * Создает примитив Капсулы.
      *
+     * Пример вызова:
+     *
+     * int CreateObjectCapsule($diameter, $height, $axis);
+     *
+     * void CreateObjectCapsule($objID, $diameter, $height, $axis);
      * @param int $objID Идентификатор, используемый для нового объекта.
      * @param float $diameter Диаметр капсулы.
      * @param float $height Высота капсулы
      * @param int $axis 0 = X, 1 = Y, Z = 2
-     * @return void
+     * @return mixed
      */
-    function CreateObjectCapsule($objID, $diameter, $height, $axis)
+    function CreateObjectCapsule(mixed...$args): mixed
     {
     }
 
-    /**
-     * Создает примитив Капсулы.
-     *
-     * @param float $diameter Диаметр капсулы.
-     * @param float $height Высота капсулы
-     * @param int $axis 0 = X, 1 = Y, Z = 2
-     * @return int
-     */
-    function CreateObjectCapsule($diameter, $height, $axis)
-    {
-    }
 
     /**
      * Создает объект из заданной карты высот .raw или .dat, полезной для создания рельефа. Файл должен содержать
@@ -24344,54 +23254,25 @@ class AppGameKit
      * Включение физики для этого объекта будет использовать еще больше памяти и не рекомендуется на местности больше
      * 1024x1024 на любой платформе.
      *
-     * @param string $szFilename Имя файла карты высот должно заканчиваться на .raw или .dat
-     * @param float $width Желаемая ширина нового объекта в направлении X
-     * @param float $height Желаемая высота нового объекта в направлении Y
-     * @param float $length Желаемая длина нового объекта в направлении Z
-     * @param int $smoothing Величина сглаживания, применяемая к значениям высоты, 0=нет, 1=один проход, 2=два прохода
-     *     и т. Д.
-     * @param int $split 1=одна сетка, 2=четыре сетки, 3=девять сеток, 4=шестнадцать сеток и т. Д.
-     * @param int $rawWidth Ширина данных карты высот
-     * @param int $rawHeight Высота данных карты высот
-     * @return int
-     */
-    function CreateObjectFromRawHeightMap($szFilename, $width, $height, $length, $smoothing, $split, $rawWidth, $rawHeight)
-    {
-    }
-
-    /**
-     * Создает объект из заданной карты высот .raw или .dat, полезной для создания рельефа. Файл должен содержать
-     * необработанные 16-битные данные. Если вы используете расширение ".dat" в szFilename, он будет ожидать, что это
-     * 32-битная необработанная карта высоты GameGuru, и преобразует ее в 16-битную. Если файл не является картой
-     * высоты GameGuru, то вы должны изменить расширение на ".raw". Если вы конвертируете файл GameGuru height map
-     * (.dat), то rawWidth и rawHeight всегда должны быть равны 1024. Объект будет иметь один УФ-канал с диапазоном от
-     * 0 до 1, отображенным на всю местность. Если вы хотите изменить это, то вы можете использовать SetObjectUVOffset
-     * и SetObjectUVScale или использовать шейдер, который умножает UV-координаты на заданную величину. Шейдер также
-     * можно использовать для создания нескольких УФ-каналов из этого одного канала, применяя к каждому из них
-     * различные масштабные коэффициенты. Обычно при использовании 16-битных данных вам не нужно устанавливать значение
-     * сглаживания, но если оно еще не было сглажено, отрегулируйте его по мере необходимости. Значение split позволяет
-     * создавать несколько сеток, которые могут повысить производительность, так как невидимые сетки не будут
-     * нарисованы. Значение разделения указывает, сколько сеток нужно создать вдоль каждого ребра, например, значение
-     * разделения 5 создаст в общей сложности 5x5 = 25 сеток. В отличие от других объектов, данные о столкновениях не
-     * генерируются по умолчанию на этом объекте, так как он может потреблять много памяти, используйте
-     * SetObjectCollisionMode, если вы хотите включить его. Для ландшафтов больше 1024x1024 это не рекомендуется на
-     * мобильных устройствах, и вы должны использовать GetObjectHeightMapHeight вместо этого, если это возможно.
-     * Включение физики для этого объекта будет использовать еще больше памяти и не рекомендуется на местности больше
-     * 1024x1024 на любой платформе.
      *
+     * Пример вызова:
+     *
+     * int CreateObjectFromRawHeightMap($szFilename, $width, $height, $length, $smoothing, $split, $rawWidth, $rawHeight);
+     *
+     * void CreateObjectFromRawHeightMap($objID, $szFilename, $width, $height, $length, $smoothing, $split, $rawWidth, $rawHeight);
      * @param int $objID Идентификатор создаваемого объекта
      * @param string $szFilename Имя файла карты высот должно заканчиваться на .raw или .dat
      * @param float $width Желаемая ширина нового объекта в направлении X
      * @param float $height Желаемая высота нового объекта в направлении Y
      * @param float $length Желаемая длина нового объекта в направлении Z
      * @param int $smoothing Величина сглаживания, применяемая к значениям высоты, 0=нет, 1=один проход, 2=два прохода
-     *     и т. Д.
+     * и т. Д.
      * @param int $split 1=одна сетка, 2=четыре сетки, 3=девять сеток, 4=шестнадцать сеток и т. Д.
      * @param int $rawWidth Ширина данных карты высот
      * @param int $rawHeight Высота данных карты высот
-     * @return void
+     * @return mixed
      */
-    function CreateObjectFromRawHeightMap($objID, $szFilename, $width, $height, $length, $smoothing, $split, $rawWidth, $rawHeight)
+    function CreateObjectFromRawHeightMap(mixed...$args): mixed
     {
     }
 
@@ -25600,7 +24481,7 @@ class AppGameKit
      *     к папке записи
      * @return string
      */
-    function ChooseRawFile(string $ext, int|null $returnFullPath = null): string
+    function ChooseRawFile(string $ext, int $returnFullPath = null): string
     {
     }
 
