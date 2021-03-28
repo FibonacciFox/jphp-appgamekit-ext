@@ -6,7 +6,7 @@ namespace fibonaccifox;
  * Класс описания методов, реализованных в AppGameKit для <b>x64</b> и <b>x86</b>
  *
  * @author FibonacciFox
- * @version 1.0.0
+ * @version 1.0.0;
  */
 class AppGameKit
 {
@@ -4032,11 +4032,11 @@ class AppGameKit
      * @param float $x2 Координата X в правом нижнем углу нового окна в пространстве спрайтов.
      * @param float $y2 Координата Y в правом нижнем углу нового окна в пространстве спрайтов.
      * @param float $angle Угол коробки в радианах.
-     * @param null|int $shapeID Идентификатор изменяемой фигуры, первая фигура-ID 1, 0=удалить существующие фигуры и
+     * @param int|null $shapeID Идентификатор изменяемой фигуры, первая фигура-ID 1, 0=удалить существующие фигуры и
      *     заменить их этой новой
      * @return void
      */
-    function SetSpriteShapeBox(int $iSpriteIndex, float $x, float $y, float $x2, float $y2, float $angle, null|int $shapeID = null)
+    function SetSpriteShapeBox(int $iSpriteIndex, float $x, float $y, float $x2, float $y2, float $angle, int $shapeID = null)
     {
     }
 
