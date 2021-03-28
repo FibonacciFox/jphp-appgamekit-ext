@@ -35,7 +35,7 @@
 
 - **Описание**: Пакет для разработки 2D-3D игр и программ на движке App Game Kit, используя возможности JPHP и Java.
 - **Собран**: Менеджером пакетов [JPPM v0.6.7](https://github.com/jphp-group/jphp/releases).
-- **Версия**: [v0.9.1](https://github.com/FibonacciFox/jphp-appgamekit-ext).
+- **Версия**: [v1.0.0](https://github.com/FibonacciFox/jphp-appgamekit-ext).
 
 ### Быстрый старт
 
@@ -46,7 +46,7 @@
 - **Из консоли**: Если используем Менеджер пакетов [JPPM v0.6.7](https://github.com/jphp-group/jphp/releases):
 
 ```console
-> jppm add jphp-appgamekit-ext@0.9.1
+> jppm add jphp-appgamekit-ext@1.0.0
 ```
 
 - **DevelNext**: Проект->Пакеты->Добавить пакет из файла [jphp-appgamekit-ext-x.x.dnbundle](https://github.com/FibonacciFox/jphp-appgamekit-ext/releases)->
