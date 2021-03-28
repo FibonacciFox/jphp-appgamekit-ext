@@ -18,7 +18,7 @@ import static php.runtime.annotation.Reflection.Arg;
  * Класс описания методов, реализованных в AppGameKit для <b>x64</b> и
  * <b>x86</b> битных систем.
  * 
- * @version 0.9.1
+ * @version 1.0.0
  * @autor FibonacciFox
  */
 @Name("AppGameKit")

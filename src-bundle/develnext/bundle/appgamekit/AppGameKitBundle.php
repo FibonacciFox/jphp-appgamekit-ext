@@ -16,7 +16,7 @@ class AppGameKitBundle extends AbstractJarBundle
     {
         parent::onAdd($project, $owner);
 
-        Ide::get()->getMainForm()->toast("App Game Kit подключен!");
+        Ide::get()->getMainForm()->toast("App Game Kit load!");
     }
 
     public function onRemove(Project $project, AbstractBundle $owner = null){

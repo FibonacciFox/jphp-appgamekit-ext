@@ -6,7 +6,7 @@ namespace fibonaccifox;
  * Класс описания методов, реализованных в AppGameKit для <b>x64</b> и <b>x86</b>
  *
  * @author FibonacciFox
- * @version 0.9.1
+ * @version 1.0.0
  */
 class AppGameKit
 {
@@ -28,6 +28,7 @@ class AppGameKit
      */
     function getPath(string $fileName): string
     {
+
     }
 
     /**

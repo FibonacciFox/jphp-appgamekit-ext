@@ -1,5 +1,6 @@
 package org.fibonaccifox.appgamekit;
 
+import org.fibonaccifox.appgamekit.helpers.Key;
 import php.runtime.env.CompileScope;
 import php.runtime.ext.support.Extension;
 
@@ -17,8 +18,9 @@ public class AppGameKitExtension extends Extension {
     }
 
     @Override
-    public void onRegister(CompileScope scope) {  
+    public void onRegister(CompileScope scope) {
         registerClass(scope, AppGameKitEngine.class);
+        registerClass(scope, Key.class);
     }
 
 }
