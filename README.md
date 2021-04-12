@@ -21,6 +21,7 @@
 Идеально подходит для начинающих, любителей и независимых разработчиков.<br>
 Для получения дополнительной информации об использовании AppGameKit см. <a href="https://www.appgamekit.com/">App Game Kit</a>.<br>
 <b>jphp-appgamekit-ext</b> - пакет App Game Kit для JPHP (Java) уже здесь.
+  <b>c++ Шаблон привязки: https://github.com/FibonacciFox/AppGameKit-jphp-jni-win32_64</b>
 </p>
 
 # Навигация
