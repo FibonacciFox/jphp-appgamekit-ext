@@ -28,18 +28,14 @@ public class AppGameKitEngine extends BaseObject {
 
        static {
                 try {
-                    boolean isWindows = System.getProperty("os.name").contains("Windows");
-                    if(isWindows){
-                        System.out.println("Windows Detected");
-                        new JniGenSharedLibraryLoader().load("AppGameKit");
-                    }
+                    new JniGenSharedLibraryLoader().load("AppGameKit");
                 } catch (UnsatisfiedLinkError e) {
                     System.out.println("Dll Connect error: " + e);
                 }
         }
 
 
-        // Php класс передваемый из App
+        // Php класс передаваемый из App
         private ObjectMemory objectPhp;
 
         @Signature
