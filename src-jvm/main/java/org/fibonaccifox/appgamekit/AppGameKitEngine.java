@@ -1,5 +1,6 @@
 package org.fibonaccifox.appgamekit;
 
+import com.badlogic.gdx.jnigen.JniGenSharedLibraryLoader;
 import php.runtime.Memory;
 import php.runtime.annotation.Reflection.Name;
 import php.runtime.annotation.Reflection.Namespace;
@@ -17,7 +18,7 @@ import static php.runtime.annotation.Reflection.Arg;
 /**
  * Класс описания методов, реализованных в AppGameKit для <b>x64</b> и
  * <b>x86</b> битных систем.
- * 
+ *
  * @version 1.0.0
  * @autor FibonacciFox
  */
@@ -25,13 +26,18 @@ import static php.runtime.annotation.Reflection.Arg;
 @Namespace(AppGameKitExtension.NS)
 public class AppGameKitEngine extends BaseObject {
 
-        {
+       static {
                 try {
-                        System.loadLibrary("AppGameKit");
+                    boolean isWindows = System.getProperty("os.name").contains("Windows");
+                    if(isWindows){
+                        System.out.println("Windows Detected");
+                        new JniGenSharedLibraryLoader().load("AppGameKit");
+                    }
                 } catch (UnsatisfiedLinkError e) {
-                        System.load(System.getProperty("user.dir") + "/" + System.mapLibraryName("AppGameKit"));
+                    System.out.println("Dll Connect error: " + e);
                 }
         }
+
 
         // Php класс передваемый из App
         private ObjectMemory objectPhp;
@@ -39,6 +45,7 @@ public class AppGameKitEngine extends BaseObject {
         @Signature
         public void __construct(ObjectMemory value) {
                 objectPhp = value;
+
         }
 
         public AppGameKitEngine(Environment env) {
@@ -57,7 +64,7 @@ public class AppGameKitEngine extends BaseObject {
 
         /**
          * Исходный установочный код.
-         * 
+         *
          * @throws Throwable
          */
         public void Begin() throws Throwable {
@@ -67,8 +74,8 @@ public class AppGameKitEngine extends BaseObject {
         }
 
         /**
-         * Основнуя игровая логика
-         * 
+         * Основная игровая логика
+         *
          * @throws Throwable
          */
         public void Loop() throws Throwable {
@@ -78,7 +85,7 @@ public class AppGameKitEngine extends BaseObject {
 
         /**
          * Код очистки ресурсов.
-         * 
+         *
          * @throws Throwable
          */
         public void End() throws Throwable {
@@ -88,18 +95,10 @@ public class AppGameKitEngine extends BaseObject {
 
         /** ##################### **/
 
-    /** #####Получение типа переменной##### **/
-        @Signature
-        public String getTypePhp(Memory val){
-
-            return val.type.toString();
-        }
-    /** ################### **/
-
 
     /**
      * Возвращает преобразованный путь для загрузки файлов в AppGameKit
-         * 
+         *
          * @param fileName - путь до файла
          * @return String
          */
@@ -111,7 +110,7 @@ public class AppGameKitEngine extends BaseObject {
 
         /**
          * Инициализируем OpenGL для отрисовки в стороннее окно
-         * 
+         *
          * @param hWnd
          */
         @Signature
@@ -119,11 +118,11 @@ public class AppGameKitEngine extends BaseObject {
 
         /**
          * Создаем окно и инициализируем App Game Kit
-         * 
+         *
          * @param deviceWidth  - Ширина окна
          * @param deviceHeight - Высота окна
          * @param fullscreen   - Полный экран
-         * 
+         *
          * @return void
          */
         @Signature
@@ -1007,7 +1006,7 @@ public class AppGameKitEngine extends BaseObject {
          * This command stops and hides any text entry prompt previously started with
          * StartTextInput command.
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -1083,7 +1082,7 @@ public class AppGameKitEngine extends BaseObject {
          * Stops any playing music, the music can then only be restarted by calling
          * PlayMusic.
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -1161,7 +1160,7 @@ public class AppGameKitEngine extends BaseObject {
          * the escape key whilst completing is done with the enter key. If successful
          * you can get the inputted text with GetTextInput.
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -9084,7 +9083,7 @@ public class AppGameKitEngine extends BaseObject {
         public native void SetGlobal3DDepth(int depth);
 
         /**
-         * 
+         *
          * @param str
          * @return
          */
@@ -11444,7 +11443,7 @@ public class AppGameKitEngine extends BaseObject {
         /**
          * Resumes the paused music where it left off.
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -11598,7 +11597,7 @@ public class AppGameKitEngine extends BaseObject {
          * Render3D, Render2DFront to draw everything in the world. This command only
          * draws the 3D objects.
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -11610,7 +11609,7 @@ public class AppGameKitEngine extends BaseObject {
          * Render3D, Render2DFront to draw everything in the world. This command only
          * calculates the shadow map.
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -11637,7 +11636,7 @@ public class AppGameKitEngine extends BaseObject {
          * Render3D, ClearDepthBuffer, Render2DFront to draw everything in the world.
          * This command only draws the 2D sprites and text that are behind the 3D.
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -11691,7 +11690,7 @@ public class AppGameKitEngine extends BaseObject {
          * Render3D, ClearDepthBuffer, Render2DFront to draw everything in the world.
          * This command only draws the 2D sprites and text that are in front the 3D.
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -11852,7 +11851,7 @@ public class AppGameKitEngine extends BaseObject {
          * sequence of numbers on every platform. Produces a random number between 0 and
          * 65535
          *
-         * 
+         *
          * @return int
          */
         @Signature
@@ -12040,7 +12039,7 @@ public class AppGameKitEngine extends BaseObject {
          * -2,147,483,648 and 2,147,483,647. This generator is slower than Random but
          * produces better quality randomness over a larger range of values.
          *
-         * 
+         *
          * @return int
          */
         @Signature
@@ -12560,7 +12559,7 @@ public class AppGameKitEngine extends BaseObject {
         /**
          * Pauses the currently playing music, whichever ID that may be.
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -16012,7 +16011,7 @@ public class AppGameKitEngine extends BaseObject {
          * this command again, it will return 0 when no more contacts exist. Only works
          * on sprites setup for physics.
          *
-         * 
+         *
          * @return int
          */
         @Signature
@@ -16229,7 +16228,7 @@ public class AppGameKitEngine extends BaseObject {
          * Returns the Y coordinate of the closest point on sprite 2 to sprite 1 from
          * the last call to GetSpriteDistance in world coordinates.
          *
-         * 
+         *
          * @return float
          */
         @Signature
@@ -16259,7 +16258,7 @@ public class AppGameKitEngine extends BaseObject {
          * Returns the X coordinate of the closest point on sprite 2 to sprite 1 from
          * the last call to GetSpriteDistance in world coordinates.
          *
-         * 
+         *
          * @return float
          */
         @Signature
@@ -16269,7 +16268,7 @@ public class AppGameKitEngine extends BaseObject {
          * Returns the X coordinate of the closest point on sprite 1 to sprite 2 from
          * the last call to GetSpriteDistance in world coordinates.
          *
-         * 
+         *
          * @return float
          */
         @Signature
@@ -16307,7 +16306,7 @@ public class AppGameKitEngine extends BaseObject {
          * Returns the Y coordinate of the closest point on sprite 1 to sprite 2 from
          * the last call to GetSpriteDistance in world coordinates.
          *
-         * 
+         *
          * @return float
          */
         @Signature
@@ -16325,7 +16324,7 @@ public class AppGameKitEngine extends BaseObject {
         /**
          * Returns the Y coordinate of the contact point in world coordinates.
          *
-         * 
+         *
          * @return float
          */
         @Signature
@@ -16334,7 +16333,7 @@ public class AppGameKitEngine extends BaseObject {
         /**
          * Returns the ID of the other sprite involved in this contact.
          *
-         * 
+         *
          * @return int
          */
         @Signature
@@ -16343,7 +16342,7 @@ public class AppGameKitEngine extends BaseObject {
         /**
          * Returns the X coordinate of the contact point in world coordinates.
          *
-         * 
+         *
          * @return float
          */
         @Signature
@@ -17162,7 +17161,7 @@ public class AppGameKitEngine extends BaseObject {
          * Returns the ID of the sprite hit in the most recent ray cast check. If the
          * ray hit a non-sprite shape 0 will be returned.
          *
-         * 
+         *
          * @return int
          */
         @Signature
@@ -17450,7 +17449,7 @@ public class AppGameKitEngine extends BaseObject {
          * Returns an index to the next touch event available for reading, if no more
          * events are available it returns 0.
          *
-         * 
+         *
          * @return int
          */
         @Signature
@@ -17678,7 +17677,7 @@ public class AppGameKitEngine extends BaseObject {
          * codes page in the guides section of the help files to see which key matches
          * which key code
          *
-         * 
+         *
          * @return int
          */
         @Signature
@@ -18234,7 +18233,7 @@ public class AppGameKitEngine extends BaseObject {
          * Returns the Y coordinate of the collision point from the last call to
          * GetPhysicsCollision relative to the first sprite's offset.
          *
-         * 
+         *
          * @return float
          */
         @Signature
@@ -18244,7 +18243,7 @@ public class AppGameKitEngine extends BaseObject {
          * Returns the X coordinate of the collision point from the last call to
          * GetPhysicsCollision relative to the first sprite's offset.
          *
-         * 
+         *
          * @return float
          */
         @Signature
@@ -18254,7 +18253,7 @@ public class AppGameKitEngine extends BaseObject {
          * Returns the X coordinate of the collision point from the last call to
          * GetPhysicsCollision in world coordinates.
          *
-         * 
+         *
          * @return float
          */
         @Signature
@@ -18264,7 +18263,7 @@ public class AppGameKitEngine extends BaseObject {
          * Returns the Y coordinate of the collision point from the last call to
          * GetPhysicsCollision in world coordinates.
          *
-         * 
+         *
          * @return float
          */
         @Signature
@@ -21872,7 +21871,7 @@ public class AppGameKitEngine extends BaseObject {
          * Returns a string containing the language of the current device in the form
          * "en", "fr", "de", etc.
          *
-         * 
+         *
          * @return String
          */
         @Signature
@@ -21896,7 +21895,7 @@ public class AppGameKitEngine extends BaseObject {
          * "ios|iPhone1,2". The first number is the major model number, the second is
          * the minor model number.
          *
-         * 
+         *
          * @return String
          */
         @Signature
@@ -22435,7 +22434,7 @@ public class AppGameKitEngine extends BaseObject {
         /**
          * Returns the name of the exe.
          *
-         * 
+         *
          * @return String
          */
         @Signature
@@ -22941,7 +22940,7 @@ public class AppGameKitEngine extends BaseObject {
         /**
          * Shows the user their achievements and progress.
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -22950,7 +22949,7 @@ public class AppGameKitEngine extends BaseObject {
         /**
          * Not yet functional
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -23355,7 +23354,7 @@ public class AppGameKitEngine extends BaseObject {
          * The Facebook SDK has been removed from AppGameKit, this command no longer
          * does anything
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -23376,7 +23375,7 @@ public class AppGameKitEngine extends BaseObject {
          * does anything. You can use ShareText or ShareImage give the user the option
          * of how to share their information.
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -23387,7 +23386,7 @@ public class AppGameKitEngine extends BaseObject {
          * The Facebook SDK has been removed from AppGameKit, this command no longer
          * does anything
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -23415,7 +23414,7 @@ public class AppGameKitEngine extends BaseObject {
          * The Facebook SDK has been removed from AppGameKit, this command no longer
          * does anything
          *
-         * 
+         *
          * @return String
          */
         @Signature
@@ -23443,7 +23442,7 @@ public class AppGameKitEngine extends BaseObject {
          * The Facebook SDK has been removed from AppGameKit, this command no longer
          * does anything
          *
-         * 
+         *
          * @return String
          */
         @Signature
@@ -23471,7 +23470,7 @@ public class AppGameKitEngine extends BaseObject {
          * The Facebook SDK has been removed from AppGameKit, this command no longer
          * does anything
          *
-         * 
+         *
          * @return void
          */
         @Signature
@@ -25718,7 +25717,7 @@ public class AppGameKitEngine extends BaseObject {
          * in this way can only be added to, not read from. Once passed to a network the
          * message ID is destroyed and handled by the background network code.
          *
-         * 
+         *
          * @return int
          */
         @Signature
@@ -26388,7 +26387,7 @@ public class AppGameKitEngine extends BaseObject {
          * return the last value you set. Setting the sprite's position will update the
          * physics body to the position you set.
          *
-         * 
+         *
          * @return int
          */
         @Signature
