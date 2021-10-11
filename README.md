@@ -109,7 +109,7 @@ $App = new App();
 
 ---
 
-- **DevelNext**:
+- **DevelNext - больше не поддерживается**:
   Запуск App Game Kit без графического интерфейса в DevelNext:
   В проекте DevelNext убираем все формы, приложение запустится без графической оболочки. Первым будет запущен модуль Загрузчик (AppModule)
   <img src="https://tssaltan.top/files/2017/01/appmodule.png" >
