@@ -21,6 +21,7 @@
 Идеально подходит для начинающих, любителей и независимых разработчиков.<br>
 Для получения дополнительной информации об использовании AppGameKit см. <a href="https://www.appgamekit.com/">App Game Kit</a>.<br>
 <b>jphp-appgamekit-ext</b> - пакет App Game Kit для JPHP (Java) уже здесь.
+  <br><b>c++ Шаблон привязки: https://github.com/FibonacciFox/AppGameKit-jphp-jni-win32_64</b>
 </p>
 
 # Навигация
@@ -47,6 +48,8 @@
 
 ```console
 > jppm add jphp-appgamekit-ext@1.0.0
+- Пакет для Windows
+> jppm add jphp-agk-natives-windows-ext@1.1.0
 ```
 
 - **DevelNext**: Проект->Пакеты->Добавить пакет из файла [jphp-appgamekit-ext-x.x.dnbundle](https://github.com/FibonacciFox/jphp-appgamekit-ext/releases)->
